@@ -6,7 +6,7 @@ const app = express();
 const PORT = 8080;
 
 app.get('/', (req, res) => {
-    res.send('Server is running successfully')
+    res.send('Server is running successfully !!')
 })
 
 app.use('/', router)
