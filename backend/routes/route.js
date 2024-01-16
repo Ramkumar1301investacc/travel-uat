@@ -1,8 +1,16 @@
 import express from 'express';
-import { trial } from '../controller/controller.js';
+import { getStudentTravelPlan } from '../controller/controller.js';
 
 const router = express.Router();
 
-router.get('/trial', trial);
+router.get('/getStudentsTravelPlan', async(req, res) => {
+    try {
+        const data = await getStudentTravelPlan();
+        res.json(data)
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({message : error.message})
+    }
+})
 
 export default router;
