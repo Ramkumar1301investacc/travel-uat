@@ -16,28 +16,7 @@ export const getStudentTravelPlan = async () => {
          "apassword": apassword,
          "aIntemdCode": aIntemdCode,
          "pDealerCode": "0",
-         "pIntermediaryList_out": [
-            {
-               "pAgentCode": ""
-            }
-         ],
-         "pTravelList_out": [
-            {
-               "countPplan": "",
-               "pplan": ""
-            }
-         ],
-         "pError_out": {
-            "errNumber": "",
-            "parName": "",
-            "property": "",
-            "errText": "",
-            "parIndex": "",
-            "errLevel": ""
-         },
-         "pErrorCode_out": "0"
       }
-
 
       let headers = {
          "Content-Type": "application/json"
