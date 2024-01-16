@@ -1,0 +1,768 @@
+.cola {
+    border: 2px solid red;
+}
+
+.content>h1 {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 40px;
+}
+
+.title {
+    color: #0B2C5C;
+    font-family: Inter;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 40px;
+    /* 125% */
+}
+
+.content>p {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+}
+
+.traveller-form,
+.ekyc-details,
+.nominee-details
+ {
+    border: 2px solid lightgray;
+    border-radius: 5px;
+    padding: 20px;
+    margin-top: 32px;
+}
+
+.form-heading {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+label {
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%
+}
+
+.form-name {
+    width: 100%;
+}
+
+span {
+    color: #D9534F;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%
+}
+
+.form-detail-content>div>p>span {
+    color: #37AFD4;
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px;
+}
+
+.form-content {
+    width: 100%;
+    margin-left: 9px;
+}
+
+h1 {
+    color: #0B2C5C;
+    font-family: Inter;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 32px;
+    /* 133.333% */
+}
+
+button {
+    border-radius: 8px;
+    border: 0.5px solid #C2DDFF;
+    background: #FFF;
+    padding: 10px;
+    color: #333;
+
+
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 120%;
+}
+
+.button-style {
+    display: flex;
+    gap: 16px;
+    margin-top: 16px;
+}
+
+
+.form-spacing {
+    display: flex;
+    gap: 12px;
+
+}
+
+.quote-summary {
+    border-radius: 12px;
+    border: 1px solid var(--www-squaremouth-com-order-purchase-18026169981519199951171875-x-6735999755859375-default-silver, #CCC);
+    background: #EBF4FF;
+    box-shadow: 0px 4px 16px 0px rgba(148, 163, 179, 0.25);
+}
+
+.quote {
+    color: #222;
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px;
+    /* 150% */
+    border-bottom: 0.8px solid var(--www-squaremouth-com-order-purchase-18026169981519199951171875-x-6735999755859375-default-mine-shaft, #333);
+}
+
+.quote>span {
+    color: #222;
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px;
+}
+
+.quote-summary {
+    background-color: #EBF4FF;
+}
+
+.summary-heading {
+    border-top: 1px solid #C0CBD8;
+
+    border-bottom: 1px solid #C0CBD8;
+    text-align: center;
+
+
+
+
+}
+
+.summary-title {
+    color: #0B2C5C;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 26px;
+    /* 130% */
+    margin: 12px 0 12px 0;
+
+}
+
+.summary-content {
+    text-align: center;
+}
+
+.summary-details {
+
+    color: #333;
+    font-family: Inter;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 21px;
+    /* 175% */
+}
+
+.summary-details>span {
+    color: #333;
+    font-family: Inter;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 21px;
+}
+
+.policy-details {
+
+    color: #37AFD4;
+    text-align: center;
+    font-family: Inter;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-decoration-line: underline;
+    margin-top: 12px;
+}
+
+.policy-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+
+/* PERSONAL details */
+.form-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.form-pages {
+    display: flex;
+
+    align-items: center;
+    text-align: center;
+
+}
+
+.page-no {
+    border-radius: 4px;
+    border: 1px dashed #FDCC21;
+    background: #FEE89A;
+    height: 35px;
+    width: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.page-inactive {
+    border-radius: 4px;
+    border: 1px dashed #99C7FF;
+    background: #EBF4FF;
+    height: 35px;
+    width: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.line {
+    border: 1px dashed #0B2C5C;
+    width: 40px;
+    height: 1px;
+
+}
+
+.form-container {
+    margin-right: 40px;
+}
+
+h1 {
+    color: #0B2C5C;
+
+    font-family: Inter;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 32px;
+}
+
+.form-content {
+    display: flex;
+    gap: 16px
+}
+
+label {
+    color: #535353;
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+    /* 16.8px */
+}
+
+span {
+    color: #D9534F;
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+}
+
+input {
+    border-radius: 4px;
+    border: 0.5px solid #C2DDFF;
+    background: var(--neutral-n-0, #FFF);
+    padding: 10px 12px;
+
+
+}
+
+select {
+    border-radius: 4px;
+    border: 0.5px solid #C2DDFF;
+    padding: 10px 12px;
+}
+
+.form-detail {
+    width: 31%;
+}
+
+.form-holder {
+    border-radius: 12px;
+    border: 2px solid #CCCCCC;
+    padding: 12px 20px;
+    margin-right: 40px;
+
+}
+
+.btn-container {
+    display: flex;
+    justify-content: space-between;
+
+
+}
+
+.btn-container1 {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+button {
+    border-radius: 8px;
+    border: 0.5px solid #C2DDFF;
+    background: #FFF;
+    padding: 10px;
+    color: #333;
+
+
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 120%;
+    display: flex;
+    padding: 8px 48px 8px 8px;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-next {
+    display: flex;
+    padding: 12px 24px;
+    justify-content: center;
+    align-items: center;
+    gap: 2px;
+    border-radius: 8px;
+    border: 1px solid #FECD20;
+    background: #FED74C;
+}
+
+.btn-next>img {
+    transform: rotate(270deg);
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+    .col-9 {
+        width: 100%;
+        padding: 0;
+    }
+}
+
+/* Styles for small screens (mobile) */
+@media screen and (max-width: 767px) {
+    .col {
+        width: 100%;
+
+    }
+
+    /* Your styles for small screens (mobile) go here */
+    .form-container {
+        margin-right: 0px;
+
+
+
+    }
+
+    .form-holder {
+        margin-right: 0px;
+    }
+
+    .form-content {
+        flex-direction: column;
+    }
+
+    .form-detail {
+        width: 100%;
+    }
+}
+
+/* Styles for medium screens */
+@media screen and (min-width: 768px) and (max-width: 991px) {
+    .col-9 {
+        width: 100%;
+    }
+}
+
+/* Styles for small screens (mobile) */
+@media screen and (max-width: 767px) {
+
+    /* Your styles for small screens (mobile) go here */
+    .col-9 {
+        width: 100%;
+    }
+
+}
+
+/* kyc componenet */
+.form-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.form-container {
+    margin-right: 40px;
+}
+
+.form-pages {
+    display: flex;
+
+    align-items: center;
+    text-align: center;
+
+}
+
+.page-no {
+    border-radius: 4px;
+    border: 1px dashed #FDCC21;
+    background: #FEE89A;
+    height: 35px;
+    width: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+
+
+}
+
+.page-inactive {
+    border-radius: 4px;
+    border: 1px dashed #99C7FF;
+    background: #EBF4FF;
+    height: 35px;
+    width: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.line {
+    border: 1px dashed #0B2C5C;
+    width: 40px;
+    height: 1px;
+
+}
+
+h1 {
+    color: #0B2C5C;
+
+    font-family: Inter;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 32px;
+}
+
+.ekyc-contents {
+    display: flex;
+    align-content: center;
+    align-items: center;
+
+    gap: 16px;
+}
+
+.btn-ekyc {
+    border-radius: 8px;
+    border: 1px solid #FED648;
+    background: #FEE89A;
+    padding: 10px 40px;
+    font-size: 16px;
+    text-align: center;
+    display: flex;
+    align-content: center;
+    align-items: center;
+
+
+
+}
+
+.btn-ekyc>img {
+    transform: rotate(270deg);
+}
+
+label {
+    color: #535353;
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+    /* 16.8px */
+}
+
+span {
+    color: #D9534F;
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+}
+
+input {
+    border-radius: 4px;
+    border: 0.5px solid #C2DDFF;
+    background: var(--neutral-n-0, #FFF);
+    padding: 10px 12px;
+
+
+}
+
+select {
+    border-radius: 4px;
+    border: 0.5px solid #C2DDFF;
+
+    padding: 10px 12px;
+
+
+}
+
+/* .form-width{
+    width:38%
+} */
+.form-holder {
+    border-radius: 12px;
+    border: 2px solid #CCCCCC;
+    padding: 12px 20px;
+    margin-right: 40px;
+
+}
+
+.form-content {
+    display: flex;
+    gap: 25px;
+}
+
+.form-age {
+    width: 10%;
+}
+
+.form-detail {
+    width: 40%;
+}
+
+#leftarrow {
+    transform: rotate(90deg);
+
+}
+
+.btn-content {
+    text-align: center;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    gap: 24px;
+    justify-content: flex-end;
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px) {}
+
+/* Styles for small screens (mobile) */
+@media screen and (max-width: 767px) {
+    .form-container {
+        margin: 0;
+        width: 100%;
+    }
+
+    .ekyc-contents {
+        flex-direction: column;
+        align-items: normal;
+    }
+
+    .form-content {
+        flex-direction: column;
+    }
+
+    .form-age,
+    .form-detail {
+        width: 100% !important;
+
+    }
+
+    .btn-content {
+        flex-direction: column;
+    }
+}
+
+
+
+/* Medical form */
+.form-container {
+    margin-right: 40px;
+}
+
+
+.form-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.form-pages {
+    display: flex;
+
+    align-items: center;
+    text-align: center;
+
+}
+
+.page-no {
+    border-radius: 4px;
+    border: 1px dashed #FDCC21;
+    background: #FEE89A;
+    height: 35px;
+    width: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.page-inactive {
+    border-radius: 4px;
+    border: 1px dashed #99C7FF;
+    background: #EBF4FF;
+    height: 35px;
+    width: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.line {
+    border: 1px dashed #0B2C5C;
+    width: 40px;
+    height: 1px;
+
+}
+
+.form-holder {
+    border-radius: 12px;
+    border: 2px solid #CCCCCC;
+    padding: 12px 20px;
+    margin-right: 40px;
+
+}
+
+h1 {
+    color: #0B2C5C;
+    font-family: Inter;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 32px;
+}
+
+
+
+
+button {
+    border-radius: 8px;
+    border: 0.5px solid #C2DDFF;
+    background: #FFF;
+    padding: 10px;
+    color: #333;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 120%;
+    cursor: pointer;
+}
+
+.button-style {
+    display: flex;
+    gap: 16px;
+    margin-top: 16px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+#leftarrow {
+    transform: rotate(90deg);
+
+}
+
+.btn-content {
+    text-align: center;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    gap: 24px;
+    justify-content: flex-end;
+}
+
+.btn-ekyc {
+    border-radius: 8px;
+    border: 1px solid #FED648;
+    background: #FEE89A;
+    padding: 10px 40px;
+    font-size: 16px;
+    text-align: center;
+    display: flex;
+    align-content: center;
+    align-items: center;
+
+
+
+
+}
+
+.btn-ekyc>img {
+    transform: rotate(270deg);
+
+}
+
+#med-description {
+    color: #99A0AD;
+    font-family: Inter;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin-top: -20px;
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px) {}
+
+/* Styles for small screens (mobile) */
+@media screen and (max-width: 767px) {
+    .form-container {
+        margin: 0;
+        width: 100%;
+    }
+
+    .btn-content {
+        flex-direction: column;
+        justify-content: none;
+    }
+}

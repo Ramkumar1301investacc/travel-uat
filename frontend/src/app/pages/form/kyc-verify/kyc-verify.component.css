@@ -1,0 +1,167 @@
+.form-heading{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.form-container{
+    margin-right: 40px;
+}
+.form-pages{
+    display: flex;
+   
+    align-items: center;
+    text-align: center;
+   
+}
+.page-no{
+    border-radius: 4px;
+border: 1px dashed #FDCC21;
+background: #FEE89A;
+height: 35px;
+width: 35px;
+display: flex;
+justify-content: center;
+align-items: center;
+
+
+
+
+}
+.page-inactive{
+    border-radius: 4px;
+border: 1px dashed #99C7FF;
+background: #EBF4FF;
+height: 35px;
+width: 35px;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+.line{
+    border: 1px dashed #0B2C5C;
+     width: 40px;
+     height: 1px;
+     
+ }
+h1{
+    color: #0B2C5C;
+
+font-family: Inter;
+font-size: 24px;
+font-style: normal;
+font-weight: 600;
+line-height: 32px;
+}
+.ekyc-contents{
+    display: flex;
+    align-content: center;
+    align-items: center;
+
+    gap: 16px;
+}
+.btn-ekyc{
+    border-radius: 8px;
+border: 1px solid #FED648;
+background: #FEE89A;
+padding: 10px 40px;
+font-size: 16px;
+text-align: center;
+display: flex;
+    align-content: center;
+    align-items: center;
+
+
+
+}
+.btn-ekyc>img{
+    transform: rotate(270deg);
+}
+label{
+    color: #535353;
+font-family: Inter;
+font-size: 14px;
+font-style: normal;
+font-weight: 400;
+line-height: 120%; /* 16.8px */
+}
+span{
+    color: #D9534F;
+font-family: Inter;
+font-size: 14px;
+font-style: normal;
+font-weight: 400;
+line-height: 120%;
+}
+input{
+    border-radius: 4px;
+border: 0.5px solid #C2DDFF;
+background: var(--neutral-n-0, #FFF);
+padding: 10px 12px;
+
+
+}
+select{
+    border-radius: 4px;
+border: 0.5px solid #C2DDFF;
+
+padding: 10px 12px;
+
+ 
+}
+/* .form-width{
+    width:38%
+} */
+.form-holder{
+    border-radius: 12px;
+   border: 2px solid #CCCCCC;
+   padding: 12px 20px;
+ margin-right: 40px;
+
+}
+.form-content{
+    display: flex;
+    gap: 25px;
+}
+.form-age{
+    width: 10%;
+}
+.form-detail{
+    width: 40%;
+}
+#leftarrow{
+    transform: rotate(90deg);
+
+}
+.btn-content{
+    text-align: center;
+display: flex;
+    align-content: center;
+    align-items: center;
+    gap: 24px;
+   justify-content: flex-end;
+}
+@media screen and (min-width: 768px) and (max-width: 991px) {
+   
+}
+
+/* Styles for small screens (mobile) */
+@media screen and (max-width: 767px) {
+   .form-container{
+    margin: 0;
+    width: 100%;
+   }
+   .ekyc-contents{
+    flex-direction: column;
+    align-items: normal;
+   }
+   .form-content{
+    flex-direction: column;
+   }
+   .form-age,.form-detail{
+    width: 100% !important;
+
+   }
+   .btn-content{
+    flex-direction: column;
+   }
+}

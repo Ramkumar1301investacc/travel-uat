@@ -1,0 +1,30 @@
+
+.input-section {
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid var(--gray-300, #D0D5DD);
+    background: var(--base-white, #FFF);
+    box-shadow: 0px 2px 8px 0px rgba(116, 134, 170, 0.16);
+}
+
+.search-div,
+.down-arrow-div {
+    width: 32px;
+    height: 32px;
+    border-radius: 4px;
+    border: 1px solid var(--neutral-n-400, #D8DAE5);
+    background: var(--neutral-n-0, #FFF);
+}
+
+.destination-input {
+    width: 90%;
+    border: none;
+}
+
+.destination-input:focus {
+    border: none
+}
+
+.astrick {
+    color: #E43F52;
+}

@@ -1,0 +1,27 @@
+
+/* Font = inter */
+@import "~bootstrap/dist/css/bootstrap.css";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif!important;
+}
+:root {
+  --bs-backdrop-opacity: 0; /* Adjust the value accordingly */
+}
+.modal-backdrop.show {
+  opacity: 0 ;}
+  
+
+body {
+  background: #FBFDFE;
+}
+
+/* Font = inter */
+@import "~bootstrap/dist/css/bootstrap.css";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+

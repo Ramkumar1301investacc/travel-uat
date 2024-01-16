@@ -1,0 +1,92 @@
+.cola {
+    border: black 1px solid
+}
+
+h1 {
+    color: #535353;
+    text-align: center;
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 3.5rem;
+    letter-spacing: 0.04rem;
+}
+
+.progressbar-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+ margin-top: 16px;
+}
+.pgbar-container{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.pgbar-container>p{
+    color: var(--neutral-gray-60, #6F6F6F);
+text-align: center;
+
+font-size: 10px;
+font-style: normal;
+font-weight: 600;
+line-height: 16px; /* 160% */
+letter-spacing: 1px;
+
+}
+.circle {
+    width: 3px;
+    height: 3px;
+    border-radius: 64px;
+    background: #37AFD4;
+    margin-top: -9px;
+
+}
+.bar1{
+    height: 8px;
+    width: 100%;
+    border-radius: 64px;
+background: #37AFD4;
+margin-top: 10px;
+}
+.bar2{
+    height: 8px;
+    width: 100%;
+    border-radius: 64px;
+background: #F9E59E;
+margin-top: 10px;
+}
+.bar3{
+    height: 8px;
+    width: 100%;
+    border-radius: 64px;
+background: #D0E2FF;;
+margin-top: 10px;
+}
+.travel-image {
+    width: 95%;
+    height: 100%;
+}
+.cable-car{
+    height: 74px;
+    width: 74px;
+    margin-left: 300px;
+    margin-top: -22px;
+}
+@media screen and (max-width: 767px) {
+    img{
+        display: none;
+    }
+   h1{
+    color: #535353;
+text-align: center;
+font-family: Inter;
+font-size: 20px;
+font-style: normal;
+font-weight: 600;
+line-height: 32px; /* 160% */
+letter-spacing: 0.4px;
+   }
+}

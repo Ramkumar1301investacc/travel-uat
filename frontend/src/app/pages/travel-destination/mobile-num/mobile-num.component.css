@@ -1,0 +1,152 @@
+.title {
+    color: #535353;
+    text-shadow: 0px 1px 1px rgba(18, 68, 84, 0.24);
+    font-size: 23px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 32px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+.highlight{
+    background: linear-gradient(180deg,rgba(255,255,255,0) 60%,rgba(255,241,194,1) 60%);
+}
+
+.form-card {
+    border-radius: 24px;
+    border: 1px solid #CEE7F3;
+    background: #FBFDFE;
+    box-shadow: 0px 4px 24px 0px rgba(134, 173, 193, 0.25);
+    width: 80%;
+    margin: 0 auto;
+}
+
+.form-main {
+    padding-left: 50px;
+}
+
+.form-section-body {
+
+    padding: 20px 70px 70px 70px;
+}
+
+.card-header {
+    height: 104px;
+    background: #EBF4FF;
+    padding: 0px 40px;
+    border-top-right-radius: 24px;
+    border-top-left-radius: 24px;
+}
+
+.card-sub-header {
+    height: 15px;
+   /*  background: #FFF1C2; */
+}
+
+.input-section {
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid var(--gray-300, #D0D5DD);
+    background: var(--base-white, #FFF);
+    box-shadow: 0px 2px 8px 0px rgba(116, 134, 170, 0.16);
+}
+
+.card-sub-heading {
+    color: #444;
+    font-family: Inter;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 15.6px;
+    margin-bottom: 50px;
+}
+
+.number-input {
+    padding: 24px 14px;
+    border-radius: 8px;
+    border: 1px solid var(--gray-300, #D0D5DD);
+    background: var(--base-white, #FFF);
+    box-shadow: 0px 2px 8px 0px rgba(116, 134, 170, 0.16);
+}
+
+.number-input .form-select,
+.form-control {
+    border: none;
+}
+
+.destination-input {
+    width: 90%;
+    border: none;
+}
+
+.destination-input:focus {
+    border: none
+}
+
+.input-group > .form-select {
+    color: #2BA4C9;
+font-size: 20px;
+font-weight: 600;
+}
+
+.otp-btn {
+    border-radius: 8px;
+    border: 0.5px solid #FEDF72;
+    background: #FEE89A;
+    width: 100%;
+    height: 58px;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+}
+
+.form-switch .form-check-input {
+    background-image: url('../../../../assets/Travel_Page_Assets/Single Trip Flow/Icons/WhatsApp Icon.svg');
+    border: 0.25px solid #D0F1D3;
+    background-color: #E0F6E2;
+}
+
+
+
+.whatsapp-switch {
+    width: 40px;
+    height: 20px;
+}
+
+.whatsapp-label {
+    font-size: 8px;
+}
+
+/* .form-switch .form-check-input:checked {
+    background-image: url('../../../../assets/Travel_Page_Assets/Single Trip Flow/Icons/Whatsapp Toggle Switch-Icon.svg');
+} */
+
+.astrick {
+    color: #E43F52;
+}
+
+@media screen and (max-width : 900px) {
+    .form-card {
+        width: 100%;
+    }
+}
+
+/* FOR MOBILE  */
+@media screen and (max-width: 767px) {
+    .form-section-body {
+        padding: 15px;
+    }
+    .title{
+        color: #535353;
+text-shadow: 0px 1px 1px rgba(18, 68, 84, 0.24);
+font-family: Inter;
+font-size: 14px;
+font-style: normal;
+font-weight: 600;
+line-height: 20px; /* 142.857% */
+text-transform: uppercase;
+    }
+    .card-header {
+        height: 64px;
+    }
+}

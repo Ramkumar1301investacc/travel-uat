@@ -1,0 +1,79 @@
+<form action="" (ngSubmit)="onSubmit()">
+<div class="row form-container" >
+    <div class="form-holder">
+      <div class="row">
+        <div class="col">
+          <div style="margin-top: 12px">
+            <div class="form-heading">
+              <h1>Medical Details </h1>
+              <div class="form-pages">
+                <div class="page-inactive"><p class="mb-0">1</p></div>
+                <div class="line"></div>
+                <div class="page-inactive"><p class="mb-0">2</p></div>
+                <div class="line"></div>
+                <div class="page-no"><p class="mb-0">3</p></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+            <div class="medical-details">
+                <!-- <h1>Medical Details</h1> -->
+                <p>
+                    Do you have any pre-existing Medical Conditions?*
+                </p>
+                <p id="med-description">Please select YES if you have a medical condition that requires you to take medications on regular basis</p>
+                <div class="button-style">
+                    <button><input type="radio" name="" id="">Yes</button>
+                    <button><input type="radio" name="" id="">No</button>
+                </div> 
+                <div style="margin-top:16px ;">
+                    <p>Have you ever claimed under Travel Insurance?<span>*</span></p>
+                </div>
+                <div class="button-style">
+                    <button><input type="radio" name="" id="">Yes</button>
+                    <button><input type="radio" name="" id="">No</button>
+                </div>
+                <div style="margin-top:16px ;">
+                   <p> Do you have any of the diseases mentioned  below?<span>*</span></p>
+                   <div class="button-style">
+                    <button><input type="radio" name="" id="">Diabetes</button>
+                    <button><input type="radio" name="" id="">Heart Conditions</button>
+                    <button><input type="radio" name="" id="">Asthma</button>
+                    <button><input type="radio" name="" id="">Cancer</button>
+                 </div>
+                   </div>
+                <div class="button-style" >
+                    <button><input type="radio" name="" id="">Respiratory Conditions</button>
+                    <button><input type="radio" name="" id="">Arthritis</button>
+                    <button><input type="radio" name="" id="">Digestive Disorders</button>
+                     <button><input type="radio" name="" id="">Others</button>
+                </div>
+    
+            
+            
+            </div>
+            <div style="margin-top:16px ;">
+                <input type="checkbox">I have read all the details and give conirmation that all details added are correct
+            </div>
+        </div>
+    </div>
+    <div class="row" style="margin-top: 12px">
+        <div class="col" style="margin-top: 12px">
+          <div class="btn-content">
+            <div>
+              <button class="btn-ekyc" routerLink="/traveller-form/kyc-nominee"><img id="leftarrow" src="../../../../assets/Travel_Page_Assets/Form Screen/Icons/Open Dropdown CaretRight-Icon.svg" alt=""> Back </button>
+            </div>
+            <div>
+              <button class="btn-ekyc"  replaceUrl="tue">Next <img src="../../../../assets/Travel_Page_Assets/Form Screen/Icons/Open Dropdown CaretRight-Icon.svg" alt=""> </button>
+            </div>
+      
+        </div>
+      </div>
+      </div>
+    </div>
+    
+</div>
+</form>

@@ -1,0 +1,217 @@
+<form [formGroup]="personalDetail" (ngSubmit)="onSubmit()">          
+<div class="row form-container" >
+    <div class="form-holder">
+      <div class="row">
+        <div class="col">
+          <div style="margin-top: 12px">
+            <div class="form-heading">
+              <h1>Traveller Details</h1>
+              <div class="form-pages">
+                <div class="page-no"><p class="mb-0">1</p></div>
+                <div class="line"></div>
+                <div class=" page-inactive"><p class="mb-0">2</p></div>
+                <div class="line"></div>
+                <div class=" page-inactive"><p class="mb-0">3</p></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Personal Form Details -->
+      <div class="row" style="margin-top: 12px">
+        <div class="col">
+         <div class="form-content">
+
+            
+            <div >
+              <label for="" class="form-label">Salutation <span>*</span></label>
+           
+              <select class="form-select" id="floatingSelectGrid">
+               
+                <option value="Mr">Mr</option>
+                <option value="Mrs">Mrs</option>
+                
+              </select>
+             
+         
+            </div>
+            
+            <div>
+              <label class="form-label" for="">First Name <span>*</span></label>
+              <input class="form-control" type="text" formControlName="firstName" placeholder="Shivam" />
+            </div>
+            <div>
+              <label class="form-label" for="">Middle Name <span>*</span></label>
+              <input class="form-control" type="text" formControlName="middleName"/>
+            </div>
+            <div>
+              <label class="form-label" for="">Surname <span>*</span></label>
+              <input class="form-control" type="text" placeholder="Achrekar" formControlName="surName"/>
+            </div>
+          
+          </div>
+       
+
+        </div>
+        
+
+      </div>
+  
+      <!--    Gender DOB PASSPORT -->
+      <div class="row" style="margin-top: 12px">
+        <div class="col">
+          <div class="form-content">
+            <div >
+              <label for="" class="form-label">Gender <span>*</span></label>
+              <select class="form-select" id="floatingSelectGrid">
+               
+                <option value="1">Male</option>
+                <option value="2">Female</option>
+                <option value="2">Other</option>
+                
+              </select>
+            </div>
+            <div>
+              <label class="form-label" for="">DOB<span>*</span></label>
+              <input class="form-control" type="text" formControlName="dob" />
+            </div>
+            <div>
+              <label class="form-label" for="">Passport No<span>*</span></label>
+              <input class="form-control" type="text" formControlName="passportNo"/>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Emailid phoneNumber Alternate Number -->
+      <div class="row" style="margin-top: 12px">
+        <div class="col">
+          <div class="form-content">
+            <div class="form-detail">
+              <label class="form-label" for="">Email ID<span>*</span></label>
+              <input class="form-control" type="text"  placeholder="shivam@gmail.com" formControlName="emailId"/>
+            </div>
+            <div class="form-detail">
+              <label class="form-label" for="">Phone Number <span>*</span></label>
+              <input class="form-control" type="text" placeholder="9834567723"  formControlName="phoneNumber"/>
+            </div>
+            <div class="form-detail">
+              <label class="form-label" for=""
+                >Alternate Phone Number <span>*</span></label
+              >
+              <input class="form-control" type="text"  placeholder="9856334212" formControlName="alternatePhoneNumber"/>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Adress line -->
+      <div class="row" style="margin-top: 12px">
+        <div class="col">
+          <div class="form-content">
+            <div class="form-detail">
+              <label class="form-label" for=""
+                >Current Adress line 1<span>*</span></label
+              >
+              <input class="form-control" type="text" formControlName="addressLine_1"/>
+            </div>
+            <div class="form-detail">
+              <label class="form-label" for=""
+                >Current Adress line 2<span>*</span></label
+              >
+              <input class="form-control" type="text" formControlName="addressLine_2"/>
+            </div>
+            <div class="form-detail">
+              <label class="form-label" for=""
+                >Current Adress line 3<span>*</span></label
+              >
+              <input class="form-control" type="text" formControlName="addressLine_3"/>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- 
+  state city pincode -->
+  
+      <div class="row" style="margin-top: 12px">
+        <div class="col">
+          <div class="form-content">
+            <div class="form-detail">
+              <label class="form-label" for="">State<span>*</span></label>
+              <select class="form-select" id="floatingSelectGrid" formControlName="state">
+               
+                <option value="1">Maharashtra</option>
+                <option value="2">Karnataka</option>
+                <option value="2">TamilNadu</option>
+                <option value="2">Kerala</option>
+                
+              </select>
+            </div>
+            <div class="form-detail">
+              <label class="form-label" for="">City <span>*</span></label>
+              <select class="form-select" id="floatingSelectGrid" formControlName="city">
+               
+                <option value="1">Kalyan</option>
+                <option value="2">Thane</option>
+                <option value="2">Dombivili</option>
+                <option value="2">Pune</option>
+                
+              </select>
+            </div>
+            <div class="form-detail">
+              <label class="form-label" for="">Pin Code <span>*</span></label>
+              <input class="form-control" type="text" formControlName="pincode"/>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- PERMANENT ADDRESS -->
+  <div class="row form-holder" style="margin-top: 10px">
+    <div class="col">
+      <div style="margin-top: 12px">
+        <div class="form-heading">
+          <h1>Permanent Address <span>*</span></h1>
+        </div>
+      </div>
+    </div>
+  
+    <div class="row">
+      <div class="col">
+        <p>Permanent Address is same as Current Above? <span>*</span></p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col" style="margin-top: 16px">
+        <div class="btn-container">
+          <div class="btn-container1">
+            <button>
+              
+              <img
+                src="../../../assets/Travel_Page_Assets/Single Trip Flow/Icons/RadioButton.svg"
+                alt=""
+              />Yes
+            </button>
+            <button>
+              <img
+                src="../../../assets/Travel_Page_Assets/Single Trip Flow/Icons/RadioButton.svg"
+                alt=""
+              />NO
+            </button>
+          </div>
+          <div>
+            <button type="submit"  class="btn-next"  replaceUrl="true"  >
+              Next
+              <img
+                src="../../../assets/Travel_Page_Assets/Single Trip Flow/Icons/Chevron-down.svg"
+                alt=""
+              />
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </form>

@@ -1,0 +1,134 @@
+
+<form [formGroup]="kycDetail" (ngSubmit)="onSubmit()">       
+  <div class="row form-container" >
+    <div class="form-holder">
+      <div class="row">
+        <div class="col">
+          <div style="margin-top: 12px">
+            <div class="form-heading">
+              <h1>EKYC <span>*</span></h1>
+              <div class="form-pages">
+                <div class="page-inactive"><p class="mb-0">1</p></div>
+                <div class="line"></div>
+                <div class="page-no"><p class="mb-0">2</p></div>
+                <div class="line"></div>
+                <div class="page-inactive"><p class="mb-0">3</p></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <!--  Ekyc Form -->
+      <div class="row" style="margin-top: 12px">
+        <div class="col">
+          <div>
+            <div class="ekyc-contents">
+              <div class="form-width">
+                <label for="kyc" class="form-label"
+                  >Choose KYC Type<span>*</span></label
+                >
+                <select class="form-select" id="floatingSelectGrid"  formControlName="verificationOption">
+                  <option value="1"></option>
+                  <option value="PAN CARD">PAN CARD</option>
+                  <option value="AADHAR CARD">AADHAR CARD</option>
+                  <option value="PASSPORT">PASSPORT</option>
+                  <option value="FORM 60">FORM 60</option>
+                  
+                </select>
+              </div>
+              <div class="form-width">
+                <label for="number" class="form-label"
+                  >PAN Card Number<span>*</span></label
+                >
+                <input class="form-name" type="name" class="form-control" formControlName="CardNumber"/>
+              </div>
+              <div>
+                <label for="fname" class="form-label"> </label>
+                <div></div>
+                <button class="btn-ekyc">
+                  Verify
+                  <img
+                    src="../../../assets/Travel_Page_Assets/Single Trip Flow/Icons/Chevron-down.svg"
+                    alt=""
+                  />
+                </button>
+                <!-- <button>Verify</button> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <!-- Nominee Details -->
+  <div class="form-holder" style="margin-top: 8px">
+    <div class="row " >
+      <div class="col ">
+        <div style="margin-top: 12px">
+          <div class="form-heading">
+            <h1>Nominee Details <span>*</span></h1>
+          </div>
+        </div>
+        <div class="row" style="margin-top: 12px">
+          <div class="col">
+            <div class="form-content">
+              <div class="form-detail">
+                <label class="form-label" for="">Full Name<span>*</span></label>
+                <input class="form-control" type="text" formControlName="nomineeFirstName"/>
+              </div>
+              <div class="form-detail">
+                <label class="form-label" for=""
+                  >Relation with Nominee <span>*</span></label
+                >
+                <select class="form-select" id="floatingSelectGrid"  formControlName="nomineeRelationship">
+                  <option value="1"></option>
+                  <option value="Father">Father</option>
+                  <option value="Mother">Mother</option>
+                  <option value="Daughter">Daughter</option>
+                  <option value="Son">Son</option>
+                  
+                </select>
+              </div>
+              <div class="form-age">
+                <label class="form-label" for="">Age <span>*</span></label>
+                <input class="form-control" type="text" formControlName="nomineeAge"/>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+    <div class="row" style="margin-top: 12px">
+      <div class="col">
+        <div class="form-content">
+          <div class="form-detail">
+            <label class="form-label" for="">Email Id <span>*</span></label>
+            <input class="form-control" type="text"  formControlName="nomineeMail_id"/>
+          </div>
+          <div class="form-detail">
+            <label class="form-label" for=""
+              >Phone Number <span>*</span></label
+            >
+            <input class="form-control" type="text" formControlName="nomineePhone_no" />
+          </div>
+  
+      </div>
+    </div>
+  </div>
+  <div class="row" style="margin-top: 12px">
+    <div class="col" style="margin-top: 12px">
+      <div class="btn-content">
+        <div>
+          <button class="btn-ekyc" routerLink="traveller-form"><img id="leftarrow" src="../../../../assets/Travel_Page_Assets/Form Screen/Icons/Open Dropdown CaretRight-Icon.svg" alt=""> Back </button>
+        </div>
+        <div>
+          <button type="submit" class="btn-ekyc"  replaceUrl="true">Next <img src="../../../../assets/Travel_Page_Assets/Form Screen/Icons/Open Dropdown CaretRight-Icon.svg" alt=""> </button>
+        </div>
+  
+    </div>
+  </div>
+  </div>
+  </div>
+  </div>
+</form>

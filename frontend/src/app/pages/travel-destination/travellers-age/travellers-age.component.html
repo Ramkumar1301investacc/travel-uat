@@ -1,0 +1,345 @@
+<div class="form-card card">
+  <div class="card-header d-flex align-items-center">
+    <div
+      class="card-sub-header d-flex justify-content-between align-items-center w-100"
+    >
+      <img
+        src="../../../assets/Travel_Page_Assets/Single Trip Flow/Icons/Back Arrow Icon.svg"
+        alt=""
+        routerLink="/travel-destination"
+      />
+      <p class="title mb-0"><span class="title highlight">Ready to Explore a New Horizon?</span></p>
+    </div>
+  </div>
+
+  <div class="card-body form-section-body">
+    <form>
+      <div class="mb-3">
+        <label class="form-label"
+          >Choose number of travellers <span class="astrick">*</span></label
+        >
+        <ul
+          class="traveller-input-section d-flex justify-content-between align-items-center"
+        >
+          <li
+            class="travellers-num active"
+            (click)="toggleClass($event, 'active')"
+            value="1"
+          >
+            1
+          </li>
+          <li
+            class="travellers-num"
+            value="2"
+            (click)="toggleClass($event, 'active')"
+          >
+            2
+          </li>
+          <li
+            class="travellers-num"
+            value="3"
+            (click)="toggleClass($event, 'active')"
+          >
+            3
+          </li>
+          <li
+            class="travellers-num"
+            (click)="toggleClass($event, 'active')"
+            value="4"
+          >
+            4
+          </li>
+          <li
+            value="4"
+            class="travellers-num position-relative"
+            (click)="toggleClass($event, 'active')"
+            (click)="statusValue = !statusValue"
+          >
+            <img
+              [ngClass]="statusValue ? 'img-focus' : ''"
+              src="../../../../assets/Travel_Page_Assets/Single Trip Flow/Icons/Chevron-down(Black Input calender)-Icon.svg"
+            />
+
+            <div
+              class="more-travellers position-absolute"
+              [ngClass]="statusValue ? 'd-block' : 'd-none'"
+            >
+              <ul>
+                <li value="5" (click)="toggleClass($event, 'active')">5</li>
+                <li value="6" (click)="toggleClass($event, 'active')">6</li>
+                <li value="7" (click)="toggleClass($event, 'active')">7</li>
+                <li value="8" (click)="toggleClass($event, 'active')">8</li>
+                <li value="9" (click)="toggleClass($event, 'active')">9</li>
+                <li value="10" (click)="toggleClass($event, 'active')">10</li>
+                <li value="11" (click)="toggleClass($event, 'active')">11</li>
+                <li value="12" (click)="toggleClass($event, 'active')">12</li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="traveller-age-section" [ngSwitch]="true">
+        <!-- <p>{{ currentValue }}</p> -->
+
+        <div class="d-flex justify-content-between ages-div flex-wrap">
+          <div
+            *ngSwitchCase="currentValue >= 1"
+            class="mb-3"
+            [ngClass]="currentValue == 1 ? 'w-100' : 'age-sect'"
+          >
+            <label class="form-label"
+              >Age of Traveller <span class="astrick">*</span></label
+            >
+            <div
+              class="d-flex justify-content-between align-items-center flex-wrap"
+            >
+              <input
+                type="number"
+                min="0"
+                step="1"
+                max="100"
+                class="form-control shadow-none age-select"
+                placeholder="Enter age"
+              />
+            </div>
+          </div>
+          <div *ngSwitchCase="currentValue >= 2" class="mb-3 age-sect">
+            <label class="form-label"
+              >Age of Traveller2 <span class="astrick">*</span></label
+            >
+            <div
+              class="d-flex justify-content-between align-items-center flex-wrap"
+            >
+              <input
+                type="number"
+                min="0"
+                step="1"
+                max="100"
+                class="form-control shadow-none age-select"
+                placeholder="Enter age"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="d-flex justify-content-between ages-div flex-wrap">
+          <div
+            *ngSwitchCase="currentValue >= 3"
+            class="mb-3"
+            [ngClass]="currentValue == 3 ? 'w-100' : 'age-sect'"
+          >
+            <label class="form-label"
+              >Age of Traveller3 <span class="astrick">*</span></label
+            >
+            <div
+              class="d-flex justify-content-between align-items-center flex-wrap"
+            >
+              <input
+                type="number"
+                min="0"
+                step="1"
+                max="100"
+                class="form-control shadow-none age-select"
+                placeholder="Enter age"
+              />
+            </div>
+          </div>
+          <div *ngSwitchCase="currentValue >= 4" class="mb-3 age-sect">
+            <label class="form-label"
+              >Age of Traveller4 <span class="astrick">*</span></label
+            >
+            <div
+              class="d-flex justify-content-between align-items-center flex-wrap"
+            >
+              <input
+                type="number"
+                min="0"
+                step="1"
+                max="100"
+                class="form-control shadow-none age-select"
+                placeholder="Enter age"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="d-flex justify-content-between ages-div flex-wrap">
+          <div
+            *ngSwitchCase="currentValue >= 5"
+            class="mb-3"
+            [ngClass]="currentValue == 5 ? 'w-100' : 'age-sect'"
+          >
+            <label class="form-label"
+              >Age of Traveller5 <span class="astrick">*</span></label
+            >
+            <div
+              class="d-flex justify-content-between align-items-center flex-wrap"
+            >
+              <input
+                type="number"
+                min="0"
+                step="1"
+                max="100"
+                class="form-control shadow-none age-select"
+                placeholder="Enter age"
+              />
+            </div>
+          </div>
+          <div *ngSwitchCase="currentValue >= 6" class="mb-3 age-sect">
+            <label class="form-label"
+              >Age of Traveller6 <span class="astrick">*</span></label
+            >
+            <div
+              class="d-flex justify-content-between align-items-center flex-wrap"
+            >
+              <input
+                type="number"
+                min="0"
+                step="1"
+                max="100"
+                class="form-control shadow-none age-select"
+                placeholder="Enter age"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="d-flex justify-content-between ages-div flex-wrap">
+          <div
+            *ngSwitchCase="currentValue >= 7"
+            class="mb-3"
+            [ngClass]="currentValue == 7 ? 'w-100' : 'age-sect'"
+          >
+            <label class="form-label"
+              >Age of Traveller7 <span class="astrick">*</span></label
+            >
+            <div
+              class="d-flex justify-content-between align-items-center flex-wrap"
+            >
+              <input
+                type="number"
+                min="0"
+                step="1"
+                max="100"
+                class="form-control shadow-none age-select"
+                placeholder="Enter age"
+              />
+            </div>
+          </div>
+          <div *ngSwitchCase="currentValue >= 8" class="mb-3 age-sect">
+            <label class="form-label"
+              >Age of Traveller8 <span class="astrick">*</span></label
+            >
+            <div
+              class="d-flex justify-content-between align-items-center flex-wrap"
+            >
+              <input
+                type="number"
+                min="0"
+                step="1"
+                max="100"
+                class="form-control shadow-none age-select"
+                placeholder="Enter age"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="d-flex justify-content-between ages-div flex-wrap">
+          <div
+            *ngSwitchCase="currentValue >= 9"
+            class="mb-3"
+            [ngClass]="currentValue == 9 ? 'w-100' : 'age-sect'"
+          >
+            <label class="form-label"
+              >Age of Traveller9 <span class="astrick">*</span></label
+            >
+            <div
+              class="d-flex justify-content-between align-items-center flex-wrap"
+            >
+              <input
+                type="number"
+                min="0"
+                step="1"
+                max="100"
+                class="form-control shadow-none age-select"
+                placeholder="Enter age"
+              />
+            </div>
+          </div>
+          <div *ngSwitchCase="currentValue >= 10" class="mb-3 age-sect">
+            <label class="form-label"
+              >Age of Traveller10 <span class="astrick">*</span></label
+            >
+            <div
+              class="d-flex justify-content-between align-items-center flex-wrap"
+            >
+              <input
+                type="number"
+                min="0"
+                step="1"
+                max="100"
+                class="form-control shadow-none age-select"
+                placeholder="Enter age"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="d-flex justify-content-between ages-div flex-wrap">
+          <div
+            *ngSwitchCase="currentValue >= 11"
+            class="mb-3"
+            [ngClass]="currentValue == 11 ? 'w-100' : 'age-sect'"
+          >
+            <label class="form-label"
+              >Age of Traveller11 <span class="astrick">*</span></label
+            >
+            <div
+              class="d-flex justify-content-between align-items-center flex-wrap"
+            >
+              <input
+                type="number"
+                min="0"
+                step="1"
+                max="100"
+                class="form-control shadow-none age-select"
+                placeholder="Enter age"
+              />
+            </div>
+          </div>
+          <div *ngSwitchCase="currentValue >= 12" class="mb-3 age-sect">
+            <label class="form-label"
+              >Age of Traveller12 <span class="astrick">*</span></label
+            >
+            <div
+              class="d-flex justify-content-between align-items-center flex-wrap"
+            >
+              <input
+                type="number"
+                min="0"
+                step="1"
+                max="100"
+                class="form-control shadow-none age-select"
+                placeholder="Enter age"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="submit-btn-div text-center">
+        <button
+        (click)="updateProgressBar()"
+          type="button"
+          class="btn submit-btn"
+          replaceUrl="true"
+          routerLink="/travel-destination/travellers-number"
+        >
+          Next
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

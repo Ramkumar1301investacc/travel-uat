@@ -1,0 +1,178 @@
+.selected-filters {
+    width: 100%;
+    border-bottom: 4px solid #37AFD4;
+    background: #EBF4FF;
+    box-shadow: 0px 4px 16px 0px rgba(148, 163, 179, 0.25);
+    border-radius: 12px;
+    margin: 30px 0px;
+}
+
+.selected-filters .cardheader {
+    padding: 30px 45px 30px 20px;
+    border-bottom: 1px solid rgb(191, 189, 189);
+}
+
+.selected-filters .cardheader h3 {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.selected-filters p {
+    padding: 20px;
+}
+
+.policy {
+    /* height: 100vh; */
+    /* border: 1px solid blue; */
+}
+
+.filter-search-results {
+    border-bottom: 4px solid #37AFD4;
+    box-shadow: 0px 4px 16px 0px rgba(148, 163, 179, 0.25);
+    border-radius: 12px;
+}
+
+.accordion-body,
+.accordion-button {
+    background: #EBF4FF;
+}
+
+.filter-search-btn {
+    font-size: 19.063px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 26px;
+    color: black;
+    background: #EBF4FF;
+}
+
+.all-policies {
+    margin-bottom: 20px;
+}
+
+.all-policies-sort-bar {
+    border-radius: 8px;
+    border-bottom: 4px solid #37AFD4;
+    background: #EBF4FF;
+    box-shadow: 0px 4px 16px 0px rgba(148, 163, 179, 0.25);
+    padding: 20px;
+    margin: 30px 0px;
+}
+
+.all-policies-sort-bar h3 {
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px;
+}
+
+.all-policies-sort-bar .form-select {
+    border-radius: 6px;
+    border: 1px solid #BABEBD;
+    background: #fff;
+}
+
+.insurance-details ul li {
+    display: flex;
+    align-items: center;
+    /* margin-left: -30px; */
+}
+
+.insurance-details ul li * {
+    margin-left: 10px;
+}
+
+.insurance-details ul li p {
+    margin-bottom: 0;
+    font-weight: 400;
+    color: #9C9C9C;
+    font-size: 14px;
+}
+
+.insurance-details p span {
+    color: #37AFD4;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.all-policies {
+    border-radius: 12px;
+    border: 1px solid #E2E2E2;
+    background: #FFF;
+    box-shadow: 0px 4px 16px 0px rgba(116, 140, 170, 0.24);
+}
+
+.input-check-box {
+    background-color: white;
+    border: none;
+}
+
+.buy-policy a {
+    color: black;
+    font-size: 16px;
+    color: #9C9C9C;
+}
+
+.buy-policy p {
+    color: #37AFD4;
+    font-size: 32px;
+    font-weight: 600;
+}
+
+.buy-policy button {
+    border-radius: 8px;
+    border: 1px solid #FECD20;
+    background: #FED74C;
+    color: black;
+}
+
+.compare-checkbox,
+.insurance-company-image,
+.insurance-details,
+.buy-policy {
+    padding: 25px;
+}
+
+.compare-checkbox input {
+    border: 1px solid #767676;
+    border-radius: 2px;
+}
+
+.compare-checkbox label {
+    color: #9C9C9C;
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.hr-line {
+    width: 1.60px;
+    height: 148px;
+    background: #E2E2E2;
+}
+
+.all-policy-footer {
+    color: black;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.all-policy-footer span {
+    color: #37AFD4 !important;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+@media screen and (max-width : 900px) {
+    .all-policies {
+        flex-direction: column;
+        border-left: none;
+    }
+
+    .hr-line {
+        display: none;
+    }
+
+    .traveller-ribbon div h3 {
+        font-size: 12px;
+    }
+}

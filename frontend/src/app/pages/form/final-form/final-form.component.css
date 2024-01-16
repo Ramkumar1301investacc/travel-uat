@@ -1,0 +1,149 @@
+.form-holder {
+    border-radius: 12px;
+    border: 2px solid #CCCCCC;
+    padding: 12px 20px;
+    margin-right: 40px;
+}
+
+.card {
+    border-radius: 4px 4px 4px 4px;
+    border: 0.75px solid #CCE3FF;
+    background: #EBF4FF;
+    /* padding: 8px; */
+}
+
+.card-heading {
+    display: flex;
+    flex-direction: row;
+    padding: 8px;
+    
+
+
+}
+
+h1 {
+    color: #0B2C5C;
+    font-family: Inter;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 32px;
+    /* 133.333% */
+    margin-bottom: 0px;
+}
+
+.form-container {
+    margin-right: 40px;
+}
+
+.traveller-left-div {
+    border-right: 2px solid #CCE3FF;
+}
+
+p {
+    color: #0B2C5C;
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 120%;
+    /* 19.2px */
+    margin-top: 16px;
+
+}
+
+span {
+    color: #101828;
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+    /* 16.8px */
+}
+
+.otp-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.otp-btn {
+    display: flex;
+    padding: 10px 12px;
+    align-items: flex-end;
+    border-radius: 6px;
+    border: 1px solid #FED648;
+    background: #FEE89A;
+    color: #0B2C5C;
+    text-align: center;
+    font-family: Inter;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.btn-ekyc {
+    border-radius: 8px;
+    border: 1px solid #FED648;
+    background: #FEE89A;
+    padding: 10px 40px;
+    font-size: 16px;
+    text-align: center;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    color: #0B2C5C;
+    text-align: center;
+    font-family: Inter;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 22px;
+    /* 122.222% */
+
+
+}
+
+.btn-ekyc>img {
+    transform: rotate(270deg);
+
+}
+
+.accept-container {
+    display: flex;
+    gap: 27px;
+    
+    align-items: center;
+    justify-content: center;
+}
+.accept{
+    
+  margin: 10px auto;
+
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px) {}
+
+/* Styles for small screens (mobile) */
+@media screen and (max-width: 767px) {
+    .form-container {
+        margin: 0;
+        width: 100%;
+    }
+
+    .otp-div {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+    }
+
+    .accept-container {
+        flex-direction: column;
+    }
+
+    .form-row {
+        flex-direction: column;
+    }
+}

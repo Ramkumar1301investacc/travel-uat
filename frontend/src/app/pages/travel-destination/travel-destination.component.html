@@ -1,0 +1,96 @@
+<div class="container-fluid">
+
+  <!-- <div class="row">
+
+    <div class="progressbar-container" style="position: relative;">
+      <div class="pgbar-container">
+        <p>Select Destination & Travelers</p>
+        <div class="circle"></div>
+        <div class="bar1"></div>
+
+      </div>
+      <div class="pgbar-container" style="width:39%">
+        <p> Enter Contact Details</p>
+        <div class="circle"></div>
+        <div class="bar2"></div>
+
+      </div>
+      <div class="pgbar-container">
+        <p>Compare Quotes</p>
+        <div class="circle"></div>
+        <div class="bar3"></div>
+
+      </div>
+    </div>
+
+    <div>
+      <img #progressbar class="cable-car " src="../../../assets/gili_Logo's/New SVG Logos/Cable Car Animation.gif"
+        alt="" />
+    </div>
+
+  </div> -->
+  <app-progress-bar></app-progress-bar>
+  <div class="row">
+    <div class="col">
+      <h1>“Travel worry-free with best Insurance Coverages!”</h1>
+    </div>
+  </div>
+
+  <div class="row">
+
+    <div class="col-lg-5 text-end" [ngSwitch]="badges[0]">
+
+      <img class="travel-image" *ngSwitchCase=""
+        src="../../../assets/Travel_Page_Assets/Single Trip Flow/Illustrations/Go Travel Illustration Group.svg"
+        alt="" />
+
+      <img class="travel-image" *ngSwitchCase="'Australia '"
+        src="../../../assets/Travel_Page_Assets/All_Nation_Travel_Illustrations/Austrailia Illustration-SVG.svg"
+        alt="" />
+
+      <img class="travel-image" *ngSwitchCase="'United States '"
+        src="../../../assets/Travel_Page_Assets/All_Nation_Travel_Illustrations/USA liberty Illustration-SVG.svg"
+        alt="" />
+
+      <img class="travel-image" *ngSwitchCase="'United Arab Emirates '"
+        src="../../../assets/Travel_Page_Assets/All_Nation_Travel_Illustrations/United Arab Emirates(UAE Couple)Illustration-SVG.svg"
+        alt="" />
+
+      <img class="travel-image" *ngSwitchCase="'Malaysia '"
+        src="../../../assets/Travel_Page_Assets/All_Nation_Travel_Illustrations/Malaysia Illustration-SVG.svg" alt="" />
+
+      <img class="travel-image" *ngSwitchCase="'Singapore '"
+        src="../../../assets/Travel_Page_Assets/All_Nation_Travel_Illustrations/Singapore-Illustration-SVG.svg"
+        alt="" />
+
+      <img class="travel-image" *ngSwitchCase="'Japan '"
+        src="../../../assets/Travel_Page_Assets/All_Nation_Travel_Illustrations/Japan Illustration-SVG.svg" alt="" />
+
+      <img class="travel-image" *ngSwitchCase="'Switzerland '"
+        src="../../../assets/Travel_Page_Assets/All_Nation_Travel_Illustrations/Switzerland Snow Illustration-SVG.svg"
+        alt="" />
+
+      <img class="travel-image" *ngSwitchCase="'Canada '"
+        src="../../../assets/Travel_Page_Assets/All_Nation_Travel_Illustrations/Canada-Cute-Gilr-Illustration-SVG.svg"
+        alt="" />
+
+      <img class="travel-image" *ngSwitchCase="'United Kingdom '"
+        src="../../../assets/Travel_Page_Assets/All_Nation_Travel_Illustrations/United Kingdom-Illustration-SVG.svg"
+        alt="" />
+
+      <img class="travel-image" *ngSwitchCase="'Thailand '"
+        src="../../../assets/Travel_Page_Assets/All_Nation_Travel_Illustrations/Thailand Illustration-SVG.svg" alt="" />
+
+
+      <img class="travel-image" *ngSwitchDefault
+        src="../../../assets/Travel_Page_Assets/All_Nation_Travel_Illustrations/For Less Known Nation World default Illustration-SVG.svg"
+        alt="" />
+
+    </div>
+
+    <div class="col-lg-7 pt-4 form-main">
+
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

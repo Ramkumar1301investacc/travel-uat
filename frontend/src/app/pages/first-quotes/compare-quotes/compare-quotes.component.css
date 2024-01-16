@@ -1,0 +1,84 @@
+.compare-quotes-sect .quotes {
+    width: 30%;
+    border-radius: 12px;
+    border: 1px solid #DEDBDB;
+    background: #FFF;
+    box-shadow: 0px 4px 16px 0px rgba(116, 140, 170, 0.24);
+}
+
+.quotes {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.side-navbar {
+    border-radius: 12px;
+    border: 1px solid #CCC;
+    background: #EBF4FF;
+    box-shadow: 0px 4px 16px 0px rgba(148, 163, 179, 0.25);
+}
+
+.back {
+    padding: 20px;
+    height: 64px;
+    width: 64px;
+    margin: 70px auto;
+    border-radius: 8px;
+    border: 1px solid #3D9ECD;
+    cursor: pointer;
+}
+
+.policy-list-items ul li {
+    color: #000;
+    font-size: 24px;
+    font-weight: 700;
+    list-style: none;
+    margin: 32px auto;
+}
+
+.insurance-provider-image {
+    width: 50%;
+    height: 144px;
+    border-radius: 12px;
+    background: #EBF4FF;
+    margin: 28px auto;
+}
+
+.policy-quotes-list-items ul {
+    padding-left: 0;
+}
+
+.policy-quotes-list-items ul li {
+    color: #000;
+    font-size: 24px;
+    font-weight: 500;
+    list-style: none;
+    margin: 36px auto;
+    text-align: center;
+}
+
+.btn-price {
+    border-radius: 8px;
+    border: 1px solid #FECD20;
+    background: #FED74C;
+    font-size: 24px;
+    color: #0B2C5C;
+    font-weight: 600;
+}
+
+.cross-sect {
+    width: 32px;
+    height: 32px;
+    border-radius: 100%;
+    background-color: #FECD20;
+    position: absolute;
+    right: -15px;
+    top: -15px;
+    cursor: pointer;
+}
+
+@media screen and (max-width : 900px) {
+    .insurance-provider-image img {
+        width: 100%;
+    }
+}

@@ -1,0 +1,19 @@
+<div class="mb-3">
+    <label class="form-label">Choose your Destination <span class="astrick">*</span></label>
+
+    <div class="input-section border d-flex justify-content-between align-items-center">
+
+        <div class="search-div border d-flex justify-content-center align-items-center">
+            <img src="../../../assets/Travel_Page_Assets/Single Trip Flow/Icons/Search Glass Icon.svg" alt="">
+        </div>
+
+        <input type="text" class="form-control shadow-none destination-input" id="text"
+            placeholder="Enter Your Destination" [(ngModel)]="enteredSearchValue" (input)="onSearchTextChanged()">
+
+        <div class="down-arrow-div border d-flex justify-content-center align-items-center">
+            <img src="../../../assets/Travel_Page_Assets/Single Trip Flow/Icons/Chevron-down(Gray-Calender)-Icon.svg"
+                alt="">
+        </div>
+
+    </div>
+</div>

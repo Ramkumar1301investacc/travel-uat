@@ -1,0 +1,40 @@
+<div class="form-card card">
+
+    <div class="card-header d-flex align-items-center">
+        <div class="card-sub-header d-flex justify-content-between align-items-center w-100">
+            <img src="../../../assets/Travel_Page_Assets/Single Trip Flow/Icons/Back Arrow Icon.svg" alt=""
+             routerLink="/travel-destination/travellers-age" />
+            <p class=" mb-0"><span class="title highlight">Final Step to Secure your adventure</span></p>
+        </div>
+
+    </div>
+
+    <div class="card-body form-section-body border">
+        <h3 class="card-sub-heading text-center">Easy access to your insurance needs via WhatsApp!!</h3>
+        <form>
+            <label class="form-label">Enter Your Mobile Number<span class="astrick">*</span></label>
+            <div class="input-group mb-3 number-input border">
+
+                <select class="form-select w-40" id="inputGroupSelect01">
+                    <option selected>+91</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                </select>
+
+                <input type="text" class="form-control w-75" placeholder="Mobile Number">
+            </div>
+
+            <div class="form-check form-switch text-end d-flex justify-content-end align-items-center mb-2">
+                <input class="form-check-input mt-0 me-2 whatsapp-switch" type="checkbox" id="flexSwitchCheckDefault">
+                <label class="form-check-label whatsapp-label" for="flexSwitchCheckDefault">WhatsApp Notifications and Updates</label>
+            </div>
+
+            <div class="otp-btn-div text-center">
+                <button (click)="updateProgressBar()" type="button" class="btn otp-btn" replaceUrl="true" routerLink="/travel-destination/get-otp">Get
+                    OTP</button>
+            </div>
+
+        </form>
+    </div>
+</div>
