@@ -26,14 +26,12 @@ export class DestinationDateComponent {
 
   onSearchTextEntered(searchValue: string) {
     this.searchText = searchValue;
-    // console.log(this.searchText)
   }
 
   ngOnInit() {                                                              //function to fetch countries data and store it in array
     this.getCountries.getCountriesApi().subscribe((data: any) => {
       let allCountriesName = data['data'];
       allCountriesName.map((country: any) => {
-        // console.log(country.country, country.code)
         this.countries.push(country.country)
       })
     })
