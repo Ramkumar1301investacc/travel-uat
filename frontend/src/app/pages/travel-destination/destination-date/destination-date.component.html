@@ -13,8 +13,34 @@
         <form>
             <div class="position-relative">
 
-                <app-country-search-box (searchTextChanged)="onSearchTextEntered($event)"
-                    (click)='divOpen()'></app-country-search-box>
+                <!-- <app-country-search-box (searchTextChanged)="onSearchTextEntered($event)"
+                    (click)='divOpen()'></app-country-search-box> -->
+
+                    <!--Destination Name Component-->
+
+
+                    <div class="mb-3">
+                        <label class="form-label">Choose your Destination <span class="astrick">*</span></label>
+                    
+                        <div class="input-section border d-flex justify-content-between align-items-center">
+                    
+                            <div class="search-div border d-flex justify-content-center align-items-center">
+                                <img src="../../../assets/Travel_Page_Assets/Single Trip Flow/Icons/Search Glass Icon.svg" alt="">
+                            </div>
+                    
+                            <input  [(ngModel)]="searchText" (click)='divOpen()' type="text" class="form-control shadow-none destination-input" id="text"
+                                placeholder="Enter Your Destination" name="destination">
+                    
+                            <div class="down-arrow-div border d-flex justify-content-center align-items-center">
+                                <img src="../../../assets/Travel_Page_Assets/Single Trip Flow/Icons/Chevron-down(Gray-Calender)-Icon.svg"
+                                    alt="">
+                            </div>
+                    
+                        </div>
+                    </div>
+                
+
+                    <!---->
 
                 <div [ngClass]="classDiv">
                     <div [ngClass]="searchText === '' ? 'd-none' : 'all-countries-list w-100 mt-2'">

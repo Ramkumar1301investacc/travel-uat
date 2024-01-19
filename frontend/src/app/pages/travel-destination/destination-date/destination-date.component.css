@@ -7,11 +7,13 @@
     line-height: 32px;
     letter-spacing: 2px;
     text-transform: uppercase;
-   
+
 }
-.highlight{
-    background: linear-gradient(180deg,rgba(255,255,255,0) 60%,rgba(255,241,194,1) 60%)
+
+.highlight {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 60%, rgba(255, 241, 194, 1) 60%)
 }
+
 .form-card {
     border-radius: 24px;
     border: 1px solid #CEE7F3;
@@ -131,23 +133,25 @@
         width: 100%;
     }
 }
+
 @media screen and (max-width: 767px) {
     .form-section-body {
         padding: 15px;
     }
-    .title{
+
+    .title {
         color: #535353;
-text-shadow: 0px 1px 1px rgba(18, 68, 84, 0.24);
-font-family: Inter;
-font-size: 14px;
-font-style: normal;
-font-weight: 600;
-line-height: 20px; /* 142.857% */
-text-transform: uppercase;
+        text-shadow: 0px 1px 1px rgba(18, 68, 84, 0.24);
+        font-family: Inter;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 20px;
+        /* 142.857% */
+        text-transform: uppercase;
     }
+
     .card-header {
         height: 64px;
     }
 }
-
-
