@@ -27,6 +27,6 @@ export const getStudentTravelPlan = async () => {
       const studentsPlan = allPlans.filter((plan) => plan.pplan.includes('Student'));
       return studentsPlan;
    } catch (error) {
-      console.error(error)
+      console.error('Error while executing getStudentTravelPlan', error);
    }
 }

@@ -2,7 +2,7 @@ import express from 'express';
 import { getStudentTravelPlan } from '../controller/bajaj/controller.js';
 const router = express.Router();
 
-router.get('api/v1/getStudentsTravelPlan', async(req, res) => {
+router.get('/api/v1/getStudentsTravelPlan', async(req, res) => {
     try {
         const data = await getStudentTravelPlan();
         res.json(data)
