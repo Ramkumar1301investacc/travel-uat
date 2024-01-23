@@ -13,10 +13,10 @@ import { Renderer2 } from '@angular/core';
 
 
 export class DestinationDateComponent {
- 
-  constructor(private getCountries: GetcountriesService, private sharedBadgeService: SharedBadgeDataService ,
+
+  constructor(private getCountries: GetcountriesService, private sharedBadgeService: SharedBadgeDataService,
     private renderer: Renderer2
-    ) { }
+  ) { }
 
   countries: any = [];                                                     //array to store countries
 
@@ -61,17 +61,17 @@ export class DestinationDateComponent {
   sendBadgeData() {
     this.sharedBadgeService.send_data.next(this.badgeItems);
   }
- /*  @Input() progressBar: ElementRef | undefined; */
-@Output() onButtonClick = new EventEmitter<object>();
+  /*  @Input() progressBar: ElementRef | undefined; */
+  @Output() onButtonClick = new EventEmitter<object>();
 
 
-   updateProgressBar(){
+  updateProgressBar() {
     console.log("clicked Buttton")
-    const moveProgress=document.querySelector('.cable-car') as HTMLElement | null;
+    const moveProgress = document.querySelector('.cable-car') as HTMLElement | null;
     if (moveProgress) {
-      
+
       moveProgress.style.marginLeft = '350px';
-      
+
       // transition properties
       moveProgress.style.transition = 'margin-left 5s ease';
 
@@ -79,11 +79,10 @@ export class DestinationDateComponent {
 
       moveProgress.style.animationIterationCount = 'infinite';
       moveProgress.style.animationDirection = 'alternate';
-    }else{
+    } else {
       console.log('Style Not Applied ')
     }
-      // Emit an event to notify the parent component
-      this.onButtonClick.emit();
-   }
+    // Emit an event to notify the parent component
+    this.onButtonClick.emit();
+  }
 }
-  
