@@ -1,11 +1,19 @@
-import client from 'pg'
+import pkg from 'pg';
+const { Client } = pkg;
+import dotenv from 'dotenv';
+dotenv.config();
+const auserId = process.env.USER_ID;
+const apassword = process.env.A_PASSWORD;
+const aIntemdCode = process.env.A_Intemd_Code;
+const getAllPlansUrl = process.env.GET_ALL_PLANS;
+
 (async()=>{
     const fetch =await import('node-fetch').then(m=> m.default);
 
     const body ={
-        "auserId": "webservice@investacc.com",
-        "apassword": "Bagic123",
-        "aIntemdCode": "0",
+        "auserId": auserId,
+        "apassword": apassword,
+        "aIntemdCode": aIntemdCode,
         "pDealerCode": "0",
         "pIntermediaryList_out": [
           {
@@ -14,7 +22,7 @@ import client from 'pg'
         ],
         "pTravelList_out": [
           {
-            "countPplan": "2",
+            "countPplan": "",
             "pplan": ""
           }
         ],
@@ -29,12 +37,12 @@ import client from 'pg'
         "pErrorCode_out": "0"
     };
 
-    const response = await fetch('http://htapi.bagicpp.bajajallianz.com/BjazTravelWebServices/travelplan', {
+    const response = await fetch(getAllPlansUrl, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(body)
       });
-      const client = new client({
+      const client = new Client({
         user: 'postgres',
         host: 'localhost',
         database: 'EnrollmentDataDetail',
@@ -55,9 +63,9 @@ import client from 'pg'
      for (const item of parsedData){
         const query=` INSERT INTO public.bajajdetail(
              countpplan, pplan)
-            VALUES ($1, ,$2);
+            VALUES ($1,$2);
 
-        )  `
+          `;
          const values=[
             item.countPplan,
             item.pplan
@@ -69,7 +77,7 @@ import client from 'pg'
             
             console.log(values);
           } catch (err) {
-            console.error(err);
+             console.error(err); 
           } 
      }
     
