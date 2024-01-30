@@ -2,7 +2,7 @@
 
 <div class="row container m-auto">
   <div class="col-9  " *ngIf="stepnumber===1">
-  <form #step1="ngForm">  
+  <form #step1="ngForm" FormGroup="step1" (ngSubmit)="onFormSubmit()">  
       <div class="row form-container" >
           <div class="form-holder">
             <div class="row">
@@ -219,12 +219,12 @@
           </div>
         </div>
         </form>
---
+--[FormGroup]
 </div>
  <!-- kyc  -->
   <div  class="col-9" *ngIf="stepnumber===2">
     
-<form #step2="ngForm">       
+<form #step2="ngForm" FormGroup="step2" (ngSubmit)="onFormSubmit()">       
   <div class="row form-container" >
     <div class="form-holder">
       <div class="row">
@@ -361,7 +361,7 @@
   </div>
 
 <div class="col-9" *ngIf="stepnumber===3">
-  <form #step3="ngForm" >
+  <form #step3="ngForm" FormGroup="step3" (ngSubmit)="onFormSubmit()" >
     <div class="row form-container" >
         <div class="form-holder">
           <div class="row">

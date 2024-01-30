@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 })
 export class MedicalFormComponent {
   constructor(private router:Router){
-
+ 
   }
   onSubmit() {
  
