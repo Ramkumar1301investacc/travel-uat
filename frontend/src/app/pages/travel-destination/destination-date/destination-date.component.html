@@ -10,7 +10,7 @@
     </div>
 
     <div class="card-body form-section-body">
-        <form>
+        <form [formGroup]="travelForm">
             <div class="position-relative">
 
                 <!-- <app-country-search-box (searchTextChanged)="onSearchTextEntered($event)"
@@ -28,8 +28,8 @@
                                 <img src="../../../assets/Travel_Page_Assets/Single Trip Flow/Icons/Search Glass Icon.svg" alt="">
                             </div>
                     
-                            <input  [(ngModel)]="searchText" (click)='divOpen()' type="text" class="form-control shadow-none destination-input" id="text"
-                                placeholder="Enter Your Destination" name="destination">
+                            <input formControlName="tDest"  [(ngModel)]="searchText" (click)='divOpen()' type="text" class="form-control shadow-none destination-input" id="text"
+                                placeholder="Enter Your Destination">
                     
                             <div class="down-arrow-div border d-flex justify-content-center align-items-center">
                                 <img src="../../../assets/Travel_Page_Assets/Single Trip Flow/Icons/Chevron-down(Gray-Calender)-Icon.svg"
@@ -76,8 +76,8 @@
 
                     <!-- <app-date-picker class="w-100"></app-date-picker> -->
 
-                    <input class="trip-date" type="date" id="start-date" name="trip-start" value="2024-01-01"/>
-                    <input class="trip-date" type="date" id="end-date" name="trip-end" value="2024-01-01" />
+                    <input formControlName="tripStart" class="trip-date" type="date" id="start-date" value="2024-01-01"/>
+                    <input formControlName="tripEnd" class="trip-date" type="date" id="end-date"  value="2024-01-01" />
 
                     <div class="down-arrow-div border d-flex justify-content-center align-items-center">
                         <img style="transform: rotate(180deg);"
@@ -89,9 +89,11 @@
             </div>
 
             <div class="submit-btn-div text-center">
-                <button (click)="updateProgressBar()" class="btn submit-btn" routerLink="travellers-age">Next</button>
+                <button type="submit" (click)="updateProgressBar()" (click)="onSubmit()" class="btn submit-btn" routerLink="travellers-age">Next</button>
             </div>
 
         </form>
+
+
     </div>
 </div>

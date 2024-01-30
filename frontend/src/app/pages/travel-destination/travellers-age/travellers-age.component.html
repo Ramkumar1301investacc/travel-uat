@@ -13,7 +13,7 @@
   </div>
 
   <div class="card-body form-section-body">
-    <form>
+    <form [formGroup]="ageForm">
       <div class="mb-3">
         <label class="form-label"
           >Choose number of travellers <span class="astrick">*</span></label
@@ -89,35 +89,31 @@
             [ngClass]="currentValue == 1 ? 'w-100' : 'age-sect'"
           >
             <label class="form-label"
-              >Age of Traveller <span class="astrick">*</span></label
+              >DOB of Traveller <span class="astrick">*</span></label
             >
             <div
               class="d-flex justify-content-between align-items-center flex-wrap"
             >
               <input
-                type="number"
-                min="0"
+                type="date"
                 step="1"
-                max="100"
                 class="form-control shadow-none age-select"
-                placeholder="Enter age"
+                formControlName="ageofTravellerOne"
               />
             </div>
           </div>
           <div *ngSwitchCase="currentValue >= 2" class="mb-3 age-sect">
             <label class="form-label"
-              >Age of Traveller2 <span class="astrick">*</span></label
+              >DOB of Traveller2 <span class="astrick">*</span></label
             >
             <div
               class="d-flex justify-content-between align-items-center flex-wrap"
             >
               <input
-                type="number"
-                min="0"
+                type="date"
                 step="1"
-                max="100"
                 class="form-control shadow-none age-select"
-                placeholder="Enter age"
+                formControlName="ageofTravellerTwo"
               />
             </div>
           </div>
@@ -130,35 +126,29 @@
             [ngClass]="currentValue == 3 ? 'w-100' : 'age-sect'"
           >
             <label class="form-label"
-              >Age of Traveller3 <span class="astrick">*</span></label
+              >DOB of Traveller3 <span class="astrick">*</span></label
             >
             <div
               class="d-flex justify-content-between align-items-center flex-wrap"
             >
               <input
-                type="number"
-                min="0"
+                type="date"
                 step="1"
-                max="100"
                 class="form-control shadow-none age-select"
-                placeholder="Enter age"
               />
             </div>
           </div>
           <div *ngSwitchCase="currentValue >= 4" class="mb-3 age-sect">
             <label class="form-label"
-              >Age of Traveller4 <span class="astrick">*</span></label
+              >DOB of Traveller4 <span class="astrick">*</span></label
             >
             <div
               class="d-flex justify-content-between align-items-center flex-wrap"
             >
               <input
-                type="number"
-                min="0"
+                type="date"
                 step="1"
-                max="100"
                 class="form-control shadow-none age-select"
-                placeholder="Enter age"
               />
             </div>
           </div>
@@ -171,35 +161,29 @@
             [ngClass]="currentValue == 5 ? 'w-100' : 'age-sect'"
           >
             <label class="form-label"
-              >Age of Traveller5 <span class="astrick">*</span></label
+              >DOB of Traveller5 <span class="astrick">*</span></label
             >
             <div
               class="d-flex justify-content-between align-items-center flex-wrap"
             >
               <input
-                type="number"
-                min="0"
+                type="date"
                 step="1"
-                max="100"
                 class="form-control shadow-none age-select"
-                placeholder="Enter age"
               />
             </div>
           </div>
           <div *ngSwitchCase="currentValue >= 6" class="mb-3 age-sect">
             <label class="form-label"
-              >Age of Traveller6 <span class="astrick">*</span></label
+              >DOB of Traveller6 <span class="astrick">*</span></label
             >
             <div
               class="d-flex justify-content-between align-items-center flex-wrap"
             >
               <input
-                type="number"
-                min="0"
+                type="date"
                 step="1"
-                max="100"
                 class="form-control shadow-none age-select"
-                placeholder="Enter age"
               />
             </div>
           </div>
@@ -212,35 +196,29 @@
             [ngClass]="currentValue == 7 ? 'w-100' : 'age-sect'"
           >
             <label class="form-label"
-              >Age of Traveller7 <span class="astrick">*</span></label
+              >DOB of Traveller7 <span class="astrick">*</span></label
             >
             <div
               class="d-flex justify-content-between align-items-center flex-wrap"
             >
               <input
-                type="number"
-                min="0"
+                type="date"
                 step="1"
-                max="100"
                 class="form-control shadow-none age-select"
-                placeholder="Enter age"
               />
             </div>
           </div>
           <div *ngSwitchCase="currentValue >= 8" class="mb-3 age-sect">
             <label class="form-label"
-              >Age of Traveller8 <span class="astrick">*</span></label
+              >DOB of Traveller8 <span class="astrick">*</span></label
             >
             <div
               class="d-flex justify-content-between align-items-center flex-wrap"
             >
               <input
-                type="number"
-                min="0"
+                type="date"
                 step="1"
-                max="100"
                 class="form-control shadow-none age-select"
-                placeholder="Enter age"
               />
             </div>
           </div>
@@ -253,35 +231,29 @@
             [ngClass]="currentValue == 9 ? 'w-100' : 'age-sect'"
           >
             <label class="form-label"
-              >Age of Traveller9 <span class="astrick">*</span></label
+              >DOB of Traveller9 <span class="astrick">*</span></label
             >
             <div
               class="d-flex justify-content-between align-items-center flex-wrap"
             >
               <input
-                type="number"
-                min="0"
+                type="date"
                 step="1"
-                max="100"
                 class="form-control shadow-none age-select"
-                placeholder="Enter age"
               />
             </div>
           </div>
           <div *ngSwitchCase="currentValue >= 10" class="mb-3 age-sect">
             <label class="form-label"
-              >Age of Traveller10 <span class="astrick">*</span></label
+              >DOB of Traveller10 <span class="astrick">*</span></label
             >
             <div
               class="d-flex justify-content-between align-items-center flex-wrap"
             >
               <input
-                type="number"
-                min="0"
+                type="date"
                 step="1"
-                max="100"
                 class="form-control shadow-none age-select"
-                placeholder="Enter age"
               />
             </div>
           </div>
@@ -294,35 +266,29 @@
             [ngClass]="currentValue == 11 ? 'w-100' : 'age-sect'"
           >
             <label class="form-label"
-              >Age of Traveller11 <span class="astrick">*</span></label
+              >DOB of Traveller11 <span class="astrick">*</span></label
             >
             <div
               class="d-flex justify-content-between align-items-center flex-wrap"
             >
               <input
-                type="number"
-                min="0"
+                type="date"
                 step="1"
-                max="100"
                 class="form-control shadow-none age-select"
-                placeholder="Enter age"
               />
             </div>
           </div>
           <div *ngSwitchCase="currentValue >= 12" class="mb-3 age-sect">
             <label class="form-label"
-              >Age of Traveller12 <span class="astrick">*</span></label
+              >DOB of Traveller12 <span class="astrick">*</span></label
             >
             <div
               class="d-flex justify-content-between align-items-center flex-wrap"
             >
               <input
-                type="number"
-                min="0"
+                type="date"
                 step="1"
-                max="100"
                 class="form-control shadow-none age-select"
-                placeholder="Enter age"
               />
             </div>
           </div>
@@ -332,6 +298,7 @@
       <div class="submit-btn-div text-center">
         <button
         (click)="updateProgressBar()"
+        (click)="onSubmit()"
           type="button"
           class="btn submit-btn"
           replaceUrl="true"

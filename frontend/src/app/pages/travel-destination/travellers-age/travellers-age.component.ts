@@ -1,4 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms'
+import { DestAgeNumService } from 'src/app/service/dest-age-num.service';
 
 @Component({
   selector: 'app-travellers-age',
@@ -7,10 +9,22 @@ import { Component, EventEmitter, Output } from '@angular/core';
 })
 export class TravellersAgeComponent {
 
+  constructor(
+    private formBuilder: FormBuilder,
+    private destDataService: DestAgeNumService,
+  ) { }
+  finalFormData: any;
+  ageForm: FormGroup = new FormGroup({})
   currentValue: number = 1;
   toggleClass(e: any, className: string) {
     const hasClass = e.target.classList.contains(className);
     this.currentValue = e.target.value;
+    this.ageForm = this.formBuilder.group({
+      numOfTraveller: this.currentValue,
+      ageofTravellerOne: '',
+      ageofTravellerTwo: ''
+    })
+
     if (hasClass) {
       e.target.classList.remove("active")
     }
@@ -27,18 +41,27 @@ export class TravellersAgeComponent {
         }
       })
     }
+  }
 
 
 
-    // let getAllLists = document.getElementsByTagName('li');
-    // let getAllListsArray = Array.from(getAllLists)
-    // console.log(getAllListsArray)
+  ngOnInit() {
+    this.ageForm = this.formBuilder.group({
+      numOfTraveller: this.currentValue,
+      ageofTravellerOne: '',
+      ageofTravellerTwo: ''
+    })
+  }
 
-    // getAllListsArray.map((list) => {
-    //   list.addEventListener('click', () => {
+  onSubmit() {
+    if (this.ageForm.valid) {
+      console.log('Valid');
 
-    //   })
-    // })
+      this.destDataService.setDestData({ ...this.destDataService.getDestData(), ...this.ageForm.value });
+
+      this.finalFormData = this.destDataService.getDestData();
+      console.log(this.finalFormData)
+    }
   }
 
   statusValue = false;
@@ -46,13 +69,13 @@ export class TravellersAgeComponent {
   @Output() onButtonClick = new EventEmitter<object>();
 
 
-   updateProgressBar(){
+  updateProgressBar() {
     console.log("clicked Buttton")
-    const moveProgress=document.querySelector('.cable-car') as HTMLElement | null;
+    const moveProgress = document.querySelector('.cable-car') as HTMLElement | null;
     if (moveProgress) {
-      
+
       moveProgress.style.marginLeft = '430px';
-      
+
       // transition properties
       moveProgress.style.transition = 'margin-left 5s ease';
 
@@ -60,16 +83,16 @@ export class TravellersAgeComponent {
 
       moveProgress.style.animationIterationCount = 'infinite';
       moveProgress.style.animationDirection = 'alternate';
-    }else{
+    } else {
       console.log('Style Not Applied ')
     }
-      // Emit an event to notify the parent component
-      this.onButtonClick.emit();
-   }
+    // Emit an event to notify the parent component
+    this.onButtonClick.emit();
+  }
 
 
-  
- 
+
+
 
 
 }

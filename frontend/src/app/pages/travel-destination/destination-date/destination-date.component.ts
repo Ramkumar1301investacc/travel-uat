@@ -1,9 +1,9 @@
-import { Component, ElementRef, EventEmitter, Input, ViewChild } from '@angular/core';
+import { Component, EventEmitter, Input, ViewChild } from '@angular/core';
 import { GetcountriesService } from 'src/app/service/getcountries.service';
 import { SharedBadgeDataService } from 'src/app/service/shared-badge-data.service';
-import { NgbPaginationModule, NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
 import { Output } from '@angular/core';
-import { Renderer2 } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms'
+import { DestAgeNumService } from 'src/app/service/dest-age-num.service';
 
 @Component({
   selector: 'app-destination-date',
@@ -14,9 +14,14 @@ import { Renderer2 } from '@angular/core';
 
 export class DestinationDateComponent {
 
-  constructor(private getCountries: GetcountriesService, private sharedBadgeService: SharedBadgeDataService,
-    private renderer: Renderer2
+  constructor (
+    private getCountries: GetcountriesService, 
+    private sharedBadgeService: SharedBadgeDataService, 
+    private formBuilder: FormBuilder,
+    private destDataService : DestAgeNumService
   ) { }
+
+  
 
   countries: any = [];                                                     //array to store countries
 
@@ -28,6 +33,8 @@ export class DestinationDateComponent {
     this.searchText = searchValue;
   }
 
+  travelForm : FormGroup = new FormGroup({})
+
   ngOnInit() {                                                              //function to fetch countries data and store it in array
     this.getCountries.getCountriesApi().subscribe((data: any) => {
       let allCountriesName = data['data'];
@@ -35,7 +42,15 @@ export class DestinationDateComponent {
         this.countries.push(country.country)
       })
     })
+
+    this.travelForm = this.formBuilder.group({
+      tDest: this.badgeItems,
+      tripStart:  ['', Validators.required],
+      tripEnd:  ['', Validators.required],
+      destBadge: this.badgeItems
+    })
   }
+
 
   divClass = '';
   classDiv = ''
@@ -50,7 +65,13 @@ export class DestinationDateComponent {
 
   getValue(e: any) {                                                         //function to add countries badges
     let value = e.target.innerHTML;
-    this.badgeItems.push(value)
+    this.badgeItems.push(value);
+    console.log('Badge Items', this.badgeItems)
+    this.travelForm = this.formBuilder.group({
+      tDest: [this.badgeItems],
+      tripStart:  ['', Validators.required],
+      tripEnd:  ['', Validators.required]
+    })
   }
 
   delete(i: any) {                                                           //function to delete badges
@@ -61,6 +82,15 @@ export class DestinationDateComponent {
   sendBadgeData() {
     this.sharedBadgeService.send_data.next(this.badgeItems);
   }
+
+  onSubmit()
+  {
+    if(this.travelForm.valid)
+    {
+      this.destDataService.setDestData({ ...this.destDataService.getDestData(), ...this.travelForm.value})
+    }
+  }
+
   /*  @Input() progressBar: ElementRef | undefined; */
   @Output() onButtonClick = new EventEmitter<object>();
 
@@ -85,4 +115,6 @@ export class DestinationDateComponent {
     // Emit an event to notify the parent component
     this.onButtonClick.emit();
   }
+
+
 }
