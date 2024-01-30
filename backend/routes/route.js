@@ -28,10 +28,12 @@ router.post('api/v1/travelPlan_Bajaj',async(req,res)=>{
 
 router.post('/api/v1/CalculatePremium', async (req, res) => {
     try {
+        //const plans=['']
+        const pfromdate=req.body.travelpremiumin.pfromdate;
         const  ptravelplan  = req.body.travelpremiumin.ptravelplan;
-        console.log(ptravelplan)
+        console.log(ptravelplan,pfromdate)
         // console.log(req.body)
-        const data = await CalculatePremium(ptravelplan);
+        const data = await CalculatePremium(ptravelplan,pfromdate);
         res.json(data);
     } catch (error) {
         console.error(error);

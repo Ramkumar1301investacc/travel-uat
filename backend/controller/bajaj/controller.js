@@ -71,7 +71,7 @@ export const getStudentTravelPlan = async () => {
 
 
 }; */
-export const CalculatePremium = async (ptravelplan) => {
+export const CalculatePremium = async (ptravelplan,pfromdate) => {
    try {
       // Assuming ptravelplan is a valid travel plan
      /*  const travelPlan = ['Travel Ace Standard', 'Travel Ace Silver', 'Travel Ace Gold'];
@@ -91,7 +91,7 @@ export const CalculatePremium = async (ptravelplan) => {
             "ptodate": "25-Feb-2024",
             "ptravelplan": ptravelplan,
             "pdateofbirth": "13-Jan-2001",
-            "pfromdate": "25-Jan-2024",
+            "pfromdate": pfromdate,
             "pareaplan": "Worldwide Excluding USA and Canada",
             "pdiscount": "700055"
          }
