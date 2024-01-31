@@ -11,8 +11,9 @@ const aIntemdCode = process.env.A_Intemd_Code;
 const getAllPlansUrl = process.env.GET_ALL_PLANS;
 const calculatepremium = process.env.CALCULATE_PREMIUM;
 router.use(bodyParser.json());
-router.use(express.json())
-router.get('api/v1/getStudentsTravelPlan', async(req, res) => {
+router.use(express.json());
+
+router.get('/api/v1/getStudentsTravelPlan', async(req, res) => {
     try {
         const data = await getStudentTravelPlan();
         res.json(data)
@@ -23,7 +24,7 @@ router.get('api/v1/getStudentsTravelPlan', async(req, res) => {
 })
 
 router.post('api/v1/travelPlan_Bajaj',async(req,res)=>{
-    
+        
 })
 
 router.post('/api/v1/CalculatePremium', async (req, res) => {
@@ -36,10 +37,15 @@ router.post('/api/v1/CalculatePremium', async (req, res) => {
         const data = await CalculatePremium(ptravelplan,pfromdate);
         res.json(data);
     } catch (error) {
-        console.error(error);
+        console.error(error);       
         res.status(500).json({ message: error.message });
     }
 });
 
+router.post('/sendData', (req, res) => {
+    const recievedData = req.body;
+    console.log('Recieved Data', recievedData);
+    res.status(200).json(recievedData)
+})
 
 export default router;

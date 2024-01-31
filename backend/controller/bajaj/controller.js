@@ -34,52 +34,15 @@ export const getStudentTravelPlan = async () => {
    }
 }
 
-/* export const CalculatePremium = async () => {
-   try {
-      let payload = {
-
-         "userid": auserId,
-         "password": apassword,
-         "familyflag": "N",
-         "puwFlag_out": "",
-         "travelpremiumin": {
-            "pspdiscount": "",
-            "ploading": "",
-            "ptodate": "25-Feb-2024",
-            "ptravelplan": "Travel Ace Platinum",
-            "pdateofbirth": "01-May-1962",
-            "pfromdate": "25-Jan-2024",
-            "pareaplan": "Worldwide Excluding USA and Canada",
-            "pdiscount": "700055"
-
-
-         }
-      };
-      let headers = {
-         "Content-Type": "application/json"
-      };
-      const response = await axios.post(calculatepremium, payload, { headers: headers })
-      console.log(response)
-      return response;
-
-
-
-
-   } catch (error) {
-      console.error('Error while executing calculate premium', error);
-   }
-
-
-}; */
-export const CalculatePremium = async (ptravelplan,pfromdate) => {
+export const CalculatePremium = async (ptravelplan, pfromdate) => {
    try {
       // Assuming ptravelplan is a valid travel plan
-     /*  const travelPlan = ['Travel Ace Standard', 'Travel Ace Silver', 'Travel Ace Gold'];
-
-      if (!travelPlan.includes(ptravelplan)) {
-         throw new Error('Invalid travel plan');
-      }
- */
+      /*  const travelPlan = ['Travel Ace Standard', 'Travel Ace Silver', 'Travel Ace Gold'];
+ 
+       if (!travelPlan.includes(ptravelplan)) {
+          throw new Error('Invalid travel plan');
+       }
+  */
       let payload = {
          "userid": auserId,
          "password": apassword,
@@ -118,3 +81,9 @@ export const CalculatePremium = async (ptravelplan,pfromdate) => {
       throw error; // Propagate the error to the caller
    }
 };
+
+
+export const sendTravellerData = async(getData) => {
+   const data = await getData;
+   return data
+}

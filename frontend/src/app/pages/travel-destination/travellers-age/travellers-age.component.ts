@@ -1,6 +1,8 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 import { DestAgeNumService } from 'src/app/service/dest-age-num.service';
+import { SendDataService } from 'src/app/service/sendData/send-data.service';
+
 
 @Component({
   selector: 'app-travellers-age',
@@ -12,6 +14,7 @@ export class TravellersAgeComponent {
   constructor(
     private formBuilder: FormBuilder,
     private destDataService: DestAgeNumService,
+    private sendTravellerData : SendDataService
   ) { }
   finalFormData: any;
   ageForm: FormGroup = new FormGroup({})
@@ -61,6 +64,15 @@ export class TravellersAgeComponent {
 
       this.finalFormData = this.destDataService.getDestData();
       console.log(this.finalFormData)
+
+      this.sendTravellerData.sendData(this.finalFormData).subscribe(
+        response => {
+          console.log('Data Sent')
+        },
+        error => {
+          console.log('error')
+        }
+      );
     }
   }
 
