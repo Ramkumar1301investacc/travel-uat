@@ -10,7 +10,7 @@ export class SendDataService {
     private http: HttpClient
   ) { }
 
-  private URL = 'http://localhost:8080/sendData'
+  private URL = 'http://localhost:8080/api/v1/CalculatePremium'
   sendData(data: any) {
     console.log('Service Data', data)
     return this.http.post(this.URL, data);

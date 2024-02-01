@@ -34,7 +34,7 @@ export const getStudentTravelPlan = async () => {
    }
 }
 
-export const CalculatePremium = async (ptravelplan, pfromdate) => {
+export const CalculatePremium = async (ptodate, ptravelplan, pdateofbirth, pfromdate ) => {
    try {
       // Assuming ptravelplan is a valid travel plan
       /*  const travelPlan = ['Travel Ace Standard', 'Travel Ace Silver', 'Travel Ace Gold'];
@@ -51,10 +51,10 @@ export const CalculatePremium = async (ptravelplan, pfromdate) => {
          "travelpremiumin": {
             "pspdiscount": "",
             "ploading": "",
-            "ptodate": "25-Feb-2024",
-            "ptravelplan": ptravelplan,
-            "pdateofbirth": "13-Jan-2001",
-            "pfromdate": pfromdate,
+            "ptodate": "29-Feb-2024",
+            "ptravelplan": "Travel Ace Standard",
+            "pdateofbirth": "01-May-1988",
+            "pfromdate": "25-Feb-2024",
             "pareaplan": "Worldwide Excluding USA and Canada",
             "pdiscount": "700055"
          }
@@ -75,6 +75,7 @@ export const CalculatePremium = async (ptravelplan, pfromdate) => {
       }
 
       const data = await response.json();
+      console.log(data)
       return data;
    } catch (error) {
       console.error('Error while executing calculate premium', error);
@@ -83,7 +84,9 @@ export const CalculatePremium = async (ptravelplan, pfromdate) => {
 };
 
 
-export const sendTravellerData = async(getData) => {
-   const data = await getData;
-   return data
-}
+// export const sendTravellerData = async(getData) => {
+//    const data = await getData;
+//    let destination = data.tDest;
+//    let startDate = data.tripStart;
+//    return destination, startDate;
+// }
