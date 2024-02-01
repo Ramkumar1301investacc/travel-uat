@@ -24,17 +24,34 @@ router.post('api/v1/travelPlan_Bajaj', async (req, res) => {
 
 router.post('/api/v1/CalculatePremium', async (req, res) => {
     try {
-        const pfromdate = new Date(req.body.tripStart);
         const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-        const day = pfromdate.getDate().toString().padStart(2, '0');
-        const month = months[pfromdate.getMonth()];
-        const year = pfromdate.getFullYear();
-        const formattedDate = `${day}-${month}-${year}`;
-        console.log(formattedDate);
+        
+        const pfromdate = new Date(req.body.tripStart);
+        const fromDay = pfromdate.getDate().toString().padStart(2, '0');
+        const fromMonth = months[pfromdate.getMonth()];
+        const fromYear = pfromdate.getFullYear();
+        const formattedFromDate = `${fromDay}-${fromMonth}-${fromYear}`;
+        console.log(formattedFromDate);
+
+        const ptodate = new Date(req.body.tripEnd);
+        const toDay = ptodate.getDate().toString().padStart(2, '0');
+        const toMonth = months[ptodate.getMonth()];
+        const toYear = ptodate.getFullYear();
+        const formattedToDate =  `${toDay}-${toMonth}-${toYear}`;
+        console.log(formattedToDate);
 
         const ptravelplan = 'Travel Ace Standard';
-        const ptodate = req.body.tripEnd;
-        const pdateofbirth = req.body.ageofTravellerOne;
+
+        const pdateofbirth = new Date(req.body.ageofTravellerOne);
+        const birthDay = pdateofbirth.getDate().toString().padStart(2, '0');
+        const birthMonth = months[pdateofbirth.getMonth()];
+        const birthYear = pdateofbirth.getFullYear();
+        const formattedBirthDate =  `${birthDay}-${birthMonth}-${birthYear}`;
+        console.log(formattedBirthDate);
+
+        const data = await CalculatePremium(formattedToDate, ptravelplan, formattedBirthDate, formattedFromDate);
+        res.json(data)
+
     } catch (error) {
         console.error(error);
         res.status(500).json({ message: error.message });
