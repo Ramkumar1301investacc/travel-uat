@@ -67,7 +67,7 @@ export class TravellersAgeComponent {
 
       this.sendTravellerData.sendData(this.finalFormData).subscribe(
         response => {
-          console.log('Data Sent')
+          console.log('Data Sent', response)
         },
         error => {
           console.log('error')
