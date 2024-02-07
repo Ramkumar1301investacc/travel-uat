@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 import { DestAgeNumService } from 'src/app/service/dest-age-num.service';
+import { GetDataService } from 'src/app/service/getData/get-data.service';
 import { SendDataService } from 'src/app/service/sendData/send-data.service';
 
 
@@ -14,7 +15,8 @@ export class TravellersAgeComponent {
   constructor(
     private formBuilder: FormBuilder,
     private destDataService: DestAgeNumService,
-    private sendTravellerData : SendDataService
+    private sendTravellerData : SendDataService,
+    private getPolicyDetails : GetDataService
   ) { }
   finalFormData: any;
   ageForm: FormGroup = new FormGroup({})
@@ -67,7 +69,9 @@ export class TravellersAgeComponent {
 
       this.sendTravellerData.sendData(this.finalFormData).subscribe(
         response => {
-          console.log('Data Sent', response)
+          // console.log('Data Sent', response)
+          this.getPolicyDetails.policyData = response;
+          console.log('Get Policy Details', this.getPolicyDetails)
         },
         error => {
           console.log('error')
@@ -101,10 +105,5 @@ export class TravellersAgeComponent {
     // Emit an event to notify the parent component
     this.onButtonClick.emit();
   }
-
-
-
-
-
 
 }

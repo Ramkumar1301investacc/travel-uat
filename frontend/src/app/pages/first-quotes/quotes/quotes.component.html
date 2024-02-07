@@ -176,7 +176,10 @@
                     <div class="hr-line"></div>
 
                     <div class="insurance-company-image">
-                        <img src="../../../assets/Travel_Page_Assets/Quotes Screen/Illustrations/TATA AIG Company Policy Frame.svg"
+                        <!-- <img src="../../../assets/Travel_Page_Assets/Quotes Screen/Illustrations/TATA AIG Company Policy Frame.svg"
+                            alt="company-pic"> -->
+
+                            <img style="background-color: blue;" src="../../../assets/Travel_Page_Assets/Quotes Screen/Illustrations/bajaj.png"
                             alt="company-pic">
                     </div>
 
@@ -206,7 +209,7 @@
 
                     <div class="buy-policy flex-column justify-content-center">
                         <a href="#">Policy Details</a>
-                        <p>₹ 5000</p>
+                        <p>₹ {{pData?.pTravelPremiumOut_out?.ptotalPremium}}</p>
                         <button type="button" class="btn btn-primary" routerLink="/traveller-form">Buy Now</button>
                     </div>
                 </div>
