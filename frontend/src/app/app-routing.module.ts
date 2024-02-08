@@ -26,7 +26,8 @@ const routes: Routes = [
       { path: "travellers-age", component: TravellersAgeComponent },
       { path: "travellers-number", component: MobileNumComponent },
       { path: "get-otp", component: GetOtpComponent }
-    ]
+    ],
+    
   },
   {
     path: 'first-quotes', component: FirstQuotesComponent,
@@ -35,14 +36,14 @@ const routes: Routes = [
       { path: "compare-quotes", component: CompareQuotesComponent }
     ]
   },
-  
+
   {
-    path:'traveller-form',component:FormComponent,
-    children:[
-      {path:"", component:PersonalDetailComponent},
-      {path:"kyc-nominee",component:KycVerifyComponent},
-      {path:"medical-details",component:MedicalFormComponent},
-      {path:"verify-form",component:FinalFormComponent}
+    path: 'traveller-form', component: FormComponent,
+    children: [
+      { path: "", component: PersonalDetailComponent },
+      { path: "kyc-nominee", component: KycVerifyComponent },
+      { path: "medical-details", component: MedicalFormComponent },
+      { path: "verify-form", component: FinalFormComponent }
     ]
   }
 

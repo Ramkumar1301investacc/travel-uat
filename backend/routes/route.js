@@ -1,7 +1,7 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import dotenv from 'dotenv';
-import { CalculatePremium, getStudentTravelPlan } from '../controller/bajaj/controller.js';
+import { CalculatePremium, getAceandPrimePlans, getStudentTravelPlan } from '../controller/bajaj/controller.js';
 const router = express.Router();
 dotenv.config();
 
@@ -15,6 +15,16 @@ router.get('/api/v1/getStudentsTravelPlan', async (req, res) => {
     } catch (error) {
         console.error(error);
         res.status(500).json({ message: error.message })
+    }
+})
+
+router.get('/api/v1/primeAcePlan', async (req, res) => {
+    try {
+        const data = await getAceandPrimePlans();
+        res.json(data)
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({message: error.message})
     }
 })
 

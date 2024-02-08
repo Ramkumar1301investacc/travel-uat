@@ -34,6 +34,29 @@ export const getStudentTravelPlan = async () => {
    }
 }
 
+export const getAceandPrimePlans = async() => {
+ try {
+   let payload =
+   {
+      "auserId": auserId,
+      "apassword": apassword,
+      "aIntemdCode": aIntemdCode,
+      "pDealerCode": "0",
+   }
+
+   let headers = {
+      "Content-Type": "application/json"
+   }
+
+   const response = await axios.post(getAllPlansUrl, payload, { headers: headers });
+   const allPlans = response.data.pTravelList_out;
+   const primeAcePlan = allPlans.filter((plan) => plan.pplan.includes('Prime') || plan.pplan.includes('Ace'));
+   return primeAcePlan;
+ } catch (error) {
+   console.error('Error while executing prime and ace plans', error)
+ }
+}
+
 export const CalculatePremium = async (ptodate, ptravelplan, pdateofbirth, pfromdate) => {
    try {
       // Assuming ptravelplan is a valid travel plan
@@ -56,7 +79,7 @@ export const CalculatePremium = async (ptodate, ptravelplan, pdateofbirth, pfrom
             "pdateofbirth": pdateofbirth,
             "pfromdate": pfromdate,
             "pareaplan": "Worldwide Excluding USA and Canada",
-            "pdiscount": "700055"
+            "pdiscount": "421202"
          }
       };
 

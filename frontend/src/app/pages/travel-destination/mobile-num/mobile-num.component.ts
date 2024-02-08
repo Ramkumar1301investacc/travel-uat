@@ -1,5 +1,4 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { GetDataService } from 'src/app/service/getData/get-data.service';
 
 @Component({
   selector: 'app-mobile-num',
@@ -9,7 +8,7 @@ import { GetDataService } from 'src/app/service/getData/get-data.service';
 export class MobileNumComponent {
 
   policyData : any;
-  constructor( private getData: GetDataService ) {}
+  constructor(  ) {}
 
   @Output() onButtonClick = new EventEmitter<object>();
 
@@ -35,10 +34,6 @@ export class MobileNumComponent {
      this.onButtonClick.emit();
   }
 
-  ngOnInit()
-  {
-    this.policyData = this.getData.policyData;
-    console.log('On Mobile Number', this.policyData)
-  }
+ 
 
 }
