@@ -2,6 +2,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 import { DestAgeNumService } from 'src/app/service/dest-age-num.service';
 import { GetDataService } from 'src/app/service/getData/get-data.service';
+import { GetPlansService } from 'src/app/service/getPlans/get-plans.service';
 import { SendDataService } from 'src/app/service/sendData/send-data.service';
 
 
@@ -15,8 +16,9 @@ export class TravellersAgeComponent {
   constructor(
     private formBuilder: FormBuilder,
     private destDataService: DestAgeNumService,
-    private sendTravellerData : SendDataService,
-    private getPolicyDetails : GetDataService
+    private sendTravellerData: SendDataService,
+    private getPolicyDetails: GetDataService,
+    private getPlans: GetPlansService
   ) { }
   finalFormData: any;
   ageForm: FormGroup = new FormGroup({})
@@ -63,18 +65,41 @@ export class TravellersAgeComponent {
       console.log('Valid');
 
       this.destDataService.setDestData({ ...this.destDataService.getDestData(), ...this.ageForm.value });
-
       this.finalFormData = this.destDataService.getDestData();
-      console.log(this.finalFormData)
+     
+      const date = new Date();
+      const ageDate = new Date(this.finalFormData.ageofTravellerOne);
+      const travellerAgeYear = ageDate.getFullYear();
+      const currentYear = date.getFullYear();
 
-      this.sendTravellerData.sendData(this.finalFormData).subscribe(
+      const travellerAge =  Math.abs(travellerAgeYear - currentYear);
+
+
+      let filterredPlans = []
+      if(travellerAge > 60 && travellerAge < 71)
+      {
+        filterredPlans = this.getPlans.plans.filter((singlePlan: { pplan: string }) => {return singlePlan.pplan.includes('Age')})
+        console.log('Age Plans', filterredPlans)
+      }
+      else
+      {
+        filterredPlans = this.getPlans.plans;
+        console.log('Without if else', filterredPlans)
+      }
+      // else if(travellerAge < 70)
+      // {
+      //   filterredPlans = this.getPlans.plans.filter((singlePlan: { pplan: string }) => {return singlePlan.pplan.includes('Age')})
+      //   console.log('Age Plans', filterredPlans)
+      // }
+
+      this.sendTravellerData.sendData(this.finalFormData, filterredPlans).subscribe(
         response => {
-          // console.log('Data Sent', response)
+          //Getting data that is coming from backend
           this.getPolicyDetails.policyData = response;
-          console.log('Get Policy Details', this.getPolicyDetails)
+          console.log('Data coming from backend', this.getPolicyDetails.policyData)
         },
         error => {
-          console.log('error')
+          console.log('error', error)
         }
       );
     }

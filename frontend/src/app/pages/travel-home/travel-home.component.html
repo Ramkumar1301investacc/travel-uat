@@ -14,7 +14,7 @@
 
     <div class="bottom-section">
         <div class="cards-section container-fluid w-75 d-flex justify-content-around flex-wrap"
-            routerLink="/travel-destination">
+            >
 
             <div class="card one-time d-flex flex-direction-column justify-content-around align-items-center">
                 <div class="cardbody p-4">
@@ -35,7 +35,7 @@
                 </div>
             </div>
 
-            <div class="card multiple-adventure d-flex flex-direction-column justify-content-around align-items-center">
+            <div routerLink="/travel-destination" (click)="callCorporatePlans()" class="card multiple-adventure d-flex flex-direction-column justify-content-around align-items-center">
                 <div class="cardbody p-4">
                     <div class="title-icon d-flex justify-content-between align-items-center">
                         <p class="mb-0">Multiple Adventures</p>
@@ -54,7 +54,7 @@
                 </div>
             </div>
 
-            <div class="card student-voyage d-flex flex-direction-column justify-content-around align-items-center">
+            <div routerLink="/travel-destination" (click)="callStudentPlans()" class="card student-voyage d-flex flex-direction-column justify-content-around align-items-center">
                 <div class="cardbody p-4">
                     <div class="title-icon d-flex justify-content-between align-items-center">
                         <p class="mb-0">Student Voyage</p>

@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
+import { DestAgeNumService } from 'src/app/service/dest-age-num.service';
 
 @Component({
   selector: 'app-mobile-num',
@@ -7,8 +8,8 @@ import { Component, EventEmitter, Output } from '@angular/core';
 })
 export class MobileNumComponent {
 
-  policyData : any;
-  constructor(  ) {}
+  getDataOfTraveller: any
+  constructor( private getTravellerData : DestAgeNumService ) {}
 
   @Output() onButtonClick = new EventEmitter<object>();
 
@@ -34,6 +35,10 @@ export class MobileNumComponent {
      this.onButtonClick.emit();
   }
 
- 
+ ngOnInit()
+ {
+  this.getDataOfTraveller = this.getTravellerData.getDestData();
+  console.log('Getting Traveller Data New', this.getDataOfTraveller)
+ }
 
 }

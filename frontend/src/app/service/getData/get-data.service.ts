@@ -8,5 +8,5 @@ export class GetDataService {
 
   constructor( ) { }
   policyData : any = ''
-  
+  // policyData : {}[] = []
 }

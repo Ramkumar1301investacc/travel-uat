@@ -28,44 +28,41 @@ export const getStudentTravelPlan = async () => {
       const response = await axios.post(getAllPlansUrl, payload, { headers: headers });
       const allPlans = response.data.pTravelList_out;
       const studentsPlan = allPlans.filter((plan) => plan.pplan.includes('Student'));
+
       return studentsPlan;
    } catch (error) {
       console.error('Error while executing getStudentTravelPlan', error);
    }
 }
 
-export const getAceandPrimePlans = async() => {
- try {
-   let payload =
-   {
-      "auserId": auserId,
-      "apassword": apassword,
-      "aIntemdCode": aIntemdCode,
-      "pDealerCode": "0",
-   }
+export const getCorporatePlans = async () => {
+   try {
+      let payload =
+      {
+         "auserId": auserId,
+         "apassword": apassword,
+         "aIntemdCode": aIntemdCode,
+         "pDealerCode": "0",
+      }
 
-   let headers = {
-      "Content-Type": "application/json"
-   }
+      let headers = {
+         "Content-Type": "application/json"
+      }
 
-   const response = await axios.post(getAllPlansUrl, payload, { headers: headers });
-   const allPlans = response.data.pTravelList_out;
-   const primeAcePlan = allPlans.filter((plan) => plan.pplan.includes('Prime') || plan.pplan.includes('Ace'));
-   return primeAcePlan;
- } catch (error) {
-   console.error('Error while executing prime and ace plans', error)
- }
+      const response = await axios.post(getAllPlansUrl, payload, { headers: headers });
+      const allPlans = response.data.pTravelList_out;
+      const corporatePlan = allPlans.filter((plan) => plan.pplan.includes('Corporate')) 
+
+      return corporatePlan;
+
+   } catch (error) {
+      console.error('Error while executing corporate plans', error)
+   }
 }
 
 export const CalculatePremium = async (ptodate, ptravelplan, pdateofbirth, pfromdate) => {
    try {
-      // Assuming ptravelplan is a valid travel plan
-      /*  const travelPlan = ['Travel Ace Standard', 'Travel Ace Silver', 'Travel Ace Gold'];
- 
-       if (!travelPlan.includes(ptravelplan)) {
-          throw new Error('Invalid travel plan');
-       }
-  */
+   
       let payload = {
          "userid": auserId,
          "password": apassword,
@@ -94,14 +91,22 @@ export const CalculatePremium = async (ptodate, ptravelplan, pdateofbirth, pfrom
       });
 
       if (!response.ok) {
-         throw new Error(`HTTP error! Status: ${response.status}`);
+         throw new Error(`HTTP error! Error: ${response.error}`);
       }
 
       const data = await response.json();
-      console.log(data)
       return data;
    } catch (error) {
       console.error('Error while executing calculate premium', error);
       throw error; // Propagate the error to the caller
    }
 };
+
+
+   // For Calculate premium: Assuming ptravelplan is a valid travel plan
+      /*  const travelPlan = ['Travel Ace Standard', 'Travel Ace Silver', 'Travel Ace Gold'];
+ 
+       if (!travelPlan.includes(ptravelplan)) {
+          throw new Error('Invalid travel plan');
+       }
+  */
