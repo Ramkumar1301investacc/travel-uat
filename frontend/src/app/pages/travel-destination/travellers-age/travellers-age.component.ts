@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 import { DestAgeNumService } from 'src/app/service/dest-age-num.service';
+import { FiltersService } from 'src/app/service/filters/filters.service';
 import { GetDataService } from 'src/app/service/getData/get-data.service';
 import { GetPlansService } from 'src/app/service/getPlans/get-plans.service';
 import { SendDataService } from 'src/app/service/sendData/send-data.service';
@@ -18,7 +19,8 @@ export class TravellersAgeComponent {
     private destDataService: DestAgeNumService,
     private sendTravellerData: SendDataService,
     private getPolicyDetails: GetDataService,
-    private getPlans: GetPlansService
+    private getPlans: GetPlansService,
+    private filters: FiltersService
   ) { }
   finalFormData: any;
   ageForm: FormGroup = new FormGroup({})
@@ -79,12 +81,10 @@ export class TravellersAgeComponent {
       if(travellerAge > 60 && travellerAge < 71)
       {
         filterredPlans = this.getPlans.plans.filter((singlePlan: { pplan: string }) => {return singlePlan.pplan.includes('Age')})
-        console.log('Age Plans', filterredPlans)
       }
       else
       {
         filterredPlans = this.getPlans.plans;
-        console.log('Without if else', filterredPlans)
       }
       // else if(travellerAge < 70)
       // {
@@ -96,7 +96,7 @@ export class TravellersAgeComponent {
         response => {
           //Getting data that is coming from backend
           this.getPolicyDetails.policyData = response;
-          console.log('Data coming from backend', this.getPolicyDetails.policyData)
+          console.log('Console from travellers-age. Data coming from backend', this.getPolicyDetails.policyData)
         },
         error => {
           console.log('error', error)
