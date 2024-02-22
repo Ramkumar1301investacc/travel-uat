@@ -17,7 +17,7 @@ export class DestAgeNumService {
   }
 
   getDestData(): any {
-    console.log('Retrieving Destination and Traveller data', this.destData);
+    console.log('Console from service. Retrieving Destination and Traveller data coming from destination date and travellers age.', this.destData);
     return this.destData
   }
 }

@@ -24,15 +24,27 @@
                             <h2 class="accordion-header" id="headingTwo">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                    Popular Filters
+                                    Sum Insured
                                 </button>
                             </h2>
-                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+
+                            <!-- first is a built-in variable in Angular's *ngFor loop which is true only for the first iteration of the loop and false for all subsequent iterations. -->
+
+                            <div *ngFor="let sumAmount of sumInsuredValues; let first = first" id="collapseTwo"
+                                class="accordion-collapse collapse" aria-labelledby="headingTwo"
                                 data-bs-parent="#headingOne">
                                 <div class="accordion-body">
-                                    Second
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                            id="flexRadioDefault{{sumAmount}}" [value]="sumAmount" [checked]="first"
+                                            (change)="onItemChange($event)">
+                                        <label class="form-check-label" for="flexRadioDefault1">
+                                            ${{sumAmount}}
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
+
                         </div>
 
                         <div class="accordion-item">
@@ -160,71 +172,75 @@
 
         <div class="all-policies-div">
 
-            <!-- <div class="loading" ></div> -->
-            <div class="mb-4" *ngFor="let data of pData">
-                <div class="all-policies d-flex justify-content-around align-items-center">
+            <!-- <div *ngIf="loading" class="loading">Loading ...</div> -->
 
-                    <div class="compare-checkbox">
-                        <div class="input-group">
-                            <div class="input-group-text d-flex flex-column input-check-box">
-                                <input class="form-check-input mt-0" type="checkbox" value=""
-                                    aria-label="Checkbox for following text input">
-                                <label routerLink="compare-quotes">Compare</label>
+            <!-- <div *ngIf="!loading; else loadingTemplate"> -->
+                <div class="mb-4" *ngFor="let data of pFilterData">
+                    <div class="all-policies d-flex justify-content-around align-items-center">
+
+                        <div class="compare-checkbox">
+                            <div class="input-group">
+                                <div class="input-group-text d-flex flex-column input-check-box">
+                                    <input class="form-check-input mt-0" type="checkbox" value=""
+                                        aria-label="Checkbox for following text input">
+                                    <label routerLink="compare-quotes">Compare</label>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="hr-line"></div>
+                        <div class="hr-line"></div>
 
-                    <div class="insurance-company-image">
-                        <!-- <img src="../../../assets/Travel_Page_Assets/Quotes Screen/Illustrations/TATA AIG Company Policy Frame.svg"
+                        <div class="insurance-company-image">
+                            <!-- <img src="../../../assets/Travel_Page_Assets/Quotes Screen/Illustrations/TATA AIG Company Policy Frame.svg"
                             alt="company-pic"> -->
 
-                        <img style="background-color: blue;"
-                            src="../../../assets/Travel_Page_Assets/Quotes Screen/Illustrations/bajaj.png"
-                            alt="company-pic">
+                            <img style="background-color: blue;"
+                                src="../../../assets/Travel_Page_Assets/Quotes Screen/Illustrations/bajaj.png"
+                                alt="company-pic">
 
-                        <p class="mt-2">{{data?.pTravelPremiumIn_inout?.ptravelplan}}</p>
-                    </div>
+                            <p class="mt-2">{{data?.pTravelPremiumIn_inout?.ptravelplan}}</p>
+                        </div>
 
-                    <div class="hr-line"></div>
+                        <div class="hr-line"></div>
 
-                    <div class="insurance-details">
-                        <ul>
-                            <li>
-                                <img
-                                    src="../../../assets/Travel_Page_Assets/Quotes Screen/Icons/Yellow TickMark-Icon.svg">
-                                <p>Medical Coverage <span>₹43000/-</span></p>
-                            </li>
-                            <li>
-                                <img
-                                    src="../../../assets/Travel_Page_Assets/Quotes Screen/Icons/Yellow TickMark-Icon.svg">
-                                <p>Passport lost Coverage<span>₹43000/-</span></p>
-                            </li>
-                            <li>
-                                <img
-                                    src="../../../assets/Travel_Page_Assets/Quotes Screen/Icons/Yellow TickMark-Icon.svg">
-                                <p>Baggage lost Coverage <span>₹43000/- Primary</span></p>
-                            </li>
-                        </ul>
-                    </div>
+                        <div class="insurance-details">
+                            <ul>
+                                <li>
+                                    <img
+                                        src="../../../assets/Travel_Page_Assets/Quotes Screen/Icons/Yellow TickMark-Icon.svg">
+                                    <p>Medical Coverage <span>₹43000/-</span></p>
+                                </li>
+                                <li>
+                                    <img
+                                        src="../../../assets/Travel_Page_Assets/Quotes Screen/Icons/Yellow TickMark-Icon.svg">
+                                    <p>Passport lost Coverage<span>₹43000/-</span></p>
+                                </li>
+                                <li>
+                                    <img
+                                        src="../../../assets/Travel_Page_Assets/Quotes Screen/Icons/Yellow TickMark-Icon.svg">
+                                    <p>Baggage lost Coverage <span>₹43000/- Primary</span></p>
+                                </li>
+                            </ul>
+                        </div>
 
-                    <div class="hr-line"></div>
+                        <div class="hr-line"></div>
 
-                    <div class="buy-policy flex-column justify-content-center">
-                        <a href="#">Policy Details</a>
-                        <p>₹ {{data?.pTravelPremiumOut_out?.ptotalPremium}}</p>
-                        <button type="button" class="btn btn-primary" routerLink="/traveller-form">Buy Now</button>
+                        <div class="buy-policy flex-column justify-content-center">
+                            <a href="#">Policy Details</a>
+                            <p>₹ {{data?.pTravelPremiumOut_out?.ptotalPremium}}</p>
+                            <button type="button" class="btn btn-primary" routerLink="/traveller-form">Buy Now</button>
+                        </div>
                     </div>
                 </div>
-                <!-- <p class="all-policy-footer text-center">3 more plans from<span> TATA AIG Travel Insurance</span>
-                </p> -->
-            </div>
+            <!-- </div> -->
 
+            <!-- <ng-template #loadingTemplate>
+                <p>Loading...</p>
+            </ng-template> -->
 
             <!--Looping -->
 
-<!-- 
+            <!-- 
             <div *ngFor="let plan of primeAcePlans" class="mb-4">
                 <div class="all-policies d-flex justify-content-around align-items-center">
 

@@ -54,11 +54,27 @@ router.post('/api/v1/CalculatePremium', async (req, res) => {
         const formattedToDate = `${toDay}-${toMonth}-${toYear}`;
        
 
-        const ptravelplan = ['Travel Prime Individual Silver 50000 USD', 'Travel Prime Individual Super Platinum 7.5 lakhs USD', 'Travel Prime Individual Gold 2 lakhs USD']
+        // const ptravelplan = ['Travel Prime Individual Silver 50000 USD', 'Travel Prime Individual Super Platinum 7.5 lakhs USD', 'Travel Prime Individual Gold 2 lakhs USD']
         
-
+        // const sumInsured = await req.body.sumInsured;
         const plans = await req.body.plans.map((plan) => plan.pplan);
-        console.log(plans)
+        // let filteredPlans = []
+        // console.log(sumInsured, plans)
+        // if(sumInsured == 50000)
+        // {
+        //     filteredPlans = plans.filter((plan) => { return plan.includes('Standard')});
+        //     console.log('Filtered Plans', filteredPlans)
+        // }
+        // else if(sumInsured == 100000)
+        // {
+        //     filteredPlans = plans.filter((plan) => { return plan.includes('Silver')});
+        //     console.log('Filtered Plans', filteredPlans)
+        // }
+        // else if(sumInsured == 200000)
+        // {
+        //     filteredPlans = plans.filter((plan) => { return plan.includes('Gold')});
+        //     console.log('Filtered Plans', filteredPlans)
+        // }
         
 
         const pdateofbirth = new Date(req.body.data.ageofTravellerOne);
@@ -71,7 +87,7 @@ router.post('/api/v1/CalculatePremium', async (req, res) => {
         const results = []
         for(let plan of plans)
         {
-            const data = await CalculatePremium(formattedToDate, plan, formattedBirthDate, formattedFromDate)
+            const data = await CalculatePremium(formattedToDate, plan, formattedBirthDate, formattedFromDate);
             console.log(data)
             results.push(data)
         }

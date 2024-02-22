@@ -15,7 +15,7 @@ export class TravelHomeComponent {
   callStudentPlans() {
     this.sub = this.plans.getStudentPlans().subscribe((data) => {
       this.plans.plans = data; // populating the variable from the service itself
-      // console.log(this.plans.studentPlans.map((data: { pplan: any; }) => data.pplan))
+      console.log(this.plans.plans.map((data: { pplan: any; }) => data.pplan))
     })
   }
 

@@ -38,7 +38,6 @@ export class MobileNumComponent {
  ngOnInit()
  {
   this.getDataOfTraveller = this.getTravellerData.getDestData();
-  console.log('Getting Traveller Data New', this.getDataOfTraveller)
  }
 
 }
