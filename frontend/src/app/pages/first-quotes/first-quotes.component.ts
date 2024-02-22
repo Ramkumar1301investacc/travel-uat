@@ -1,18 +1,22 @@
+import { EditFormService } from '../../service/editData/edit-form.service';
+import { TravelerForm } from 'src/app/Models/traveler-form';
+import { SendDataService } from './../../service/sendData/send-data.service';
 import { Component, OnInit, Pipe , PipeTransform} from '@angular/core';
 import { DestAgeNumService } from 'src/app/service/dest-age-num.service';
-import { TravelDetails } from '../../Interfaces/travel-details';
+import { TravelDetails } from 'src/app/Models/travel-details';
 import { DatePipe } from '@angular/common';
 import { pipe } from 'rxjs';
+import { FormGroup , FormBuilder, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-first-quotes',
-  templateUrl: './first-quotes.component.html',
+  templateUrl:'./first-quotes.component.html',
   styleUrls: ['./first-quotes.component.css'],
   providers:[DatePipe],
 })
 
 
-export class FirstQuotesComponent {
+export class FirstQuotesComponent{
   destData: TravelDetails = {
     ageofTravellerOne: "",
     ageofTravellerTwo: "",
@@ -22,13 +26,15 @@ export class FirstQuotesComponent {
     tripEnd: ""
   };  
 
+
   formattedTripStart: string | null;
   formattedTripEnd: string | null;
-  birthdate: string; 
+  updateTripStart:string | null;
 
 
-  constructor(private getDestData:DestAgeNumService,private datePipe:DatePipe){
+  constructor(private getDestData:DestAgeNumService,private datePipe:DatePipe,private setdestdata:DestAgeNumService,private formBuilder:FormBuilder,private editDestData:EditFormService){
     // this.birthdate = this.destData.ageofTravellerOne;
+    // this.data=this.setDestData;
   }
 
 /*For calculating age*/
@@ -48,7 +54,6 @@ export class FirstQuotesComponent {
   formatTripDates(): void {
     // Format tripStart date
     this.formattedTripStart = this.formatDate(this.destData.tripStart);
-
     // Format tripEnd date
     this.formattedTripEnd = this.formatDate(this.destData.tripEnd);
   }
@@ -61,16 +66,46 @@ export class FirstQuotesComponent {
     return this.datePipe.transform(date, 'dd/MM/yyyy');
   }
 
-  //onclick funtion for edit button
-  onClick(){
-    alert("edit button is clicked");
+  //editDetails : for updating data
+  /*formData(){
+    this.destData=this.getDestData.getDestData();
+    this.updateTripStart=this.destData.tripStart;
+    console.log("Updated date after adding through form:"+this.updateTripStart);
+  }*/
+
+  updateForm:FormGroup=new FormGroup({});
+  /*travelDetail : FormGroup = new FormGroup({}) //edited code !important*/
+
+  onSubmit(){
+    if(this.updateForm.valid){
+      let travelerform:TravelerForm=this.updateForm.value;
+      this.editDestData.addFormDetails(travelerform);
+    } 
   }
+  
 
   ngOnInit(){
+
     this.destData=this.getDestData.getDestData();
     this.formatTripDates();
-    console.log(this.calculateAge());
 
+    //validators for traveldetail
+    /*this.travelDetail =this.formBuilder.group({
+      ageofTraveller:['',Validators.required],
+      numOfTraveller:['',Validators.required],
+      tDest:['',Validators.required],
+      tripStart:['',Validators.required],
+      tripEnd:['',Validators.required], 
+    })*/
+    
+    //validators for editform
+    this.updateForm=this.formBuilder.group({
+      tripStartDate:['',Validators.required],
+      tripEndDate:['',Validators.required],
+      travelDestination:['',Validators.required],
+      travelerAge:['',Validators.required]
+    })
+    // console.log("Updated data is called : "+this.onSubmit());
   }
 
 }
