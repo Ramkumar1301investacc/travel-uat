@@ -1,10 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 import { DestAgeNumService } from 'src/app/service/dest-age-num.service';
-import { FiltersService } from 'src/app/service/filters/filters.service';
-import { GetDataService } from 'src/app/service/getData/get-data.service';
-import { GetPlansService } from 'src/app/service/getPlans/get-plans.service';
-import { SendDataService } from 'src/app/service/sendData/send-data.service';
 
 
 @Component({
@@ -16,11 +12,7 @@ export class TravellersAgeComponent {
 
   constructor(
     private formBuilder: FormBuilder,
-    private destDataService: DestAgeNumService,
-    private sendTravellerData: SendDataService,
-    private getPolicyDetails: GetDataService,
-    private getPlans: GetPlansService,
-    private filters: FiltersService
+    private destDataService: DestAgeNumService
   ) { }
   finalFormData: any;
   ageForm: FormGroup = new FormGroup({})
@@ -75,33 +67,6 @@ export class TravellersAgeComponent {
       const currentYear = date.getFullYear();
 
       const travellerAge =  Math.abs(travellerAgeYear - currentYear);
-
-
-      let filterredPlans = []
-      if(travellerAge > 60 && travellerAge < 71)
-      {
-        filterredPlans = this.getPlans.plans.filter((singlePlan: { pplan: string }) => {return singlePlan.pplan.includes('Age')})
-      }
-      else
-      {
-        filterredPlans = this.getPlans.plans;
-      }
-      // else if(travellerAge < 70)
-      // {
-      //   filterredPlans = this.getPlans.plans.filter((singlePlan: { pplan: string }) => {return singlePlan.pplan.includes('Age')})
-      //   console.log('Age Plans', filterredPlans)
-      // }
-
-      this.sendTravellerData.sendData(this.finalFormData, filterredPlans).subscribe(
-        response => {
-          //Getting data that is coming from backend
-          this.getPolicyDetails.policyData = response;
-          console.log('Console from travellers-age. Data coming from backend', this.getPolicyDetails.policyData)
-        },
-        error => {
-          console.log('error', error)
-        }
-      );
     }
   }
 

@@ -172,9 +172,13 @@
 
         <div class="all-policies-div">
 
-            <!-- <div *ngIf="loading" class="loading">Loading ...</div> -->
+            <div *ngIf="loading" class="loading d-flex justify-content-center align-items-center ">
+                <div class="spinner-border inner-loader mt-4" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+            </div>
 
-            <!-- <div *ngIf="!loading; else loadingTemplate"> -->
+            <div *ngIf="!loading">
                 <div class="mb-4" *ngFor="let data of pFilterData">
                     <div class="all-policies d-flex justify-content-around align-items-center">
 
@@ -232,7 +236,7 @@
                         </div>
                     </div>
                 </div>
-            <!-- </div> -->
+            </div>
 
             <!-- <ng-template #loadingTemplate>
                 <p>Loading...</p>

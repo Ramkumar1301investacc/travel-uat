@@ -60,6 +60,33 @@ export const getCorporatePlans = async () => {
    }
 }
 
+export const getSingleTripPlans = async () => {
+   try {
+      let payload =
+      {
+         "auserId": auserId,
+         "apassword": apassword,
+         "aIntemdCode": aIntemdCode,
+         "pDealerCode": "0",
+      }
+
+      let headers = {
+         "Content-Type": "application/json"
+      }
+
+      const response = await axios.post(getAllPlansUrl, payload, { headers: headers });
+      const allPlans = response.data.pTravelList_out;
+      console.log(allPlans)
+      const individualPlan = allPlans.filter((plan) => plan.pplan.includes('Individual')) 
+
+      return individualPlan;
+
+
+   } catch (error) {
+      console.error('Error while executing get single trip plans', error)
+   }
+}
+
 export const CalculatePremium = async (ptodate, ptravelplan, pdateofbirth, pfromdate) => {
    try {
    

@@ -1,7 +1,7 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import dotenv from 'dotenv';
-import { CalculatePremium, getCorporatePlans, getStudentTravelPlan } from '../controller/bajaj/controller.js';
+import { CalculatePremium, getCorporatePlans, getSingleTripPlans, getStudentTravelPlan } from '../controller/bajaj/controller.js';
 const router = express.Router();
 dotenv.config();
 
@@ -31,6 +31,16 @@ router.get('/api/v1/corporatePlan', async (req, res) => {
     }
 })
 
+router.get('/api/v1/singleTripPlan', async (req, res) => {
+    try {
+        const data = await getSingleTripPlans();
+        res.json(data)
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({message: error.message})
+    }
+})
+
 router.post('api/v1/travelPlan_Bajaj', async (req, res) => {
 
 })
@@ -52,31 +62,8 @@ router.post('/api/v1/CalculatePremium', async (req, res) => {
         const toMonth = months[ptodate.getMonth()];
         const toYear = ptodate.getFullYear();
         const formattedToDate = `${toDay}-${toMonth}-${toYear}`;
-       
-
-        // const ptravelplan = ['Travel Prime Individual Silver 50000 USD', 'Travel Prime Individual Super Platinum 7.5 lakhs USD', 'Travel Prime Individual Gold 2 lakhs USD']
-        
-        // const sumInsured = await req.body.sumInsured;
         const plans = await req.body.plans.map((plan) => plan.pplan);
-        // let filteredPlans = []
-        // console.log(sumInsured, plans)
-        // if(sumInsured == 50000)
-        // {
-        //     filteredPlans = plans.filter((plan) => { return plan.includes('Standard')});
-        //     console.log('Filtered Plans', filteredPlans)
-        // }
-        // else if(sumInsured == 100000)
-        // {
-        //     filteredPlans = plans.filter((plan) => { return plan.includes('Silver')});
-        //     console.log('Filtered Plans', filteredPlans)
-        // }
-        // else if(sumInsured == 200000)
-        // {
-        //     filteredPlans = plans.filter((plan) => { return plan.includes('Gold')});
-        //     console.log('Filtered Plans', filteredPlans)
-        // }
-        
-
+     
         const pdateofbirth = new Date(req.body.data.ageofTravellerOne);
         const birthDay = pdateofbirth.getDate().toString().padStart(2, '0');
         const birthMonth = months[pdateofbirth.getMonth()];
@@ -90,15 +77,11 @@ router.post('/api/v1/CalculatePremium', async (req, res) => {
             const data = await CalculatePremium(formattedToDate, plan, formattedBirthDate, formattedFromDate);
             console.log(data)
             results.push(data)
+            
         }
         res.json(results)
-        // const data = await CalculatePremium(formattedToDate, ptravelplan, formattedBirthDate, formattedFromDate);
-        //     res.json(data)
         
-
-
-
-
+        
     } catch (error) {
         console.error(error);
         res.status(500).json({ message: error.message });
