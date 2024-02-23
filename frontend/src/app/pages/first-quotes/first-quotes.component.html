@@ -37,18 +37,19 @@
     <div class="traveller-ribbon d-flex justify-content-around align-items-center">
         <div>
             <p>Travelers Age</p>
-            <h3>32</h3>
+            <h3>{{calculateAge()}}</h3>
         </div>
         <div>
             <p>Travel Dates</p>
-            <h3>04th / Nov / 2023 - 10th / Nov / 2023</h3>
+            <h3>{{formattedTripStart}}   {{formattedTripEnd}}</h3>
+            <!-- <h3>04th / Nov / 2023 - 10th / Nov / 2023</h3> -->
         </div>
         <div>
             <p>Trip Destination</p>
-            <h3>Singapore</h3>
+            <h3>{{destData.tDest}}</h3>
         </div>
         <div class="d-flex align-items-center">
-            <h3 class="text-decoration-underline">Edit
+            <h3 class="text-decoration-underline" data-bs-toggle="modal" data-bs-target="#exampleModal">Edit
                 <img src="../../../assets/Travel_Page_Assets/Quotes Screen/Icons/EDIT PencilSimple-Icon.svg"
                     alt="pencil-icon">
             </h3>
@@ -58,3 +59,53 @@
     <router-outlet></router-outlet>
 
 </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Details</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form [formGroup]="updateForm" (ngSubmit)="onSubmit()">
+                <div class="mb-2 edit-details">
+                    <label for="travel-date" class="col-form-label">Start Date</label>
+                    <input type="date" class="form-control" id="travel-date" formControlName="tripStartDate" >
+                    <div *ngIf="updateForm.get('tripStartDate')?.invalid && updateForm.get('tripStartDate')?.touched">
+                        start date is required
+                    </div>
+
+                    <label for="travel-date" class="col-form-label">End Date </label>
+                    <input type="date" class="form-control" id="travel-date" formControlName="tripEndDate">
+                    <div *ngIf="updateForm.get('tripEndDate')?.invalid && updateForm.get('tripEndDate')?.touched">
+                        End date is required
+                    </div>
+                </div>
+
+                <div class="mb-2 edit-details">
+                    <label for="travel-dest" class="col-form-label">Travel Destinations</label>
+                    <input type="text" class="form-control" id="travel-dest" formControlName="travelDestination">
+                    <div *ngIf="updateForm.get('travelDestination')?.invalid && updateForm.get('travelDestination')?.touched">
+                        Destination is required
+                    </div>
+                </div>
+
+                <div class="mb-2 edit-details"> 
+                    <label for="traveler-age" class="col-form-label">Traveler Age</label>
+                    <input type="text" class="form-control" id="traveler-age" formControlName="travelerAge">
+                    <div *ngIf="updateForm.get('travelerAge')?.invalid && updateForm.get('travelerAge')?.touched">
+                        age is required
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" [disabled]="updateForm.invalid" class="btn btn-primary">Save changes</button>
+                </div>
+            </form>
+        </div>
+      </div>
+    </div>
+  </div>

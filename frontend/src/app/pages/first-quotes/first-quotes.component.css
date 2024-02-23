@@ -123,3 +123,15 @@
         font-size: 12px;
     }
 }
+
+
+
+/******edit dialouge-box***/
+.edit-details{
+    font-size: 15px;
+}
+
+
+.modal-content{
+    width: 400px;
+}

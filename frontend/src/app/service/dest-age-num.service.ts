@@ -1,11 +1,14 @@
 import { Injectable } from '@angular/core';
+import { TravelerForm } from '../Models/traveler-form';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DestAgeNumService {
 
-  constructor() { }
+
+  constructor() { 
+  }
   private destData: any;
 
   setDestData(data: any)

@@ -11,6 +11,7 @@ import { DestinationDateComponent } from './pages/travel-destination/destination
 import { TravellersAgeComponent } from './pages/travel-destination/travellers-age/travellers-age.component';
 import { MobileNumComponent } from './pages/travel-destination/mobile-num/mobile-num.component';
 import { GetOtpComponent } from './pages/travel-destination/get-otp/get-otp.component';
+import { DatePipe } from '@angular/common';
 
 import { NgOtpInputModule } from  'ng-otp-input';
 import { FirstQuotesComponent } from './pages/first-quotes/first-quotes.component';
@@ -51,9 +52,9 @@ import { ProgressBarComponent } from './component/progress-bar/progress-bar.comp
         KycVerifyComponent,
         MedicalFormComponent,
         FinalFormComponent,
-        ProgressBarComponent
+        ProgressBarComponent,
     ],
-    providers: [FormDataService],
+    providers: [FormDataService,DatePipe],
     bootstrap: [AppComponent],
     imports: [
         BrowserModule,
