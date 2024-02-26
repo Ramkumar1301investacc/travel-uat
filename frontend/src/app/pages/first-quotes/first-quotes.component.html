@@ -41,7 +41,7 @@
         </div>
         <div>
             <p>Travel Dates</p>
-            <h3>{{formattedTripStart}}   {{formattedTripEnd}}</h3>
+            <h3>{{updateForm.get('tripStartDate')?.value}}   {{formattedTripEnd}}</h3>
             <!-- <h3>04th / Nov / 2023 - 10th / Nov / 2023</h3> -->
         </div>
         <div>
@@ -69,10 +69,10 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-            <form [formGroup]="updateForm" (ngSubmit)="onSubmit()">
+            <form [formGroup]="updateForm">
                 <div class="mb-2 edit-details">
                     <label for="travel-date" class="col-form-label">Start Date</label>
-                    <input type="date" class="form-control" id="travel-date" formControlName="tripStartDate" >
+                    <input type="date" class="form-control" id="travel-date" formControlName="tripStartDate">
                     <div *ngIf="updateForm.get('tripStartDate')?.invalid && updateForm.get('tripStartDate')?.touched">
                         start date is required
                     </div>
@@ -94,7 +94,7 @@
 
                 <div class="mb-2 edit-details"> 
                     <label for="traveler-age" class="col-form-label">Traveler Age</label>
-                    <input type="text" class="form-control" id="traveler-age" formControlName="travelerAge">
+                    <input type="date" class="form-control" id="traveler-age" formControlName="travelerAge">
                     <div *ngIf="updateForm.get('travelerAge')?.invalid && updateForm.get('travelerAge')?.touched">
                         age is required
                     </div>
@@ -102,7 +102,7 @@
 
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" [disabled]="updateForm.invalid" class="btn btn-primary">Save changes</button>
+                    <button type="submit" class="btn btn-primary" (click)="onSubmit()">Save changes</button>
                 </div>
             </form>
         </div>

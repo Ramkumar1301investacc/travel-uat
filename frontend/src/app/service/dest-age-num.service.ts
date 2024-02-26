@@ -9,7 +9,7 @@ export class DestAgeNumService {
 
   constructor() { 
   }
-  private destData: any;
+   destData: any;
 
   setDestData(data: any)
   {

@@ -12,7 +12,7 @@ import { SendDataService } from 'src/app/service/sendData/send-data.service';
 })
 export class QuotesComponent {
 
-  sumInsuredValues = [50000, 100000, 150000, 200000, 250000, 300000, 350000, 400000, 450000, 500000]
+  sumInsuredValues = [50000, 100000, 150000, 200000, 250000, 300000, 350000, 400000, 450000, 500000, 750000]
   loading: boolean = true;
   pData: any;
   pFilterData: any;
@@ -41,12 +41,20 @@ export class QuotesComponent {
       this.pFilterData = this.pData.filter((plan: any) => { return plan.pTravelPremiumIn_inout.ptravelplan.includes('Silver') })
       console.log(this.pFilterData)
     }
-    if (this.filters.sumInsuredAmount == 200000) {
-      this.pFilterData = this.pData.filter((plan: any) => { return plan.pTravelPremiumIn_inout.ptravelplan.includes('Gold') })
+    else if (this.filters.sumInsuredAmount == 200000) {
+      this.pFilterData = this.pData.filter((plan: any) => { return plan.pTravelPremiumIn_inout.ptravelplan.includes('Gold') && !plan.pTravelPremiumIn_inout.ptravelplan.includes('Super')})
       console.log(this.pFilterData)
     }
-    if (this.filters.sumInsuredAmount == 500000) {
-      this.pFilterData = this.pData.filter((plan: any) => { return plan.pTravelPremiumIn_inout.ptravelplan.includes('Platinum') })
+    else if (this.filters.sumInsuredAmount == 300000) {
+      this.pFilterData = this.pData.filter((plan: any) => { return plan.pTravelPremiumIn_inout.ptravelplan.includes('Platinum') && !plan.pTravelPremiumIn_inout.ptravelplan.includes('Super') })
+      console.log(this.pFilterData)
+    }
+    else if (this.filters.sumInsuredAmount == 500000) {
+      this.pFilterData = this.pData.filter((plan: any) => { return plan.pTravelPremiumIn_inout.ptravelplan.includes('Super Gold')})
+      console.log(this.pFilterData)
+    }
+    else if (this.filters.sumInsuredAmount == 750000) {
+      this.pFilterData = this.pData.filter((plan: any) => { return plan.pTravelPremiumIn_inout.ptravelplan.includes('Super Platinum')})
       console.log(this.pFilterData)
     }
   }
