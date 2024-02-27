@@ -57,7 +57,7 @@ export class FirstQuotesComponent {
     if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
       age--;
     }
-    return Math.floor(age);
+    return age;
   }
 
   /*for calculating trip startdate and enddate  */
