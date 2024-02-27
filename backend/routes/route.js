@@ -1,7 +1,7 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import dotenv from 'dotenv';
-import { CalculatePremium, getCorporatePlans, getSingleTripPlans, getStudentTravelPlan } from '../controller/bajaj/controller.js';
+import { CalculatePremium, getCorporatePlans, getPlanDetails, getSingleTripPlans, getStudentTravelPlan } from '../controller/bajaj/controller.js';
 const router = express.Router();
 dotenv.config();
 
@@ -75,7 +75,7 @@ router.post('/api/v1/CalculatePremium', async (req, res) => {
         for(let plan of plans)
         {
             const data = await CalculatePremium(formattedToDate, plan, formattedBirthDate, formattedFromDate);
-            console.log(data)
+            // console.log(data)
             results.push(data)
             
         }
@@ -87,6 +87,24 @@ router.post('/api/v1/CalculatePremium', async (req, res) => {
         res.status(500).json({ message: error.message });
     }
 });
+
+router.post('/api/v1/getPlanDetails', async(req, res) => {
+try {
+    const planName = req.body.plans.map((plan) => plan.pplan);
+    console.log('Plan Names ', planName)
+
+    const results=[];
+    for(let plan of planName)
+    {
+        const data = await getPlanDetails(plan);
+        results.push(data)
+    }
+    res.json(results)
+} catch (error) {
+    console.error('Unable to fetch details', error);
+    res.status(500).json({message : error.message})
+}
+})
 
 
 export default router;
