@@ -45,7 +45,7 @@
                 <div [ngClass]="classDiv">
                     <div [ngClass]="searchText === '' ? 'd-none' : 'all-countries-list w-100 mt-2'">
                         <div *ngFor="let country of countries">
-                            <div *ngIf="searchText === '' || country.toLowerCase().includes(searchText)">
+                            <div *ngIf="searchText === '' || country.toLowerCase().includes(searchText.toLowerCase())">
                                 <p class="countries-name" (click)="divClose()" (click)="getValue($event)"
                                     (click)="sendBadgeData()">{{country}}
                                 </p>

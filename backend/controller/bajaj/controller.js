@@ -10,6 +10,7 @@ const apassword = process.env.A_PASSWORD;
 const aIntemdCode = process.env.A_Intemd_Code;
 const getAllPlansUrl = process.env.GET_ALL_PLANS;
 const calculatepremium = process.env.CALCULATE_PREMIUM;
+const getPlanDetailsUrl = process.env.GETPLANDETAILS;
 
 export const getStudentTravelPlan = async () => {
    try {
@@ -51,7 +52,7 @@ export const getCorporatePlans = async () => {
 
       const response = await axios.post(getAllPlansUrl, payload, { headers: headers });
       const allPlans = response.data.pTravelList_out;
-      const corporatePlan = allPlans.filter((plan) => plan.pplan.includes('Corporate')) 
+      const corporatePlan = allPlans.filter((plan) => plan.pplan.includes('Corporate'))
 
       return corporatePlan;
 
@@ -77,7 +78,7 @@ export const getSingleTripPlans = async () => {
       const response = await axios.post(getAllPlansUrl, payload, { headers: headers });
       const allPlans = response.data.pTravelList_out;
       console.log(allPlans)
-      const individualPlan = allPlans.filter((plan) => plan.pplan.includes('Individual')) 
+      const individualPlan = allPlans.filter((plan) => plan.pplan.includes('Individual'))
 
       return individualPlan;
 
@@ -89,7 +90,7 @@ export const getSingleTripPlans = async () => {
 
 export const CalculatePremium = async (ptodate, ptravelplan, pdateofbirth, pfromdate) => {
    try {
-   
+
       let payload = {
          "userid": auserId,
          "password": apassword,
@@ -111,29 +112,46 @@ export const CalculatePremium = async (ptodate, ptravelplan, pdateofbirth, pfrom
          "Content-Type": "application/json"
       };
 
-      const response = await fetch(calculatepremium, {
-         method: 'POST',
-         headers: headers,
-         body: JSON.stringify(payload)
-      });
-
+      const response = await fetch(calculatepremium, { method: 'POST', headers: headers, body: JSON.stringify(payload)});
       if (!response.ok) {
          throw new Error(`HTTP error! Error: ${response.error}`);
       }
-
       const data = await response.json();
       return data;
+
    } catch (error) {
       console.error('Error while executing calculate premium', error);
       throw error; // Propagate the error to the caller
    }
 };
 
+export const getPlanDetails = async (plan) => {
+   try {
+      let payload = {
+         "pUserId": auserId,
+         "apassword": apassword,
+         "aPlanname": plan
+      };
+      let headers = {
+         "Content-Type": "application/json"
+      };
+      const response = await fetch(getPlanDetailsUrl, { method: 'POST', headers: headers, body: JSON.stringify(payload)});
+      if(!response.ok) {
+         throw new Error(`HTTP error! Error: ${response.error}`)
+      }
+      const data = await response.json();
+      return data;
 
-   // For Calculate premium: Assuming ptravelplan is a valid travel plan
-      /*  const travelPlan = ['Travel Ace Standard', 'Travel Ace Silver', 'Travel Ace Gold'];
+   } catch (error) {
+      console.error('Error while getting plan details', error)
+   }
+}
+
+
+// For Calculate premium: Assuming ptravelplan is a valid travel plan
+/*  const travelPlan = ['Travel Ace Standard', 'Travel Ace Silver', 'Travel Ace Gold'];
  
-       if (!travelPlan.includes(ptravelplan)) {
-          throw new Error('Invalid travel plan');
-       }
-  */
+ if (!travelPlan.includes(ptravelplan)) {
+    throw new Error('Invalid travel plan');
+ }
+*/
