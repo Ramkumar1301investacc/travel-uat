@@ -15,7 +15,7 @@
 
     <div class="card-body form-section-body border">
         <h3 class="card-sub-heading text-center">Easy access to your insurance needs via WhatsApp!!</h3>
-        <form>
+        <form [formGroup]="mobileForm" (ngSubmit)="onSubmit()">
             <label class="form-label">Enter Your Mobile Number<span class="astrick">*</span></label>
             <div class="input-group mb-3 number-input border">
 
@@ -26,7 +26,7 @@
                     <option value="3">Three</option>
                 </select>
 
-                <input type="text" class="form-control w-75" placeholder="Mobile Number">
+                <input formControlName="mobileNumber" type="text" class="form-control w-75" placeholder="Mobile Number">
             </div>
 
             <div class="form-check form-switch text-end d-flex justify-content-end align-items-center mb-2">
@@ -35,7 +35,7 @@
             </div>
 
             <div class="otp-btn-div text-center">
-                <button (click)="updateProgressBar()" type="button" class="btn otp-btn" replaceUrl="true" routerLink="/travel-destination/get-otp">Get
+                <button (click)="updateProgressBar()" (click)="onSubmit()" type="button" class="btn otp-btn" replaceUrl="true" routerLink="/travel-destination/get-otp">Get
                     OTP</button>
             </div>
 

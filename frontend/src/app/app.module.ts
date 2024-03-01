@@ -12,16 +12,12 @@ import { TravellersAgeComponent } from './pages/travel-destination/travellers-ag
 import { MobileNumComponent } from './pages/travel-destination/mobile-num/mobile-num.component';
 import { GetOtpComponent } from './pages/travel-destination/get-otp/get-otp.component';
 import { DatePipe } from '@angular/common';
-
 import { NgOtpInputModule } from  'ng-otp-input';
 import { FirstQuotesComponent } from './pages/first-quotes/first-quotes.component';
 import { QuotesComponent } from './pages/first-quotes/quotes/quotes.component';
 import { CompareQuotesComponent } from './pages/first-quotes/compare-quotes/compare-quotes.component';
-/* import { TravellerFormComponent } from './pages/traveller-form/traveller-form.component'; */
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule ,ReactiveFormsModule} from '@angular/forms';
-import { CountrySearchBoxComponent } from './pages/travel-destination/destination-date/country-search-box/country-search-box.component';
-import { DatePickerComponent } from "./pages/travel-destination/destination-date/date-picker/date-picker.component";
 import { FormComponent } from './pages/form/form.component';
 import { PersonalDetailComponent } from './pages/form/personal-detail/personal-detail.component';
 import { KycVerifyComponent } from './pages/form/kyc-verify/kyc-verify.component';
@@ -46,7 +42,6 @@ import { ProgressBarComponent } from './component/progress-bar/progress-bar.comp
         QuotesComponent,
         CompareQuotesComponent,
        /*  TravellerFormComponent, */
-        CountrySearchBoxComponent,
         FormComponent,
         PersonalDetailComponent,
         KycVerifyComponent,
@@ -62,8 +57,7 @@ import { ProgressBarComponent } from './component/progress-bar/progress-bar.comp
         NgOtpInputModule,
         HttpClientModule,
         FormsModule,
-        ReactiveFormsModule,
-        DatePickerComponent
+        ReactiveFormsModule
     ]
 })
 export class AppModule { }

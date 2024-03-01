@@ -14,14 +14,14 @@ import { DestAgeNumService } from 'src/app/service/dest-age-num.service';
 
 export class DestinationDateComponent {
 
-  constructor (
-    private getCountries: GetcountriesService, 
-    private sharedBadgeService: SharedBadgeDataService, 
+  constructor(
+    private getCountries: GetcountriesService,
+    private sharedBadgeService: SharedBadgeDataService,
     private formBuilder: FormBuilder,
-    private destDataService : DestAgeNumService
+    private destDataService: DestAgeNumService
   ) { }
 
-  
+
 
   countries: any = [];                                                     //array to store countries
 
@@ -33,7 +33,7 @@ export class DestinationDateComponent {
     this.searchText = searchValue;
   }
 
-  travelForm : FormGroup = new FormGroup({})
+  travelForm: FormGroup = new FormGroup({})
 
   ngOnInit() {                                                              //function to fetch countries data and store it in array
     this.getCountries.getCountriesApi().subscribe((data: any) => {
@@ -45,8 +45,8 @@ export class DestinationDateComponent {
 
     this.travelForm = this.formBuilder.group({
       tDest: this.badgeItems,
-      tripStart:  ['', Validators.required],
-      tripEnd:  ['', Validators.required],
+      tripStart: ['', Validators.required],
+      tripEnd: ['', Validators.required],
       destBadge: this.badgeItems
     })
   }
@@ -69,8 +69,8 @@ export class DestinationDateComponent {
     console.log('Badge Items', this.badgeItems)
     this.travelForm = this.formBuilder.group({
       tDest: [this.badgeItems],
-      tripStart:  ['', Validators.required],
-      tripEnd:  ['', Validators.required]
+      tripStart: ['', Validators.required],
+      tripEnd: ['', Validators.required]
     })
   }
 
@@ -83,11 +83,10 @@ export class DestinationDateComponent {
     this.sharedBadgeService.send_data.next(this.badgeItems);
   }
 
-  onSubmit()
-  {
-    if(this.travelForm.valid)
-    {
-      this.destDataService.setDestData({ ...this.destDataService.getDestData(), ...this.travelForm.value})
+  onSubmit() {
+    if (this.travelForm.valid) {
+      this.destDataService.setDestData(this.travelForm.value);
+      console.log('Dest Data', this.destDataService.destData)
     }
   }
 

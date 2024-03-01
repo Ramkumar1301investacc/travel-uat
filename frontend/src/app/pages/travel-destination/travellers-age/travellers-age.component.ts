@@ -56,7 +56,7 @@ export class TravellersAgeComponent {
 
   onSubmit() {
     if (this.ageForm.valid) {
-      console.log('Valid');
+      
 
       this.destDataService.setDestData({ ...this.destDataService.getDestData(), ...this.ageForm.value });
       this.finalFormData = this.destDataService.getDestData();
@@ -65,7 +65,7 @@ export class TravellersAgeComponent {
       const ageDate = new Date(this.finalFormData.ageofTravellerOne);
       const travellerAgeYear = ageDate.getFullYear();
       const currentYear = date.getFullYear();
-
+      console.log('Dest Data', this.destDataService.destData)
       const travellerAge =  Math.abs(travellerAgeYear - currentYear);
     }
   }
