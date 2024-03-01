@@ -13,9 +13,6 @@
         <form [formGroup]="travelForm">
             <div class="position-relative">
 
-                <!-- <app-country-search-box (searchTextChanged)="onSearchTextEntered($event)"
-                    (click)='divOpen()'></app-country-search-box> -->
-
                     <!--Destination Name Component-->
 
 
@@ -45,7 +42,7 @@
                 <div [ngClass]="classDiv">
                     <div [ngClass]="searchText === '' ? 'd-none' : 'all-countries-list w-100 mt-2'">
                         <div *ngFor="let country of countries">
-                            <div *ngIf="searchText === '' || country.toLowerCase().includes(searchText)">
+                            <div *ngIf="searchText === '' || country.toLowerCase().includes(searchText.toLowerCase())">
                                 <p class="countries-name" (click)="divClose()" (click)="getValue($event)"
                                     (click)="sendBadgeData()">{{country}}
                                 </p>
@@ -74,7 +71,6 @@
                             alt="">
                     </div>
 
-                    <!-- <app-date-picker class="w-100"></app-date-picker> -->
 
                     <input formControlName="tripStart" class="trip-date" type="date" id="start-date" value="01-May-2023"/>
                     <input formControlName="tripEnd" class="trip-date" type="date" id="end-date" value="2024-01-01"/>

@@ -179,7 +179,7 @@
             </div>
 
             <div *ngIf="!loading">
-                <div class="mb-4" *ngFor="let data of pFilterData">
+                <div class="mb-4" *ngFor="let data of pFilterData; let i = index" >
                     <div class="all-policies d-flex justify-content-around align-items-center">
 
                         <div class="compare-checkbox">
@@ -212,17 +212,17 @@
                                 <li>
                                     <img
                                         src="../../../assets/Travel_Page_Assets/Quotes Screen/Icons/Yellow TickMark-Icon.svg">
-                                    <p>Medical Coverage <span>₹43000/-</span></p>
+                                    <p>Medical Coverage <span>{{pFilteredPlanDetails[i].pTrvCoverDtlsList_out[6].plimits}}</span></p>
                                 </li>
                                 <li>
                                     <img
                                         src="../../../assets/Travel_Page_Assets/Quotes Screen/Icons/Yellow TickMark-Icon.svg">
-                                    <p>Passport lost Coverage<span>₹43000/-</span></p>
+                                    <p>Passport lost Coverage<span>{{pFilteredPlanDetails[i].pTrvCoverDtlsList_out[4].plimits}}</span></p>
                                 </li>
                                 <li>
                                     <img
                                         src="../../../assets/Travel_Page_Assets/Quotes Screen/Icons/Yellow TickMark-Icon.svg">
-                                    <p>Baggage lost Coverage <span>₹43000/- Primary</span></p>
+                                    <p>Baggage lost Coverage <span>{{pFilteredPlanDetails[i].pTrvCoverDtlsList_out[2].plimits}}</span></p>
                                 </li>
                             </ul>
                         </div>
