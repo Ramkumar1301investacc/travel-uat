@@ -5,3 +5,5 @@ export interface TravelerForm {
     travelDestination:string,
     travelerAge:number,
 }
+
+

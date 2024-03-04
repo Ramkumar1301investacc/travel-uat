@@ -13,7 +13,7 @@ dotenv.config();
     const clientDB = new Client({
         user: 'postgres',
         host: 'localhost',
-        database: 'EnrollmentDataDetail',
+        database: 'giliTravelUat',
         password: 'root',
         port: 5432,
     });
@@ -22,7 +22,7 @@ dotenv.config();
         await clientDB.connect();
 
         // Query to fetch plan names
-        const dbQuery = 'SELECT pplan FROM public.bajajdetail;';
+        const dbQuery = 'SELECT pplan FROM public."plansList"';
         const dbResult = await clientDB.query(dbQuery);
         const planNames = dbResult.rows.map(row => row.pplan);
 
@@ -34,7 +34,7 @@ dotenv.config();
             const client = new Client({
                 user: 'postgres',
                 host: 'localhost',
-                database: 'EnrollmentDataDetail',
+                database: 'giliTravelUat',
                 password: 'root',
                 port: 5432,
             });
@@ -86,7 +86,7 @@ dotenv.config();
                 };
 
                 // Make API request for the current plan
-                const response = await fetch(process.env.PLAN_DETAILS, {
+                const response = await fetch(process.env.GETPLANDETAILS, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(body)
