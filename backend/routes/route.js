@@ -2,6 +2,7 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import dotenv from 'dotenv';
 import { CalculatePremium, getCorporatePlans, getPlanDetails, getSingleTripPlans, getStudentTravelPlan } from '../controller/bajaj/controller.js';
+import { getPlanDetailsFromDB, getSinglePlanDetails } from '../database/db.js';
 const router = express.Router();
 dotenv.config();
 
@@ -104,6 +105,26 @@ try {
     console.error('Unable to fetch details', error);
     res.status(500).json({message : error.message})
 }
+})
+
+router.get('/api/v2/getPlanDetails', async (req, res) => {
+    try {
+        const results = await  getPlanDetailsFromDB();
+        res.json(results.rows)
+    } catch (error) {
+        console.error('Unable to fetch plan details version 2', error);
+        res.status(500).json({message : error.message})
+    }
+})
+
+router.post('/api/v1/getSinglePlanDetails', async (req, res) => {
+    try {
+        console.log('In routes', req.body.planName)
+        const result = await getSinglePlanDetails(req.body.planName);
+        res.json(result.rows)
+    } catch (error) {
+        console.error('Unable to fetch single plan details', error)
+    }
 })
 
 

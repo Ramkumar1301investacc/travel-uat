@@ -198,11 +198,12 @@
                             <!-- <img src="../../../assets/Travel_Page_Assets/Quotes Screen/Illustrations/TATA AIG Company Policy Frame.svg"
                             alt="company-pic"> -->
 
-                            <img style="background-color: blue;"
-                                src="../../../assets/Travel_Page_Assets/Quotes Screen/Illustrations/bajaj.png"
+                            <img style="background-color: blue; width: 108px;"
+                                src="../../../assets/Travel_Page_Assets/Quotes Screen/Illustrations/Bajaj_logo.jpg"
                                 alt="company-pic">
 
                             <p class="mt-2">{{data?.pTravelPremiumIn_inout?.ptravelplan}}</p>
+                            <input type="hidden" [(ngModel)]="travelPlanname" [value]="data?.pTravelPremiumIn_inout?.ptravelplan" >
                         </div>
 
                         <div class="hr-line"></div>
@@ -210,19 +211,16 @@
                         <div class="insurance-details">
                             <ul>
                                 <li>
-                                    <img
-                                        src="../../../assets/Travel_Page_Assets/Quotes Screen/Icons/Yellow TickMark-Icon.svg">
-                                    <p>Medical Coverage <span>{{pFilteredPlanDetails[i].pTrvCoverDtlsList_out[6].plimits}}</span></p>
+                                    <img src="../../../assets/Travel_Page_Assets/Quotes Screen/Icons/Yellow TickMark-Icon.svg">
+                                    <p class="p-benefits">Medical Coverage <span>{{medicalExpenses[i].plimits}} USD</span></p>
                                 </li>
                                 <li>
-                                    <img
-                                        src="../../../assets/Travel_Page_Assets/Quotes Screen/Icons/Yellow TickMark-Icon.svg">
-                                    <p>Passport lost Coverage<span>{{pFilteredPlanDetails[i].pTrvCoverDtlsList_out[4].plimits}}</span></p>
+                                    <img src="../../../assets/Travel_Page_Assets/Quotes Screen/Icons/Yellow TickMark-Icon.svg">
+                                    <p class="p-benefits">Passport lost Coverage<span>{{passportExpense[i]?.plimits ? passportExpense[i]?.plimits : 'Not Covered'}} USD</span></p>
                                 </li>
                                 <li>
-                                    <img
-                                        src="../../../assets/Travel_Page_Assets/Quotes Screen/Icons/Yellow TickMark-Icon.svg">
-                                    <p>Baggage lost Coverage <span>{{pFilteredPlanDetails[i].pTrvCoverDtlsList_out[2].plimits}}</span></p>
+                                    <img src="../../../assets/Travel_Page_Assets/Quotes Screen/Icons/Yellow TickMark-Icon.svg">
+                                    <p class="p-benefits">Baggage lost Coverage <span>{{baggageExpense[i].plimits}} USD</span></p>
                                 </li>
                             </ul>
                         </div>
@@ -231,8 +229,8 @@
 
                         <div class="buy-policy flex-column justify-content-center">
                             <a href="#">Policy Details</a>
-                            <p>₹ {{data?.pTravelPremiumOut_out?.ptotalPremium}}</p>
-                            <button type="button" class="btn btn-primary" routerLink="/traveller-form">Buy Now</button>
+                            <p>₹{{data?.pTravelPremiumOut_out?.ptotalPremium}}/-</p>
+                            <button type="button" class="btn btn-primary" routerLink="/traveller-form" (click)="onBuyPolicy(data?.pTravelPremiumIn_inout?.ptravelplan)">Buy Now</button>
                         </div>
                     </div>
                 </div>

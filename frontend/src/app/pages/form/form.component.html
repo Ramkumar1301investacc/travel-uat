@@ -2,367 +2,356 @@
 
 <div class="row container m-auto">
   <div class="col-9  " *ngIf="stepnumber===1">
-  <form #step1="ngForm" FormGroup="step1" (ngSubmit)="onFormSubmit()">  
-      <div class="row form-container" >
-          <div class="form-holder">
-            <div class="row">
-              <div class="col">
-                <div style="margin-top: 12px">
-                  <div class="form-heading">
-                    <h1>Traveller Details</h1>
-                    <div class="form-pages">
-                      <div class="page-no"><p class="mb-0">1</p></div>
-                      <div class="line"></div>
-                      <div class=" page-inactive"><p class="mb-0">2</p></div>
-                      <div class="line"></div>
-                      <div class=" page-inactive"><p class="mb-0">3</p></div>
+    <form #step1="ngForm" FormGroup="step1" (ngSubmit)="onFormSubmit()">
+      <div class="row form-container">
+        <div class="form-holder">
+          <div class="row">
+            <div class="col">
+              <div style="margin-top: 12px">
+                <div class="form-heading">
+                  <h1>Traveller Details</h1>
+                  <div class="form-pages">
+                    <div class="page-no">
+                      <p class="mb-0">1</p>
+                    </div>
+                    <div class="line"></div>
+                    <div class=" page-inactive">
+                      <p class="mb-0">2</p>
+                    </div>
+                    <div class="line"></div>
+                    <div class=" page-inactive">
+                      <p class="mb-0">3</p>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-            <!-- Personal Form Details -->
-            <div class="row" style="margin-top: 12px">
-              <div class="col">
-               <div class="form-content">
-      
-                  
-                  <div >
-                    <label for="" class="form-label">Salutation <span>*</span></label>
-                 
-                    <select class="form-select" id="floatingSelectGrid">
-                     
-                      <option value="Mr">Mr</option>
-                      <option value="Mrs">Mrs</option>
-                      
-                    </select>
-                   
-               
-                  </div>
-                  
-                  <div>
-                    <label class="form-label" for="">First Name <span>*</span></label>
-                    <input class="form-control" type="text" formControlName="firstName" placeholder="Shivam" />
-                  </div>
-                  <div>
-                    <label class="form-label" for="">Middle Name <span>*</span></label>
-                    <input class="form-control" type="text" formControlName="middleName"/>
-                  </div>
-                  <div>
-                    <label class="form-label" for="">Surname <span>*</span></label>
-                    <input class="form-control" type="text" placeholder="Achrekar" formControlName="surName"/>
-                  </div>
-                
-                </div>
-             
-      
-              </div>
-              
-      
-            </div>
-        
-            <!--    Gender DOB PASSPORT -->
-            <div class="row" style="margin-top: 12px">
-              <div class="col">
-                <div class="form-content">
-                  <div >
-                    <label for="" class="form-label">Gender <span>*</span></label>
-                    <select class="form-select" id="floatingSelectGrid">
-                     
-                      <option value="1">Male</option>
-                      <option value="2">Female</option>
-                      <option value="2">Other</option>
-                      
-                    </select>
-                  </div>
-                  <div>
-                    <label class="form-label" for="">DOB<span>*</span></label>
-                    <input class="form-control" type="text" formControlName="dob" />
-                  </div>
-                  <div>
-                    <label class="form-label" for="">Passport No<span>*</span></label>
-                    <input class="form-control" type="text" formControlName="passportNo"/>
-                  </div>
-                </div>
-              </div>
-            </div>
-        
-            <!-- Emailid phoneNumber Alternate Number -->
-            <div class="row" style="margin-top: 12px">
-              <div class="col">
-                <div class="form-content">
-                  <div class="form-detail">
-                    <label class="form-label" for="">Email ID<span>*</span></label>
-                    <input class="form-control" type="text"  placeholder="shivam@gmail.com" formControlName="emailId"/>
-                  </div>
-                  <div class="form-detail">
-                    <label class="form-label" for="">Phone Number <span>*</span></label>
-                    <input class="form-control" type="text" placeholder="9834567723"  formControlName="phoneNumber"/>
-                  </div>
-                  <div class="form-detail">
-                    <label class="form-label" for=""
-                      >Alternate Phone Number <span>*</span></label
-                    >
-                    <input class="form-control" type="text"  placeholder="9856334212" formControlName="alternatePhoneNumber"/>
-                  </div>
-                </div>
-              </div>
-            </div>
-        
-            <!-- Adress line -->
-            <div class="row" style="margin-top: 12px">
-              <div class="col">
-                <div class="form-content">
-                  <div class="form-detail">
-                    <label class="form-label" for=""
-                      >Current Adress line 1<span>*</span></label
-                    >
-                    <input class="form-control" type="text" formControlName="addressLine_1"/>
-                  </div>
-                  <div class="form-detail">
-                    <label class="form-label" for=""
-                      >Current Adress line 2<span>*</span></label
-                    >
-                    <input class="form-control" type="text" formControlName="addressLine_2"/>
-                  </div>
-                  <div class="form-detail">
-                    <label class="form-label" for=""
-                      >Current Adress line 3<span>*</span></label
-                    >
-                    <input class="form-control" type="text" formControlName="addressLine_3"/>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- 
-        state city pincode -->
-        
-            <div class="row" style="margin-top: 12px">
-              <div class="col">
-                <div class="form-content">
-                  <div class="form-detail">
-                    <label class="form-label" for="">State<span>*</span></label>
-                    <select class="form-select" id="floatingSelectGrid" formControlName="state">
-                     
-                      <option value="1">Maharashtra</option>
-                      <option value="2">Karnataka</option>
-                      <option value="2">TamilNadu</option>
-                      <option value="2">Kerala</option>
-                      
-                    </select>
-                  </div>
-                  <div class="form-detail">
-                    <label class="form-label" for="">City <span>*</span></label>
-                    <select class="form-select" id="floatingSelectGrid" formControlName="city">
-                     
-                      <option value="1">Kalyan</option>
-                      <option value="2">Thane</option>
-                      <option value="2">Dombivili</option>
-                      <option value="2">Pune</option>
-                      
-                    </select>
-                  </div>
-                  <div class="form-detail">
-                    <label class="form-label" for="">Pin Code <span>*</span></label>
-                    <input class="form-control" type="text" formControlName="pincode"/>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
-        </div>
-        
-        <!-- PERMANENT ADDRESS -->
-        <div class="row form-holder" style="margin-top: 10px">
-          <div class="col">
-            <div style="margin-top: 12px">
-              <div class="form-heading">
-                <h1>Permanent Address <span>*</span></h1>
-              </div>
-            </div>
-          </div>
-        
-          <div class="row">
+          <!-- Personal Form Details -->
+          <div class="row" style="margin-top: 12px">
             <div class="col">
-              <p>Permanent Address is same as Current Above? <span>*</span></p>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col" style="margin-top: 16px">
-              <div class="btn-container">
-                <div class="btn-container1">
-                  <button>
-                    
-                    <img
-                      src="../../../assets/Travel_Page_Assets/Single Trip Flow/Icons/RadioButton.svg"
-                      alt=""
-                    />Yes
-                  </button>
-                  <button>
-                    <img
-                      src="../../../assets/Travel_Page_Assets/Single Trip Flow/Icons/RadioButton.svg"
-                      alt=""
-                    />NO
-                  </button>
+              <div class="form-content">
+
+
+                <div>
+                  <label for="" class="form-label">Salutation <span>*</span></label>
+
+                  <select class="form-select" id="floatingSelectGrid">
+
+                    <option value="Mr">Mr</option>
+                    <option value="Mrs">Mrs</option>
+
+                  </select>
+
+
+                </div>
+
+                <div>
+                  <label class="form-label" for="">First Name <span>*</span></label>
+                  <input class="form-control" type="text" formControlName="firstName" placeholder="Shivam" />
                 </div>
                 <div>
-                  <button type="submit" (click)="next()"  class="btn-next"    >
-                    Next
-                    <img
-                      src="../../../assets/Travel_Page_Assets/Single Trip Flow/Icons/Chevron-down.svg"
-                      alt=""
-                    />
-                  </button>
+                  <label class="form-label" for="">Middle Name <span>*</span></label>
+                  <input class="form-control" type="text" formControlName="middleName" />
+                </div>
+                <div>
+                  <label class="form-label" for="">Surname <span>*</span></label>
+                  <input class="form-control" type="text" placeholder="Achrekar" formControlName="surName" />
+                </div>
+
+              </div>
+
+
+            </div>
+
+
+          </div>
+
+          <!--    Gender DOB PASSPORT -->
+          <div class="row" style="margin-top: 12px">
+            <div class="col">
+              <div class="form-content">
+                <div>
+                  <label for="" class="form-label">Gender <span>*</span></label>
+                  <select class="form-select" id="floatingSelectGrid">
+
+                    <option value="1">Male</option>
+                    <option value="2">Female</option>
+                    <option value="2">Other</option>
+
+                  </select>
+                </div>
+                <div>
+                  <label class="form-label" for="">DOB<span>*</span></label>
+                  <input class="form-control" type="text" formControlName="dob" />
+                </div>
+                <div>
+                  <label class="form-label" for="">Passport No<span>*</span></label>
+                  <input class="form-control" type="text" formControlName="passportNo" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Emailid phoneNumber Alternate Number -->
+          <div class="row" style="margin-top: 12px">
+            <div class="col">
+              <div class="form-content">
+                <div class="form-detail">
+                  <label class="form-label" for="">Email ID<span>*</span></label>
+                  <input class="form-control" type="text" placeholder="shivam@gmail.com" formControlName="emailId" />
+                </div>
+                <div class="form-detail">
+                  <label class="form-label" for="">Phone Number <span>*</span></label>
+                  <input class="form-control" type="text" placeholder="9834567723" formControlName="phoneNumber" />
+                </div>
+                <div class="form-detail">
+                  <label class="form-label" for="">Alternate Phone Number <span>*</span></label>
+                  <input class="form-control" type="text" placeholder="9856334212"
+                    formControlName="alternatePhoneNumber" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Adress line -->
+          <div class="row" style="margin-top: 12px">
+            <div class="col">
+              <div class="form-content">
+                <div class="form-detail">
+                  <label class="form-label" for="">Current Adress line 1<span>*</span></label>
+                  <input class="form-control" type="text" formControlName="addressLine_1" />
+                </div>
+                <div class="form-detail">
+                  <label class="form-label" for="">Current Adress line 2<span>*</span></label>
+                  <input class="form-control" type="text" formControlName="addressLine_2" />
+                </div>
+                <div class="form-detail">
+                  <label class="form-label" for="">Current Adress line 3<span>*</span></label>
+                  <input class="form-control" type="text" formControlName="addressLine_3" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- 
+        state city pincode -->
+
+          <div class="row" style="margin-top: 12px">
+            <div class="col">
+              <div class="form-content">
+                <div class="form-detail">
+                  <label class="form-label" for="">State<span>*</span></label>
+                  <select class="form-select" id="floatingSelectGrid" formControlName="state">
+
+                    <option value="1">Maharashtra</option>
+                    <option value="2">Karnataka</option>
+                    <option value="2">TamilNadu</option>
+                    <option value="2">Kerala</option>
+
+                  </select>
+                </div>
+                <div class="form-detail">
+                  <label class="form-label" for="">City <span>*</span></label>
+                  <select class="form-select" id="floatingSelectGrid" formControlName="city">
+
+                    <option value="1">Kalyan</option>
+                    <option value="2">Thane</option>
+                    <option value="2">Dombivili</option>
+                    <option value="2">Pune</option>
+
+                  </select>
+                </div>
+                <div class="form-detail">
+                  <label class="form-label" for="">Pin Code <span>*</span></label>
+                  <input class="form-control" type="text" formControlName="pincode" />
                 </div>
               </div>
             </div>
           </div>
         </div>
-        </form>
-<!-- --[FormGroup] -->
-</div>
- <!-- kyc  -->
-  <div  class="col-9" *ngIf="stepnumber===2">
-    
-<form #step2="ngForm" FormGroup="step2" (ngSubmit)="onFormSubmit()">       
-  <div class="row form-container" >
-    <div class="form-holder">
-      <div class="row">
+      </div>
+
+      <!-- PERMANENT ADDRESS -->
+      <div class="row form-holder" style="margin-top: 10px">
         <div class="col">
           <div style="margin-top: 12px">
             <div class="form-heading">
-              <h1>EKYC <span>*</span></h1>
-              <div class="form-pages">
-                <div class="page-inactive"><p class="mb-0">1</p></div>
-                <div class="line"></div>
-                <div class="page-no"><p class="mb-0">2</p></div>
-                <div class="line"></div>
-                <div class="page-inactive"><p class="mb-0">3</p></div>
-              </div>
+              <h1>Permanent Address <span>*</span></h1>
             </div>
           </div>
         </div>
-      </div>
-  
-      <!--  Ekyc Form -->
-      <div class="row" style="margin-top: 12px">
-        <div class="col">
-          <div>
-            <div class="ekyc-contents">
-              <div class="form-width">
-                <label for="kyc" class="form-label"
-                  >Choose KYC Type<span>*</span></label
-                >
-                <select class="form-select" id="floatingSelectGrid"  formControlName="verificationOption">
-                  <option value="1"></option>
-                  <option value="PAN CARD">PAN CARD</option>
-                  <option value="AADHAR CARD">AADHAR CARD</option>
-                  <option value="PASSPORT">PASSPORT</option>
-                  <option value="FORM 60">FORM 60</option>
-                  
-                </select>
-              </div>
-              <div class="form-width">
-                <label for="number" class="form-label"
-                  >PAN Card Number<span>*</span></label
-                >
-                <input class="form-name" type="name" class="form-control" formControlName="CardNumber"/>
+
+        <div class="row">
+          <div class="col">
+            <p>Permanent Address is same as Current Above? <span>*</span></p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col" style="margin-top: 16px">
+            <div class="btn-container">
+              <div class="btn-container1">
+                <button>
+
+                  <img src="../../../assets/Travel_Page_Assets/Single Trip Flow/Icons/RadioButton.svg" alt="" />Yes
+                </button>
+                <button>
+                  <img src="../../../assets/Travel_Page_Assets/Single Trip Flow/Icons/RadioButton.svg" alt="" />NO
+                </button>
               </div>
               <div>
-                <label for="fname" class="form-label"> </label>
-                <div></div>
-                <button class="btn-ekyc">
-                  Verify
-                  <img
-                    src="../../../assets/Travel_Page_Assets/Single Trip Flow/Icons/Chevron-down.svg"
-                    alt=""
-                  />
+                <button type="submit" (click)="next()" class="btn-next">
+                  Next
+                  <img src="../../../assets/Travel_Page_Assets/Single Trip Flow/Icons/Chevron-down.svg" alt="" />
                 </button>
-                <!-- <button>Verify</button> -->
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  <!-- Nominee Details -->
-  <div class="form-holder" style="margin-top: 8px">
-    <div class="row " >
-      <div class="col ">
-        <div style="margin-top: 12px">
-          <div class="form-heading">
-            <h1>Nominee Details <span>*</span></h1>
+    </form>
+    <!-- --[FormGroup] -->
+  </div>
+  <!-- kyc  -->
+  <div class="col-9" *ngIf="stepnumber===2">
+
+    <form #step2="ngForm" FormGroup="step2" (ngSubmit)="onFormSubmit()">
+      <div class="row form-container">
+        <div class="form-holder">
+          <div class="row">
+            <div class="col">
+              <div style="margin-top: 12px">
+                <div class="form-heading">
+                  <h1>EKYC <span>*</span></h1>
+                  <div class="form-pages">
+                    <div class="page-inactive">
+                      <p class="mb-0">1</p>
+                    </div>
+                    <div class="line"></div>
+                    <div class="page-no">
+                      <p class="mb-0">2</p>
+                    </div>
+                    <div class="line"></div>
+                    <div class="page-inactive">
+                      <p class="mb-0">3</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="row" style="margin-top: 12px">
-          <div class="col">
-            <div class="form-content">
-              <div class="form-detail">
-                <label class="form-label" for="">Full Name<span>*</span></label>
-                <input class="form-control" type="text" formControlName="nomineeFirstName"/>
-              </div>
-              <div class="form-detail">
-                <label class="form-label" for=""
-                  >Relation with Nominee <span>*</span></label
-                >
-                <select class="form-select" id="floatingSelectGrid"  formControlName="nomineeRelationship">
-                  <option value="1"></option>
-                  <option value="Father">Father</option>
-                  <option value="Mother">Mother</option>
-                  <option value="Daughter">Daughter</option>
-                  <option value="Son">Son</option>
-                  
-                </select>
-              </div>
-              <div class="form-age">
-                <label class="form-label" for="">Age <span>*</span></label>
-                <input class="form-control" type="text" formControlName="nomineeAge"/>
+
+          <!--  Ekyc Form -->
+          <div class="row" style="margin-top: 12px">
+            <div class="col">
+              <div>
+                <div class="ekyc-contents">
+                  <div class="form-width">
+                    <label for="kyc" class="form-label">Choose KYC Type<span>*</span></label>
+                    <select class="form-select" id="floatingSelectGrid" formControlName="verificationOption">
+                      <option value="1"></option>
+                      <option value="PAN CARD">PAN CARD</option>
+                      <option value="AADHAR CARD">AADHAR CARD</option>
+                      <option value="PASSPORT">PASSPORT</option>
+                      <option value="FORM 60">FORM 60</option>
+
+                    </select>
+                  </div>
+                  <div class="form-width">
+                    <label for="number" class="form-label">PAN Card Number<span>*</span></label>
+                    <input class="form-name" type="name" class="form-control" formControlName="CardNumber" />
+                  </div>
+                  <div>
+                    <label for="fname" class="form-label"> </label>
+                    <div></div>
+                    <button class="btn-ekyc">
+                      Verify
+                      <img src="../../../assets/Travel_Page_Assets/Single Trip Flow/Icons/Chevron-down.svg" alt="" />
+                    </button>
+                    <!-- <button>Verify</button> -->
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
-        
-      </div>
-    </div>
-    <div class="row" style="margin-top: 12px">
-      <div class="col">
-        <div class="form-content">
-          <div class="form-detail">
-            <label class="form-label" for="">Email Id <span>*</span></label>
-            <input class="form-control" type="text"  formControlName="nomineeMail_id"/>
+        <!-- Nominee Details -->
+        <div class="form-holder" style="margin-top: 8px">
+          <div class="row ">
+            <div class="col ">
+              <div style="margin-top: 12px">
+                <div class="form-heading">
+                  <h1>Nominee Details <span>*</span></h1>
+                </div>
+              </div>
+              <div class="row" style="margin-top: 12px">
+                <div class="col">
+                  <div class="form-content">
+                    <div class="form-detail">
+                      <label class="form-label" for="">Full Name<span>*</span></label>
+                      <input class="form-control" type="text" formControlName="nomineeFirstName" />
+                    </div>
+                    <div class="form-detail">
+                      <label class="form-label" for="">Relation with Nominee <span>*</span></label>
+                      <select class="form-select" id="floatingSelectGrid" formControlName="nomineeRelationship">
+                        <option value="1"></option>
+                        <option value="Father">Father</option>
+                        <option value="Mother">Mother</option>
+                        <option value="Daughter">Daughter</option>
+                        <option value="Son">Son</option>
+
+                      </select>
+                    </div>
+                    <div class="form-age">
+                      <label class="form-label" for="">Age <span>*</span></label>
+                      <input class="form-control" type="text" formControlName="nomineeAge" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
           </div>
-          <div class="form-detail">
-            <label class="form-label" for=""
-              >Phone Number <span>*</span></label
-            >
-            <input class="form-control" type="text" formControlName="nomineePhone_no" />
+          <div class="row" style="margin-top: 12px">
+            <div class="col">
+              <div class="form-content">
+                <div class="form-detail">
+                  <label class="form-label" for="">Email Id <span>*</span></label>
+                  <input class="form-control" type="text" formControlName="nomineeMail_id" />
+                </div>
+                <div class="form-detail">
+                  <label class="form-label" for="">Phone Number <span>*</span></label>
+                  <input class="form-control" type="text" formControlName="nomineePhone_no" />
+                </div>
+
+              </div>
+            </div>
           </div>
-  
+          <div class="row" style="margin-top: 12px">
+            <div class="col" style="margin-top: 12px">
+              <div class="btn-content">
+                <div>
+                  <button class="btn-ekyc" (click)="previous()"><img id="leftarrow"
+                      src="../../../../assets/Travel_Page_Assets/Form Screen/Icons/Open Dropdown CaretRight-Icon.svg"
+                      alt=""> Back </button>
+                </div>
+                <div>
+                  <button type="submit" class="btn-ekyc" (click)="next()">Next <img
+                      src="../../../../assets/Travel_Page_Assets/Form Screen/Icons/Open Dropdown CaretRight-Icon.svg"
+                      alt=""> </button>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-  <div class="row" style="margin-top: 12px">
-    <div class="col" style="margin-top: 12px">
-      <div class="btn-content">
-        <div>
-          <button class="btn-ekyc" (click)="previous()"><img id="leftarrow" src="../../../../assets/Travel_Page_Assets/Form Screen/Icons/Open Dropdown CaretRight-Icon.svg" alt=""> Back </button>
-        </div>
-        <div>
-          <button type="submit" class="btn-ekyc" (click)="next()" >Next <img src="../../../../assets/Travel_Page_Assets/Form Screen/Icons/Open Dropdown CaretRight-Icon.svg" alt=""> </button>
-        </div>
-  
-    </div>
-  </div>
-  </div>
-  </div>
-  </div>
-</form>
-    
+    </form>
+
   </div>
 
-<div class="col-9" *ngIf="stepnumber===3">
-  <form #step3="ngForm" FormGroup="step3" (ngSubmit)="onFormSubmit()" >
-    <div class="row form-container" >
+  <div class="col-9" *ngIf="stepnumber===3">
+    <form #step3="ngForm" FormGroup="step3" (ngSubmit)="onFormSubmit()">
+      <div class="row form-container">
         <div class="form-holder">
           <div class="row">
             <div class="col">
@@ -370,11 +359,17 @@
                 <div class="form-heading">
                   <h1>Medical Details </h1>
                   <div class="form-pages">
-                    <div class="page-inactive"><p class="mb-0">1</p></div>
+                    <div class="page-inactive">
+                      <p class="mb-0">1</p>
+                    </div>
                     <div class="line"></div>
-                    <div class="page-inactive"><p class="mb-0">2</p></div>
+                    <div class="page-inactive">
+                      <p class="mb-0">2</p>
+                    </div>
                     <div class="line"></div>
-                    <div class="page-no"><p class="mb-0">3</p></div>
+                    <div class="page-no">
+                      <p class="mb-0">3</p>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -382,65 +377,71 @@
           </div>
           <div class="row">
             <div class="col">
-                <div class="medical-details">
-                    <!-- <h1>Medical Details</h1> -->
-                    <p>
-                        Do you have any pre-existing Medical Conditions?*
-                    </p>
-                    <p id="med-description">Please select YES if you have a medical condition that requires you to take medications on regular basis</p>
-                    <div class="button-style">
-                        <button><input type="radio" name="" id="">Yes</button>
-                        <button><input type="radio" name="" id="">No</button>
-                    </div> 
-                    <div style="margin-top:16px ;">
-                        <p>Have you ever claimed under Travel Insurance?<span>*</span></p>
-                    </div>
-                    <div class="button-style">
-                        <button><input type="radio" name="" id="">Yes</button>
-                        <button><input type="radio" name="" id="">No</button>
-                    </div>
-                    <div style="margin-top:16px ;">
-                       <p> Do you have any of the diseases mentioned  below?<span>*</span></p>
-                       <div class="button-style">
-                        <button><input type="radio" name="" id="">Diabetes</button>
-                        <button><input type="radio" name="" id="">Heart Conditions</button>
-                        <button><input type="radio" name="" id="">Asthma</button>
-                        <button><input type="radio" name="" id="">Cancer</button>
-                     </div>
-                       </div>
-                    <div class="button-style" >
-                        <button><input type="radio" name="" id="">Respiratory Conditions</button>
-                        <button><input type="radio" name="" id="">Arthritis</button>
-                        <button><input type="radio" name="" id="">Digestive Disorders</button>
-                         <button><input type="radio" name="" id="">Others</button>
-                    </div>
-        
-                
-                
+              <div class="medical-details">
+                <!-- <h1>Medical Details</h1> -->
+                <p>
+                  Do you have any pre-existing Medical Conditions?*
+                </p>
+                <p id="med-description">Please select YES if you have a medical condition that requires you to take
+                  medications on regular basis</p>
+                <div class="button-style">
+                  <button><input type="radio" name="" id="">Yes</button>
+                  <button><input type="radio" name="" id="">No</button>
                 </div>
                 <div style="margin-top:16px ;">
-                    <input type="checkbox">I have read all the details and give conirmation that all details added are correct
+                  <p>Have you ever claimed under Travel Insurance?<span>*</span></p>
                 </div>
+                <div class="button-style">
+                  <button><input type="radio" name="" id="">Yes</button>
+                  <button><input type="radio" name="" id="">No</button>
+                </div>
+                <div style="margin-top:16px ;">
+                  <p> Do you have any of the diseases mentioned below?<span>*</span></p>
+                  <div class="button-style">
+                    <button><input type="radio" name="" id="">Diabetes</button>
+                    <button><input type="radio" name="" id="">Heart Conditions</button>
+                    <button><input type="radio" name="" id="">Asthma</button>
+                    <button><input type="radio" name="" id="">Cancer</button>
+                  </div>
+                </div>
+                <div class="button-style">
+                  <button><input type="radio" name="" id="">Respiratory Conditions</button>
+                  <button><input type="radio" name="" id="">Arthritis</button>
+                  <button><input type="radio" name="" id="">Digestive Disorders</button>
+                  <button><input type="radio" name="" id="">Others</button>
+                </div>
+
+
+
+              </div>
+              <div style="margin-top:16px ;">
+                <input type="checkbox">I have read all the details and give conirmation that all details added are
+                correct
+              </div>
             </div>
-        </div>
-        <div class="row" style="margin-top: 12px">
+          </div>
+          <div class="row" style="margin-top: 12px">
             <div class="col" style="margin-top: 12px">
               <div class="btn-content">
                 <div>
-                  <button class="btn-ekyc" (click)="previous()"><img id="leftarrow" src="../../../../assets/Travel_Page_Assets/Form Screen/Icons/Open Dropdown CaretRight-Icon.svg" alt=""> Back </button>
+                  <button class="btn-ekyc" (click)="previous()"><img id="leftarrow"
+                      src="../../../../assets/Travel_Page_Assets/Form Screen/Icons/Open Dropdown CaretRight-Icon.svg"
+                      alt=""> Back </button>
                 </div>
                 <div>
-                  <button class="btn-ekyc"  replaceUrl="tue">Next <img src="../../../../assets/Travel_Page_Assets/Form Screen/Icons/Open Dropdown CaretRight-Icon.svg" alt=""> </button>
+                  <button class="btn-ekyc" replaceUrl="tue">Next <img
+                      src="../../../../assets/Travel_Page_Assets/Form Screen/Icons/Open Dropdown CaretRight-Icon.svg"
+                      alt=""> </button>
                 </div>
-          
+
+              </div>
             </div>
           </div>
-          </div>
         </div>
-        
-    </div>
+
+      </div>
     </form>
-</div>
+  </div>
 
   <div class="col  quote-summary">
     <div class="text-center" style="padding-top: 12px">
@@ -455,20 +456,20 @@
       </div>
       <div class="policy-content">
         <div style="text-align: center">
-          <img src="../../../assets/Travel_Page_Assets/Form Screen/Icons/Company Policy Frame.svg" alt="" />
+          <img style="width: 94px;" src="../../../assets/Travel_Page_Assets/Quotes Screen/Illustrations/Bajaj_logo.jpg" alt="" />
           <p class="policy-details">Policy Details</p>
         </div>
         <div>
           <p class="summary-details">
-            Depature Date : <span>11/01/2023 </span>
+            Depature Date : <span>{{tripStart}}</span>
           </p>
           <p class="summary-details">
-            Depature Date : <span> 11/10/2023</span>
+            Arrival Date : <span>{{tripEnd}}</span>
           </p>
-          <p class="summary-details">Destination : <span> Singapore</span></p>
-          <p class="summary-details">
+          <p class="summary-details">Destination : <span> {{tripDestination}}</span></p>
+          <!-- <p class="summary-details">
             Resident of : <span> Mumbai, India</span>
-          </p>
+          </p> -->
         </div>
       </div>
     </div>
@@ -478,12 +479,12 @@
         <h2 class="summary-title">Coverage Benefits</h2>
       </div>
       <div class="summary-content">
-        <p class="summary-details">Medical Coverage : <span> 32,498</span></p>
+        <p class="summary-details">Medical Coverage : <span> {{medicalCoverage[0].plimits}}</span></p>
         <p class="summary-details">
-          Passport lost Coverage : <span> 1500</span>
+          Passport lost Coverage : <span> {{passportCoverage.plimits ? passportCoverage[0].plimits : 'Not Covered'}}</span>
         </p>
         <p class="summary-details">
-          Baggage lost Coverage : <span> 4000</span>
+          Baggage lost Coverage : <span> {{baggageCoverage[0].plimits}}</span>
         </p>
         <p>Primary</p>
       </div>
