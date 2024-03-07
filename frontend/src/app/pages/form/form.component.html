@@ -479,12 +479,12 @@
         <h2 class="summary-title">Coverage Benefits</h2>
       </div>
       <div class="summary-content">
-        <p class="summary-details">Medical Coverage : <span> {{medicalCoverage[0].plimits}}</span></p>
+        <p class="summary-details">Medical Coverage : <span> {{medicalCoverage[0].plimits}} USD</span></p>
         <p class="summary-details">
           Passport lost Coverage : <span> {{passportCoverage.plimits ? passportCoverage[0].plimits : 'Not Covered'}}</span>
         </p>
         <p class="summary-details">
-          Baggage lost Coverage : <span> {{baggageCoverage[0].plimits}}</span>
+          Baggage lost Coverage : <span> {{baggageCoverage[0].plimits}} USD</span>
         </p>
         <p>Primary</p>
       </div>
@@ -495,9 +495,9 @@
         <h2 class="summary-title">Trip Costing</h2>
       </div>
       <div class="summary-content">
-        <p class="summary-details">Insurance Cost : <span> {{premiumDetail.pTravelPremiumOut_out.pfullTermPremium}}</span></p>
-        <p class="summary-details">18% GST Cost : <span> {{premiumDetail.pTravelPremiumOut_out.pserviceTax}}</span></p>
-        <p class="summary-details">Total Cost : <span> {{premiumDetail.pTravelPremiumOut_out.ptotalPremium}}</span></p>
+        <p class="summary-details">Insurance Cost : <span>Rs. {{premiumDetail.pTravelPremiumOut_out.pfullTermPremium}}</span></p>
+        <p class="summary-details">18% GST Cost : <span>Rs. {{premiumDetail.pTravelPremiumOut_out.pserviceTax}}</span></p>
+        <p class="summary-details">Total Cost : <span>Rs. {{premiumDetail.pTravelPremiumOut_out.ptotalPremium}}</span></p>
       </div>
     </div>
     <!-- 
