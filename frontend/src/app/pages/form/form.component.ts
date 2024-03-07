@@ -18,7 +18,7 @@ export class FormComponent implements OnInit {
     private router: Router,
     private fb: FormBuilder,
     private getTravelData: DestAgeNumService,
-    private getSinglePlanDetail: PlanDetailsService
+    private getSinglePlanDetail: PlanDetailsService 
   ) { }
 
   tripDestination = this.getTravelData.destData.tDest;
@@ -28,6 +28,10 @@ export class FormComponent implements OnInit {
   medicalCoverage: any;
   passportCoverage: any;
   baggageCoverage: any;
+  premiumDetail: any;
+  insuranceCost: any;
+  gstCost: any;
+  totalCost: any;
 
   stepnumber = 1;
   next() {
@@ -73,6 +77,13 @@ export class FormComponent implements OnInit {
   
       console.log('Medical Coverage', this.medicalCoverage[0].plimits)
     })
+
+    this.getSinglePlanDetail.getSingleCalculatePremium( 
+      this.getTravelData.getDestData(), 
+      this.getSinglePlanDetail.singlePlanName ). subscribe((response) => {
+        this.premiumDetail = response;
+      })
+
     // console.log('Form component mdhe simgle details',this.singlePlanDetail)
 
    
