@@ -12,10 +12,26 @@ export class PlanDetailsService {
     private plans: GetPlansService
   ) { }
 
-  private URL = 'http://localhost:8080/api/v1/getPlanDetails';
+  singlePlanName: any;
+  singlePlanDetails: any
 
-  getPlanDetails()
-  {
-    return this.http.post(this.URL, this.plans)
+  private URL = 'http://localhost:8080/api/v1/getPlanDetails';
+  private URL2 = 'http://localhost:8080/api/v2/getPlanDetails';
+  private singlePlanURL = 'http://localhost:8080/api/v1/getSinglePlanDetails';
+  private singleCalculatePremium = 'http://localhost:8080/api/v1/singlePlanPremium';
+
+  getPlanDetails() {
+    // return this.http.post(this.URL, this.plans)
+    return this.http.get(this.URL2);
+  }
+
+  getSinglePlanDetails(planName: any) {
+    console.log('Service Plan name', planName)
+    return this.http.post(this.singlePlanURL, { planName })
+  }
+
+  getSingleCalculatePremium(data: any, planName: any) {
+    const requestData = { data, planName }
+    return this.http.post(this.singleCalculatePremium, requestData)
   }
 }
