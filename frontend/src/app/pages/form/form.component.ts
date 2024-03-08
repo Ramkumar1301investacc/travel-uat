@@ -1,6 +1,8 @@
+import { FormDataService } from './../../service/form-data.service';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, FormGroupDirective } from '@angular/forms';
+import { NgForm , FormGroup} from '@angular/forms';
 import { Router } from '@angular/router';
+import { ProposalOwnerDetails, ProposalRequest } from 'src/app/Models/FormClasses';
 
 @Component({
   selector: 'app-form',
@@ -9,60 +11,33 @@ import { Router } from '@angular/router';
 })
 export class FormComponent implements OnInit {
 
-  step1: FormGroup;
-  step2: FormGroup;
-  step3: FormGroup;
-  constructor(private router:Router,
-    private fb: FormBuilder){
+  // step1: FormGroup;
+  /*step2: FormGroup;
+  step3: FormGroup;*/
 
-  }
-
-
-
-stepnumber= 1;
-next(){
-  if (this.stepnumber<3) {
-    this.stepnumber++
+  proposalRequest:ProposalRequest=new ProposalRequest();
     
+  stepNumber= 1;
+
+  constructor(private router:Router,private formDataService:FormDataService){
+  }
+
+  next(assignedForm:NgForm){
+    this.formDataService.setFormData(this.proposalRequest);
+    console.log("Data is coming from service:",this.formDataService.formData);
+
+    if (this.stepNumber<3) {
+      this.stepNumber++
+    }
+  }
+  previous(){
+
+    if (this.stepNumber>1) {
+      this.stepNumber--
+      
+    }
+  }
+
+  ngOnInit() {
   }
 }
-previous(){
-  if (this.stepnumber>1) {
-    this.stepnumber--
-    
-  }
-}
-
-ngOnInit() {
-  this.step1 = this.fb.group({
-    // Define controls for step 1
-    salutation : [''],
-    firstName:[''],
-    middleName:['',{ }],
-    surName:['',{ }],
-    dob:['',{ }],
-    passportNo:['',{ }],
-    emailId:['',{ }],
-    phoneNumber:['',{ }],
-    alternatePhoneNumber:['',{ }],
-    addressLine_1:['',{ }],
-    addressLine_2:['',{ }],
-    addressLine_3:['',{ }],
-    state:['',{ }],
-    city:['',{ }],
-    pincode:['',{ }],
-    /* ispermanentAdress:new FormControl(''), */
-  });
-
-
-
-
-
-
-}
-onFormSubmit(){
-  // this.router.navigate('')
-   const proposalFormData = this.step1.value;
-   console.log(proposalFormData)
-
-}}
