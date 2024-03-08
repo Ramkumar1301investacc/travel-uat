@@ -95,6 +95,10 @@
     font-weight: 700;
 }
 
+.insurance-details .p-benefits {
+    font-size: 14px;
+}
+
 .all-policies {
     border-radius: 12px;
     border: 1px solid #E2E2E2;

@@ -39,12 +39,12 @@ const routes: Routes = [
 
   {
     path: 'traveller-form', component: FormComponent,
-    children: [
-      { path: "", component: PersonalDetailComponent },
-      { path: "kyc-nominee", component: KycVerifyComponent },
-      { path: "medical-details", component: MedicalFormComponent },
-      { path: "verify-form", component: FinalFormComponent }
-    ]
+    // children: [
+    //   { path: "", component: PersonalDetailComponent },
+    //   { path: "kyc-nominee", component: KycVerifyComponent },
+    //   { path: "medical-details", component: MedicalFormComponent },
+    //   { path: "verify-form", component: FinalFormComponent }
+    // ]
   }
 
 ];

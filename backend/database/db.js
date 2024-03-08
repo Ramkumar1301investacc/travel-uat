@@ -28,15 +28,29 @@ export const addUserDetails = (request, response) => {
     }
 }
 
-export const getdbStudentTravelPlan = () => {
+export const getPlanDetailsFromDB = () => {
     return new Promise((resolve, reject) => {
-        pool.query("SELECT pplan FROM bajaj.tblbajajtravelplanlist WHERE pplan LIKE '%Student%'", (error, results) => {
+        pool.query("SELECT * FROM coveragedetail INNER JOIN travelplan ON coveragedetail.planid = travelplan.planid;", (error, results) => {
             if (error) {
-                reject(error)
+                reject(error);
             }
             else {
-                resolve(results.rows)
-                console.log(results.rows);
+                // console.log(results);
+                resolve(results);
+            }
+        })
+    })
+}
+
+export const getSinglePlanDetails = (planName) => {
+    console.log('in db.js plan name is ', planName)
+    return new Promise((resolve, reject) => {
+        pool.query(`SELECT * FROM coveragedetail INNER JOIN travelplan ON coveragedetail.planid = travelplan.planid WHERE planname = '${planName}'`, (error, results) => {
+            if (error) {
+                reject(error);
+            }
+            else {
+                resolve(results)
             }
         })
     })
