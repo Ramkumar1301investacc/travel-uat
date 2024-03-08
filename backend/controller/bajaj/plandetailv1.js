@@ -94,31 +94,31 @@ dotenv.config();
 
                 // Parse API response
                 const responseData = await response.json();
-const planDetails = responseData.pTrvPlanDtlsList_out; // Store plan details for this plan
-const coverageDetails = responseData.pTrvCoverDtlsList_out; // Store coverage details for this plan
+                const planDetails = responseData.pTrvPlanDtlsList_out; // Store plan details for this plan
+                const coverageDetails = responseData.pTrvCoverDtlsList_out; // Store coverage details for this plan
 
-// Iterate over each plan detail
-for (const plan of planDetails) {
-    const { maxAgeTo, areaname, minAgeFrom } = plan;
-    console.log("Inserting plan:", planName);
-    
-    // Insert the current plan into the TravelPlan table
-    const insertPlanResult = await client.query('INSERT INTO TravelPlan (PlanName, CoverageArea, MinAgeFrom, MaxAgeTo) VALUES ($1, $2, $3, $4) RETURNING PlanID',
-        [planName, areaname, minAgeFrom, maxAgeTo]);
-    const planID = insertPlanResult.rows[0].PlanID; // Get the inserted plan ID
+                // Iterate over each plan detail
+                for (const plan of planDetails) {
+                    const { maxAgeTo, areaname, minAgeFrom } = plan;
+                    console.log("Inserting plan:", planName);
 
-    // Iterate over each coverage detail
-    for (const coverage of coverageDetails) {
-        const { pbenefits, pdeductible, plimits } = coverage;
-        console.log("Inserting coverage:", pbenefits);
-        
-        // Insert the current coverage detail into the CoverageDetail table along with the corresponding plan ID
-        await client.query('INSERT INTO CoverageDetail (PlanID, pbenefits, pdeductible, plimits) VALUES ($1, $2, $3, $4)',
-            [planID, pbenefits, pdeductible, plimits]);
-    }
+                    // Insert the current plan into the TravelPlan table
+                    const insertPlanResult = await client.query('INSERT INTO TravelPlan (PlanName, CoverageArea, MinAgeFrom, MaxAgeTo) VALUES ($1, $2, $3, $4) RETURNING PlanID',
+                        [planName, areaname, minAgeFrom, maxAgeTo]);
+                    const planID = insertPlanResult.rows[0].PlanID; // Get the inserted plan ID
 
-    console.log("Data inserted successfully for plan:", planName);
-}
+                    // Iterate over each coverage detail
+                    for (const coverage of coverageDetails) {
+                        const { pbenefits, pdeductible, plimits } = coverage;
+                        console.log("Inserting coverage:", pbenefits);
+
+                        // Insert the current coverage detail into the CoverageDetail table along with the corresponding plan ID
+                        await client.query('INSERT INTO CoverageDetail (PlanID, pbenefits, pdeductible, plimits) VALUES ($1, $2, $3, $4)',
+                            [planID, pbenefits, pdeductible, plimits]);
+                    }
+
+                    console.log("Data inserted successfully for plan:", planName);
+                }
 
             } catch (error) {
                 console.error('Error:', error);

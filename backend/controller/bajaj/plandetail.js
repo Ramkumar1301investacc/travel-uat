@@ -97,10 +97,10 @@ dotenv.config();
                 // Extract plan details from the API response
                 const { maxAgeTo, areaname, minAgeFrom } = planDetails;
 
- // Insert plan into TravelPlan table
- const insertPlanQuery = 'INSERT INTO bajaj.tblbajajcoverageareandage (PlanName, CoverageArea, MinAgeFrom, MaxAgeTo) VALUES ($1, $2, $3, $4)';
- const insertPlanValues = [planName, areaname, minAgeFrom, maxAgeTo];
- await client.query(insertPlanQuery, insertPlanValues);
+                // Insert plan into TravelPlan table
+                const insertPlanQuery = 'INSERT INTO bajaj.tblbajajcoverageareandage (PlanName, CoverageArea, MinAgeFrom, MaxAgeTo) VALUES ($1, $2, $3, $4)';
+                const insertPlanValues = [planName, areaname, minAgeFrom, maxAgeTo];
+                await client.query(insertPlanQuery, insertPlanValues);
 
                 // Fetch the inserted plan ID
                 const { rows } = await client.query('SELECT LASTVAL()');
@@ -111,10 +111,10 @@ dotenv.config();
                     const { pbenefits, pdeductible, plimits } = coverage;
                     console.log("Inserting coverage:", pbenefits);
 
-     // Insert the current coverage detail into the CoverageDetail table along with the corresponding plan ID
-     const coverageInsertQuery = 'INSERT INTO bajaj.tblbajajplanandbenefits (planid, pbenefits, pdeductible, plimits) VALUES ($1, $2, $3, $4)';
-     await client.query(coverageInsertQuery, [planID, pbenefits, pdeductible, plimits]);
- }
+                    // Insert the current coverage detail into the CoverageDetail table along with the corresponding plan ID
+                    const coverageInsertQuery = 'INSERT INTO bajaj.tblbajajplanandbenefits (planid, pbenefits, pdeductible, plimits) VALUES ($1, $2, $3, $4)';
+                    await client.query(coverageInsertQuery, [planID, pbenefits, pdeductible, plimits]);
+                }
 
                 console.log("Data inserted successfully for plan:", planName);
 
