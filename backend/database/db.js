@@ -14,7 +14,7 @@ export const addUserDetails = (request, response) => {
         const { tDest, tripStart, tripEnd, numOfTraveller, ageofTravellerOne, ageofTravellerTwo, mobileNumber } = request.body;
         console.log(tripEnd);
 
-        pool.query("INSERT INTO public.gilitraveldetails (traveldestination, startdate, enddate, nooftraveller, dateofbirth, age, mobilenumber) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *",
+        pool.query("INSERT INTO public.tblgilitraveldetail (traveldestination, startdate, enddate, nooftraveller, dateofbirth, age, mobilenumber) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *",
             [tDest, tripStart, tripEnd, numOfTraveller, ageofTravellerOne, 24, mobileNumber], (error, results) => {
                 if (error) {
                     throw error;

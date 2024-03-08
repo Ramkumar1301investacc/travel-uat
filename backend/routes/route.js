@@ -22,6 +22,17 @@ router.get('/api/v1/getStudentsTravelPlan', async (req, res) => {
     }
 })
 
+router.get('/api/v2/getStudentsTravelPlan', async (req, res) => {
+    try {
+        const results = await getdbStudentTravelPlan();
+        res.json(results.rows);
+        // ptravelplan = data;
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: error.message })
+    }
+})
+
 router.get('/api/v1/corporatePlan', async (req, res) => {
     try {
         const data = await getCorporatePlans();
@@ -87,6 +98,9 @@ router.post('/api/v1/CalculatePremium', async (req, res) => {
         res.status(500).json({ message: error.message });
     }
 });
+router.get('/api/v1/getdbstudentplans',async(req,res)=>{
+
+})
 
 router.post('/api/v1/singlePlanPremium', async (req, res) => {
     try {

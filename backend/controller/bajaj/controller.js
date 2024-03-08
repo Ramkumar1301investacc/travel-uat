@@ -3,6 +3,7 @@ import axios from 'axios';
 import fetch from 'node-fetch';
 
 
+
 dotenv.config();
 
 const auserId = process.env.USER_ID;
@@ -146,6 +147,8 @@ export const getPlanDetails = async (plan) => {
       console.error('Error while getting plan details', error)
    }
 }
+
+
 
 
 // For Calculate premium: Assuming ptravelplan is a valid travel plan
