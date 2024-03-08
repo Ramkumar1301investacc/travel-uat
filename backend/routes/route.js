@@ -104,7 +104,7 @@ router.post('/api/v1/singlePlanPremium', async (req, res) => {
         const toMonth = months[ptodate.getMonth()];
         const toYear = ptodate.getFullYear();
         const formattedToDate = `${toDay}-${toMonth}-${toYear}`; // to date
-        const plan = 'Student Companion Standard'; // plan name
+        const plan = req.body.planName; // plan name
 
         const pdateofbirth = new Date(req.body.data.ageofTravellerOne);
         const birthDay = pdateofbirth.getDate().toString().padStart(2, '0');
