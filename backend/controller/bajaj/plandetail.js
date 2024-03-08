@@ -11,7 +11,7 @@ dotenv.config();
     const clientDB = new Client({
         user: 'postgres',
         host: 'localhost',
-        database: 'EnrollmentDataDetail',
+        database: 'gilitraveluat',
         password: 'root',
         port: 5432,
     });
@@ -20,7 +20,7 @@ dotenv.config();
         await clientDB.connect();
 
         // Query to fetch plan names
-        const dbQuery = 'SELECT pplan FROM public.bajajdetail;';
+        const dbQuery = 'SELECT pplan FROM bajaj.tblbajajtravelplanlist;';
         const dbResult = await clientDB.query(dbQuery);
         const planNames = dbResult.rows.map(row => row.pplan);
 
@@ -31,7 +31,7 @@ dotenv.config();
         const client = new Client({
             user: 'postgres',
             host: 'localhost',
-            database: 'EnrollmentDataDetail',
+            database: 'gilitraveluat',
             password: 'root',
             port: 5432,
         });
@@ -98,7 +98,7 @@ dotenv.config();
  const { maxAgeTo, areaname, minAgeFrom } = planDetails;
 
  // Insert plan into TravelPlan table
- const insertPlanQuery = 'INSERT INTO TravelPlan (PlanName, CoverageArea, MinAgeFrom, MaxAgeTo) VALUES ($1, $2, $3, $4)';
+ const insertPlanQuery = 'INSERT INTO bajaj.tblbajajcoverageareandage (PlanName, CoverageArea, MinAgeFrom, MaxAgeTo) VALUES ($1, $2, $3, $4)';
  const insertPlanValues = [planName, areaname, minAgeFrom, maxAgeTo];
  await client.query(insertPlanQuery, insertPlanValues);
 
@@ -112,7 +112,7 @@ dotenv.config();
      console.log("Inserting coverage:", pbenefits);
 
      // Insert the current coverage detail into the CoverageDetail table along with the corresponding plan ID
-     const coverageInsertQuery = 'INSERT INTO CoverageDetail (planid, pbenefits, pdeductible, plimits) VALUES ($1, $2, $3, $4)';
+     const coverageInsertQuery = 'INSERT INTO bajaj.tblbajajplanandbenefits (planid, pbenefits, pdeductible, plimits) VALUES ($1, $2, $3, $4)';
      await client.query(coverageInsertQuery, [planID, pbenefits, pdeductible, plimits]);
  }
 

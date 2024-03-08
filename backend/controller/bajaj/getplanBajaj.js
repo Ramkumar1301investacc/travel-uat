@@ -45,7 +45,7 @@ const getAllPlansUrl = process.env.GET_ALL_PLANS;
   const client = new Client({
     user: 'postgres',
     host: 'localhost',
-    database: 'giliTravelUat',
+    database: 'gilitraveluat',
     password: 'root',
 
     port: 5432,
@@ -61,7 +61,7 @@ const getAllPlansUrl = process.env.GET_ALL_PLANS;
 
   // console.log('Parsed Data', parsedData);
   for (const item of parsedData) {
-    const query = ` INSERT INTO public."plansList"(
+    const query = ` INSERT INTO bajaj.tblbajajtravelplanlist(
       countpplan, pplan)
           VALUES ($1,$2);
 
