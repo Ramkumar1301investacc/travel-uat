@@ -2,7 +2,8 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import dotenv from 'dotenv';
 import { CalculatePremium, getCorporatePlans, getPlanDetails, getSingleTripPlans, getStudentTravelPlan } from '../controller/bajaj/controller.js';
-import { addUserDetails, getPlanDetailsFromDB, getSinglePlanDetails } from '../database/db.js';
+import { addUserDetails, getPlanDetailsFromDB, getSinglePlanDetails,bajajCountryMaster } from '../database/db.js';
+import { error } from 'console';
 const router = express.Router();
 dotenv.config();
 
@@ -28,6 +29,16 @@ router.get('/api/v2/getStudentsTravelPlan', async (req, res) => {
         res.json(results.rows);
         // ptravelplan = data;
     } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: error.message })
+    }
+})
+//bajaj country Master List 
+router.get('/api/v1/countrymaster',async (req,res)=>{
+    try{
+        const results=await bajajCountryMaster();
+        res.json(results.row);
+    }catch (error){
         console.error(error);
         res.status(500).json({ message: error.message })
     }

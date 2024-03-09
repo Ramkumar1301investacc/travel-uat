@@ -1,3 +1,4 @@
+import { error } from 'console';
 import pkg from 'pg';
 const { Pool } = pkg;
 
@@ -40,7 +41,20 @@ export const getPlanDetailsFromDB = () => {
         })
     })
 }
-
+//bajaj country master
+export const bajajCountryMaster =()=>{
+    return new Promise((resolve,reject)=>{
+        pool.query('SELECT * FROM bajaj."tblBajajCountryMaster"',(error,results)=>{
+            if (error) {
+                reject(error);
+            }
+            else {
+                 console.log(results);
+                resolve(results);
+            }
+        })
+    })
+}
 export const getSinglePlanDetails = (planName) => {
     console.log('in db.js plan name is ', planName)
     return new Promise((resolve, reject) => {
