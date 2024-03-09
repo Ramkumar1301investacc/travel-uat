@@ -32,6 +32,9 @@ export class FormComponent implements OnInit {
   insuranceCost: any;
   gstCost: any;
   totalCost: any;
+formData: any;
+finalform: NgForm;
+
 
 constructor(
   private router: Router,
@@ -44,8 +47,9 @@ constructor(
   next(assignedForm:NgForm){
     this.formdataservice.setFormData(this.proposalRequest);
     console.log("Data is coming from service:",this.formdataservice.formData);
+  
 
-    if (this.stepNumber<3) {
+    if (this.stepNumber<4) {
       this.stepNumber++
     }
   }
@@ -73,5 +77,8 @@ constructor(
       this.getSinglePlanDetail.singlePlanName ). subscribe((response) => {
         this.premiumDetail = response;
       })
+
+      this.formData = this.formdataservice.getFormData();
   }
+
 }

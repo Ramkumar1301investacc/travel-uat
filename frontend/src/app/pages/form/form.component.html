@@ -654,7 +654,7 @@
                   </button>
                 </div>
                 <div>
-                  <button class="btn-ekyc" replaceUrl="tue">
+                  <button (click)="next(finalform)" class="btn-ekyc" >
                     Next
                     <img
                       src="../../../../assets/Travel_Page_Assets/Form Screen/Icons/Open Dropdown CaretRight-Icon.svg"
@@ -670,6 +670,75 @@
     </form>
   </div>
 
+  <div class="col-9 form-holder" *ngIf="stepNumber === 4">
+    <form #finalform="ngForm" class="row form-row ">
+      <div class="col" style="margin-right: -25px;">
+        <div class="card card-heading traveller-left-div">
+          <h1>Traveller Detail</h1>
+        </div>
+        <div>
+          <p>Name: {{ proposalRequest.proposalOwnerDetails.firstname }} </p>
+          <p>Email ID: <span>{{proposalRequest.proposalOwnerDetails.email}}</span></p>
+          <p>Phone No. <span>+91 {{proposalRequest.proposalOwnerDetails.phonenumber}}</span></p>
+          <p>Alternate No. <span>+91 {{proposalRequest.proposalOwnerDetails.altphoneno}}</span></p>
+          <p>Gender : <span>Male</span></p>
+          <p>DOB: <span>{{proposalRequest.proposalOwnerDetails.dob}}</span></p>
+          <p>{{formData?. verificationOption}} <span> {{formData?.CardNumber}}</span></p>
+          <P>{{proposalRequest.proposalNomineeDetails
+            .verificationOption }}<span>{{proposalRequest.proposalNomineeDetails.nomCardno}}</span></P>
+
+          <P>Address: <span>{{proposalRequest.proposalOwnerDetails.add1}} {{proposalRequest.proposalOwnerDetails.add2}} {{proposalRequest.proposalOwnerDetails.add3}}</span>
+          </P>
+
+
+        </div>
+      </div>
+      <div class="col">
+        <div class="card card-heading traveller-left-div">
+          <h1>Nominee Detail</h1>
+        </div>
+        <div>
+          <p>Name: <span>{{ proposalRequest.proposalNomineeDetails.nomFullname}}</span></p>
+          <p>Realationship: <span>{{ proposalRequest.proposalNomineeDetails.nomrelation}} </span></p>
+          <p>Email ID: <span>{{ proposalRequest.proposalNomineeDetails.nomemail}}</span></p>
+          <p>Phone No. <span>+91 {{proposalRequest.proposalNomineeDetails.nomphoneno}}</span></p>
+
+        </div>
+        <div>
+          <h1>Medical Details</h1>
+        </div>
+        <P>Heart Conditions</P>
+        <div class="card p-2 otp-div">
+          <h1>
+            OTP Details
+          </h1>
+          <button class="otp-btn">Generate OTP</button>
+        </div>
+        <div class="otp-div" style="margin-top:12px">
+          <ng-otp-input [config]="{length:4}"></ng-otp-input>
+          <button class="btn-ekyc" routerLink="" replaceUrl="tue">Next <img
+              src="../../../../assets/Travel_Page_Assets/Form Screen/Icons/Open Dropdown CaretRight-Icon.svg" alt="">
+          </button>
+
+
+        </div>
+
+      </div>
+    </form>
+    <div class="row" style="margin-top:12px;">
+      <div class="col">
+        <div class="accept-container">
+
+          <button class="btn-ekyc" routerLink="" replaceUrl="tue">Proceed <img
+              src="../../../../assets/Travel_Page_Assets/Form Screen/Icons/Open Dropdown CaretRight-Icon.svg" alt="">
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
   <div class="col quote-summary">
     <div class="text-center" style="padding-top: 12px">
       <p class="quote">
