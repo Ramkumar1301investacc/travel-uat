@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 import { DestAgeNumService } from 'src/app/service/dest-age-num.service';
+import { GetPlansService } from 'src/app/service/getPlans/get-plans.service';
 
 
 @Component({
@@ -12,7 +13,8 @@ export class TravellersAgeComponent {
 
   constructor(
     private formBuilder: FormBuilder,
-    private destDataService: DestAgeNumService
+    private destDataService: DestAgeNumService,
+    private getPlans: GetPlansService
   ) { }
   finalFormData: any;
   ageForm: FormGroup = new FormGroup({})
@@ -56,19 +58,27 @@ export class TravellersAgeComponent {
 
   onSubmit() {
     if (this.ageForm.valid) {
-      
 
       this.destDataService.setDestData({ ...this.destDataService.getDestData(), ...this.ageForm.value });
       this.finalFormData = this.destDataService.getDestData();
-     
+
       const date = new Date();
       const ageDate = new Date(this.finalFormData.ageofTravellerOne);
       const travellerAgeYear = ageDate.getFullYear();
       const currentYear = date.getFullYear();
       console.log('Dest Data', this.destDataService.destData)
-      const travellerAge =  Math.abs(travellerAgeYear - currentYear);
+      const travellerAge = Math.abs(travellerAgeYear - currentYear);
+      if (travellerAge > 60 && travellerAge < 71) {
+        this.getPlans.plans = this.getPlans.plans.filter((plan: any) => { return plan.pplan.includes('Age') });
+        console.log(this.getPlans.plans)
+      }
+      else {
+        this.getPlans.plans = this.getPlans.plans.filter((plan: any) => { return !plan.pplan.includes('Age') });
+      }
     }
   }
+
+
 
   statusValue = false;
 

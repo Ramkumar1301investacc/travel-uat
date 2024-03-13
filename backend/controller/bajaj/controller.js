@@ -104,7 +104,7 @@ export const CalculatePremium = async (ptodate, ptravelplan, pdateofbirth, pfrom
             "ptravelplan": ptravelplan,
             "pdateofbirth": pdateofbirth,
             "pfromdate": pfromdate,
-            "pareaplan": "Worldwide Excluding USA and Canada",
+            "pareaplan": "Worldwide Including USA and Canada",
             "pdiscount": "421202"
          }
       };

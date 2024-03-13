@@ -8,4 +8,5 @@ export class FiltersService {
   constructor() { }
 
   sumInsuredAmount : any = 50000;
+  planType: any;
 }
