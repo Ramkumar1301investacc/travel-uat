@@ -7,7 +7,7 @@ export class ProposalRequest{
 }
 
 export class ProposalOwnerDetails{
-    salutation:string='';
+    salutation:number=0;
     firstname:string = '';
     middlename:string = '';
     surname:string = '';
@@ -26,11 +26,10 @@ export class ProposalOwnerDetails{
 }
 
 export class ProposalNomineeDetails{
-    verificationOption:string='';
-    nomCardno:number=0;
-    nomFullname:string='';
-    nomrelation:string='';
-    nomge:number=0;
-    nomemail:string='';
-    nomphoneno:string='';
+   nomtitle:number=0;
+   nomfullname:String='';
+   nomdob:Date;
+   nomphoneno:number=0;
+   nomemail:string='';
+   appointeereltn: string = '';
 }

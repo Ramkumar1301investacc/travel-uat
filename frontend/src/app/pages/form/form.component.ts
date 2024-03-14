@@ -2,7 +2,8 @@ import { FormDataService } from './../../service/form-data.service';
 import { Component, OnInit } from '@angular/core';
 import { NgForm , FormGroup, FormBuilder} from '@angular/forms';
 import { Router } from '@angular/router';
-import { ProposalOwnerDetails, ProposalRequest } from 'src/app/Models/FormClasses';
+import { ProposalRequest } from 'src/app/Models/FormClasses';
+import { DbServiceService } from 'src/app/service/dbService/db-service.service';
 import { DestAgeNumService } from 'src/app/service/dest-age-num.service';
 import { PlanDetailsService } from 'src/app/service/planDetails/plan-details.service';
 
@@ -38,16 +39,21 @@ constructor(
   private fb: FormBuilder,
   private getTravelData: DestAgeNumService,
   private getSinglePlanDetail: PlanDetailsService,
-  private formdataservice:FormDataService
+  private formdataservice:FormDataService,
+  private dbService:DbServiceService
+
 ) { }
 
   next(assignedForm:NgForm){
-    this.formdataservice.setFormData(this.proposalRequest);
+    this.formdataservice.setFormData(this.proposalRequest.proposalOwnerDetails);
     console.log("Data is coming from service:",this.formdataservice.formData);
-
     if (this.stepNumber<3) {
       this.stepNumber++
     }
+
+    this.dbService.sendProposalFormDetails().subscribe(response => {
+      console.log("Proposal Data is added in database:"+response)
+    })
   }
   previous(){
 

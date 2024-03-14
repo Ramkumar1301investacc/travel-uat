@@ -54,3 +54,22 @@ export const getSinglePlanDetails = (planName) => {
         })
     })
 }
+
+export const insertProposalCustomerDetails=(request,response)=>{
+    try{
+        // const{firstname,middlename,surname,gender,dob,passportno,email,add1,add2,add3,state,city,pincode,isregaddsame,regadd1,regadd2,regadd3,regpin,phoneno}=request.body;
+        // console.log('Owner Details', request.body?.proposalOwnerDetails);
+        const {salutation,firstname,middlename,surname,gender,dob,passportno,email,add1,add2,add3,state,city,pincode,phonenumber} = request.body;
+        pool.query("INSERT INTO tblproposalcustomerdetails(titleid, firstname, middlename, lastname, genderid, dob, passportno, email, add1, add2, add3, stateid, cityid,pincode, isregaddsame, regadd1, regadd2, regadd3, regpin, phoneno, altphone) VALUES($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16,$17,$18,$19,$20,$21) RETURNING *" ,
+        [salutation,firstname,middlename,surname,gender,dob,passportno,email,add1,add2,add3,state,city,pincode,true,"Mumbai","Banglore","Pune",415605,phonenumber,7738761058], (error,results)=>{
+            if(error){
+                throw error;
+            }
+            response.status(201).json("Proposal form filled");
+            console.log("Proposal form filled");
+        }) 
+    }
+    catch(error){
+        console.log('Cannot get request',error)
+    }
+}
