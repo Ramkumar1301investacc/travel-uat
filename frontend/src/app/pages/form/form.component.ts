@@ -2,7 +2,7 @@ import { FormDataService } from './../../service/form-data.service';
 import { Component, OnInit } from '@angular/core';
 import { NgForm , FormGroup, FormBuilder} from '@angular/forms';
 import { Router } from '@angular/router';
-import { ProposalRequest } from 'src/app/Models/FormClasses';
+import { ProposalOwnerDetails, ProposalRequest } from 'src/app/Models/FormClasses';
 import { DbServiceService } from 'src/app/service/dbService/db-service.service';
 import { DestAgeNumService } from 'src/app/service/dest-age-num.service';
 import { PlanDetailsService } from 'src/app/service/planDetails/plan-details.service';
@@ -47,7 +47,7 @@ constructor(
 
 ) { }
 
-  next(assignedForm:NgForm){
+  /*next(assignedForm:NgForm){
     this.formdataservice.setFormData(this.proposalRequest.proposalOwnerDetails);
     console.log("Data is coming from service:",this.formdataservice.formData);
   
@@ -59,7 +59,29 @@ constructor(
     this.dbService.sendProposalFormDetails().subscribe(response => {
       console.log("Proposal Data is added in database:"+response)
     })
+  }*/
+
+  next(assignedForm:NgForm){
+    if(this.stepNumber===1){
+      this.formdataservice.setFormData(this.proposalRequest.proposalOwnerDetails);
+      console.log("Customer Details are set in service:", this.formdataservice.formData);
+      this.dbService.sendProposalCustomerFormDetails().subscribe(response => {
+        console.log("Customer Data is added in database:"+response)
+      })
+    }else if(this.stepNumber==2){
+      this.formdataservice.setFormData(this.proposalRequest.proposalNomineeDetails);
+      console.log("Nominee Details are set in service:", this.formdataservice.formData);
+      this.dbService.sendProposalNomineeFormDetails().subscribe(response=>{
+        console.log("Nominee Data is added in database"+response);
+      })
+    }
+
+    if (this.stepNumber<4) {
+      this.stepNumber++
+    }
+    
   }
+
   previous(){
 
     if (this.stepNumber>1) {

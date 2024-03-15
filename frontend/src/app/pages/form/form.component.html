@@ -34,17 +34,7 @@
                     >Salutation <span>*</span></label
                   >
 
-                  <select
-                    class="form-select"
-                    aria-label="Default select example"
-                    id="floatingSelectGrid"
-                    [(ngModel)]="
-                      proposalRequest.proposalOwnerDetails.salutation
-                    "
-                    name="salutation"
-                    ngModel
-                    required
-                  >
+                  <select class="form-select" aria-label="Default select example" id="floatingSelectGrid" [(ngModel)]="proposalRequest.proposalOwnerDetails.salutation" name="salutation" ngModel required >
                     <option value="1">Mr</option>
                     <option value="2">Mrs</option>
                   </select>
@@ -444,7 +434,7 @@
                     </div>
                     <div class="form-age">
                       <label class="form-label" for="">Age <span>*</span></label>
-                      <input class="form-control" type="text" [(ngModel)]="proposalRequest.proposalNomineeDetails.nomdob" name="nomge" ngModel required/>
+                      <input class="form-control" type="date" [(ngModel)]="proposalRequest.proposalNomineeDetails.nomdob" name="nomge" ngModel required/>
                     </div>
                   </div>
                 </div>
@@ -568,7 +558,7 @@
               </div>
               <div style="margin-top: 16px">
                 <input type="checkbox" />I have read all the details and give
-                conirmation that all details added are correct
+                confirmation that all details added are correct
               </div>
             </div>
           </div>

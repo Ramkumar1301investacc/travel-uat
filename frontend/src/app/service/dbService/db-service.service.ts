@@ -22,7 +22,12 @@ export class DbServiceService {
     return this.http.post(this.apiURL+'/addUserDetails', this.getTravellerData.destData)
   }
 
-  sendProposalFormDetails(){
+  sendProposalCustomerFormDetails(){
     return this.http.post(this.apiURL+'/insertProposalCustomerDetails',this.getPropsalFormData.formData)
   }
+
+  sendProposalNomineeFormDetails(){
+    return this.http.post(this.apiURL+'/insertProposalNomineeDetails',this.getPropsalFormData.formData)
+  }
+  
 }

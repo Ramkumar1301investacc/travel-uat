@@ -65,11 +65,27 @@ export const insertProposalCustomerDetails=(request,response)=>{
             if(error){
                 throw error;
             }
-            response.status(201).json("Proposal form filled");
+            response.status(201).json("Customer form filled");
             console.log("Proposal form filled");
         }) 
     }
     catch(error){
         console.log('Cannot get request',error)
+    }
+}
+
+export const insertProposalNomineeDetails=(request,response)=>{
+    try{
+        const{nomtitleid,nomfullname,nomdob,appointeereltn,nomemail}=request.body;
+        pool.query("INSERT INTO tblproposalotherdetails(nomtitleid,nomfullname,nomdob,appointeereltn,noemail) VALUES($1,$2,$3,$4,$5) RETURNING *",
+        [1,nomfullname,nomdob,appointeereltn,nomemail],(error,results)=>{
+            if(error){
+                throw error;
+            }
+            response.status(201).json("Nominee form filled");
+        })
+    }
+    catch(error){
+        console.log("Cannot get request",error);
     }
 }
