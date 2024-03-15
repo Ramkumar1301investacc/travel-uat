@@ -32,6 +32,16 @@
     border-radius: 12px;
 }
 
+.acc-item {
+    height: 500px;
+    overflow-y: scroll;
+}
+
+.acc-item::-webkit-scrollbar {
+    display: none;
+}
+
+
 .accordion-body,
 .accordion-button {
     background: #EBF4FF;

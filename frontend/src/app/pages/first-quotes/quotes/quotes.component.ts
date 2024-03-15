@@ -13,7 +13,7 @@ import { SendDataService } from 'src/app/service/sendData/send-data.service';
 })
 export class QuotesComponent {
 
-  sumInsuredValues = [50000, 100000, 150000, 200000, 250000, 300000, 350000, 400000, 450000, 500000, 750000]
+  sumInsuredValues = [50000, 100000, 150000, 200000, 250000, 300000, 350000, 400000, 450000, 500000, 750000, 800000, 850000, 900000, 950000, 1000000]
   loading: boolean = true;
   pData: any; //plans name
   pDetails: any; //plans details
@@ -48,41 +48,101 @@ export class QuotesComponent {
   onItemChange(e: any) {
     this.filters.sumInsuredAmount = e.target.value;
 
-    if (this.filters.sumInsuredAmount == 50000) {
-      this.filterData('Standard', 'Student')
+    switch (this.filters.sumInsuredAmount) {
+      case "50000":
+        this.filterData('Standard', 'Student')
+        console.log(this.filters.sumInsuredAmount)
+        break;
+
+      case "100000":
+        this.filterData('Silver', 'Student')
+        console.log(this.filters.sumInsuredAmount)
+        break;
+
+      case "200000":
+        this.pFilterData = this.pData.filter((plan: any) => { return plan.pTravelPremiumIn_inout.ptravelplan.includes('Gold') && !plan.pTravelPremiumIn_inout.ptravelplan.includes('Super') })
+        this.pFilteredPlanDetails = this.pDetails.filter((plan: any) => { return plan.planname.includes('Gold') && plan.planname.includes('Student') })
+        this.medicalExpenses = this.pDetails.filter((plan: any) => { return plan.planname.includes('Gold') && plan.pbenefits.includes('Medical') && plan.planname.includes('Student') && !plan.planname.includes('Super') })
+        this.baggageExpense = this.pDetails.filter((plan: any) => { return plan.planname.includes('Gold') && plan.pbenefits.includes('Baggage') && plan.planname.includes('Student') && !plan.planname.includes('Super') })
+        this.passportExpense = this.pDetails.filter((plan: any) => { return plan.planname.includes('Gold') && plan.pbenefits.includes('Passport') && plan.planname.includes('Student') && !plan.planname.includes('Super') })
+        console.log('Filtered Data', this.pFilterData);
+        console.log('Filtered plan details', this.pFilteredPlanDetails)
+        break;
+
+      case "250000":
+        this.filterData('Lite', 'Corporate');
+        break;
+
+      case "300000":
+        this.pFilterData = this.pData.filter((plan: any) => { return plan.pTravelPremiumIn_inout.ptravelplan.includes('Platinum') && !plan.pTravelPremiumIn_inout.ptravelplan.includes('Super') })
+        this.pFilteredPlanDetails = this.pDetails.filter((plan: any) => { return plan.planname.includes('Platinum') && !plan.planname.includes('Super') && plan.planname.includes('Student') })
+        this.medicalExpenses = this.pDetails.filter((plan: any) => { return plan.planname.includes('Platinum') && !plan.planname.includes('Super') && plan.pbenefits.includes('Medical') && plan.planname.includes('Student') })
+        this.baggageExpense = this.pDetails.filter((plan: any) => { return plan.planname.includes('Platinum') && !plan.planname.includes('Super') && plan.pbenefits.includes('Baggage') && plan.planname.includes('Student') })
+        this.passportExpense = this.pDetails.filter((plan: any) => { return plan.planname.includes('Platinum') && !plan.planname.includes('Super') && plan.pbenefits.includes('Passport') && plan.planname.includes('Student') })
+        console.log('Filtered Data', this.pFilterData);
+        console.log('Filtered plan details', this.pFilteredPlanDetails)
+        break;
+
+      case "500000":
+        if (this.filters.planType === 'Student') {
+          this.filterData('Super Gold', 'Student')
+        }
+        else if (this.filters.planType === 'Corporate') {
+          this.filterData('Plus', 'Corporate')
+        }
+
+        break;
+
+      case "750000":
+        this.filterData('Super Platinum', 'Student')
+        break;
+
+      case "1000000":
+        this.filterData('Maximum', 'Corporate')
+        break;
+
+      default:
+        console.log(this.filters.sumInsuredAmount);
+       
+        break;
+
     }
 
-    else if (this.filters.sumInsuredAmount == 100000) {
-      this.filterData('Silver', 'Student')
-    }
+    // if (this.filters.sumInsuredAmount == 50000) {
+    //   this.filterData('Standard', 'Student')
+    // }
 
-    else if (this.filters.sumInsuredAmount == 200000) {
-      this.pFilterData = this.pData.filter((plan: any) => { return plan.pTravelPremiumIn_inout.ptravelplan.includes('Gold') && !plan.pTravelPremiumIn_inout.ptravelplan.includes('Super') })
-      this.pFilteredPlanDetails = this.pDetails.filter((plan: any) => { return plan.planname.includes('Gold') && plan.planname.includes('Student') })
-      this.medicalExpenses = this.pDetails.filter((plan: any) => { return plan.planname.includes('Gold') && plan.pbenefits.includes('Medical') && plan.planname.includes('Student') })
-      this.baggageExpense = this.pDetails.filter((plan: any) => { return plan.planname.includes('Gold') && plan.pbenefits.includes('Baggage') && plan.planname.includes('Student') })
-      this.passportExpense = this.pDetails.filter((plan: any) => { return plan.planname.includes('Gold') && plan.pbenefits.includes('Passport') && plan.planname.includes('Student') })
-      console.log('Filtered Data', this.pFilterData);
-      console.log('Filtered plan details', this.pFilteredPlanDetails)
-    }
+    // else if (this.filters.sumInsuredAmount == 100000) {
+    //   this.filterData('Silver', 'Student')
+    // }
 
-    else if (this.filters.sumInsuredAmount == 300000) {
-      this.pFilterData = this.pData.filter((plan: any) => { return plan.pTravelPremiumIn_inout.ptravelplan.includes('Platinum') && !plan.pTravelPremiumIn_inout.ptravelplan.includes('Super') })
-      this.pFilteredPlanDetails = this.pDetails.filter((plan: any) => { return plan.planname.includes('Platinum') && !plan.planname.includes('Super') && plan.planname.includes('Student') })
-      this.medicalExpenses = this.pDetails.filter((plan: any) => { return plan.planname.includes('Platinum') && !plan.planname.includes('Super') && plan.pbenefits.includes('Medical') && plan.planname.includes('Student') })
-      this.baggageExpense = this.pDetails.filter((plan: any) => { return plan.planname.includes('Platinum') && !plan.planname.includes('Super') && plan.pbenefits.includes('Baggage') && plan.planname.includes('Student') })
-      this.passportExpense = this.pDetails.filter((plan: any) => { return plan.planname.includes('Platinum') && !plan.planname.includes('Super') && plan.pbenefits.includes('Passport') && plan.planname.includes('Student') })
-      console.log('Filtered Data', this.pFilterData);
-      console.log('Filtered plan details', this.pFilteredPlanDetails)
-    }
+    // else if (this.filters.sumInsuredAmount == 200000) {
+    //   this.pFilterData = this.pData.filter((plan: any) => { return plan.pTravelPremiumIn_inout.ptravelplan.includes('Gold') && !plan.pTravelPremiumIn_inout.ptravelplan.includes('Super') })
+    //   this.pFilteredPlanDetails = this.pDetails.filter((plan: any) => { return plan.planname.includes('Gold') && plan.planname.includes('Student') })
+    //   this.medicalExpenses = this.pDetails.filter((plan: any) => { return plan.planname.includes('Gold') && plan.pbenefits.includes('Medical') && plan.planname.includes('Student') && !plan.planname.includes('Super') })
+    //   this.baggageExpense = this.pDetails.filter((plan: any) => { return plan.planname.includes('Gold') && plan.pbenefits.includes('Baggage') && plan.planname.includes('Student') && !plan.planname.includes('Super') })
+    //   this.passportExpense = this.pDetails.filter((plan: any) => { return plan.planname.includes('Gold') && plan.pbenefits.includes('Passport') && plan.planname.includes('Student') && !plan.planname.includes('Super') })
+    //   console.log('Filtered Data', this.pFilterData);
+    //   console.log('Filtered plan details', this.pFilteredPlanDetails)
+    // }
 
-    else if (this.filters.sumInsuredAmount == 500000) {
-      this.filterData('Super Gold', 'Student')
-    }
+    // else if (this.filters.sumInsuredAmount == 300000) {
+    //   this.pFilterData = this.pData.filter((plan: any) => { return plan.pTravelPremiumIn_inout.ptravelplan.includes('Platinum') && !plan.pTravelPremiumIn_inout.ptravelplan.includes('Super') })
+    //   this.pFilteredPlanDetails = this.pDetails.filter((plan: any) => { return plan.planname.includes('Platinum') && !plan.planname.includes('Super') && plan.planname.includes('Student') })
+    //   this.medicalExpenses = this.pDetails.filter((plan: any) => { return plan.planname.includes('Platinum') && !plan.planname.includes('Super') && plan.pbenefits.includes('Medical') && plan.planname.includes('Student') })
+    //   this.baggageExpense = this.pDetails.filter((plan: any) => { return plan.planname.includes('Platinum') && !plan.planname.includes('Super') && plan.pbenefits.includes('Baggage') && plan.planname.includes('Student') })
+    //   this.passportExpense = this.pDetails.filter((plan: any) => { return plan.planname.includes('Platinum') && !plan.planname.includes('Super') && plan.pbenefits.includes('Passport') && plan.planname.includes('Student') })
+    //   console.log('Filtered Data', this.pFilterData);
+    //   console.log('Filtered plan details', this.pFilteredPlanDetails)
+    // }
 
-    else if (this.filters.sumInsuredAmount == 750000) {
-      this.filterData('Super Platinum', 'Student')
-    }
+    // else if (this.filters.sumInsuredAmount == 500000) {
+    //   this.filterData('Super Gold', 'Student')
+    // }
+
+    // else if (this.filters.sumInsuredAmount == 750000) {
+    //   this.filterData('Super Platinum', 'Student')
+    // }
   }
 
   onBuyPolicy(planName: any) {
@@ -110,9 +170,11 @@ export class QuotesComponent {
       this.filterData('Standard', 'Student');
     }
     else if (this.filters.planType === 'Corporate') {
-      this.filterData('30', 'Corporate');
+      this.filterData('Lite', 'Corporate');
+      console.log('Filtered Data', this.pFilterData);
+      console.log('Filtered plan details', this.pFilteredPlanDetails)
     }
-    
+
   }
 }
 
