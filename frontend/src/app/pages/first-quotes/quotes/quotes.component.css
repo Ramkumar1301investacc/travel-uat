@@ -21,16 +21,22 @@
     padding: 20px;
 }
 
-.policy {
-    /* height: 100vh; */
-    /* border: 1px solid blue; */
-}
 
 .filter-search-results {
     border-bottom: 4px solid #37AFD4;
     box-shadow: 0px 4px 16px 0px rgba(148, 163, 179, 0.25);
     border-radius: 12px;
 }
+
+.acc-item {
+    height: 500px;
+    overflow-y: scroll;
+}
+
+.acc-item::-webkit-scrollbar {
+    display: none;
+}
+
 
 .accordion-body,
 .accordion-button {
