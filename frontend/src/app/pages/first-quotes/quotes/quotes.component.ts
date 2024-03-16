@@ -90,7 +90,6 @@ export class QuotesComponent {
         else if (this.filters.planType === 'Corporate') {
           this.filterData('Plus', 'Corporate')
         }
-
         break;
 
       case "750000":
@@ -103,7 +102,6 @@ export class QuotesComponent {
 
       default:
         console.log(this.filters.sumInsuredAmount);
-       
         break;
 
     }
