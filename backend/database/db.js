@@ -11,10 +11,10 @@ const pool = new Pool({
 
 export const addUserDetails = (request, response) => {
     try {
-        const { tDest, tripStart, tripEnd, numOfTraveller, ageofTravellerOne, ageofTravellerTwo, mobileNumber } = request.body;
+        const { destBadge, tripStart, tripEnd, numOfTraveller, ageofTravellerOne, ageofTravellerTwo, mobileNumber } = request.body;
 
         pool.query("INSERT INTO public.tblgilitraveldetail (traveldestination, startdate, enddate, nooftraveller, dateofbirth, age, mobilenumber) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *",
-            [tDest, tripStart, tripEnd, numOfTraveller, ageofTravellerOne, 24, mobileNumber], (error, results) => {
+            [destBadge, tripStart, tripEnd, numOfTraveller, ageofTravellerOne, 24, mobileNumber], (error, results) => {
                 if (error) {
                     throw error;
                 }

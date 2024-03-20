@@ -21,7 +21,7 @@ export class DestinationDateComponent {
     private destDataService: DestAgeNumService
   ) { }
 
-
+  topCountriesBadge = ['United States', 'Canada', 'England', 'Spain', 'Japan', 'France', 'UAE', 'Thailand', 'Germany', 'Singapore']
 
   countries: any = [];                                                     //array to store countries
 
@@ -44,10 +44,10 @@ export class DestinationDateComponent {
     })
 
     this.travelForm = this.formBuilder.group({
-      tDest: this.badgeItems,
+      tDest: [this.badgeItems],
       tripStart: ['', Validators.required],
       tripEnd: ['', Validators.required],
-      destBadge: this.badgeItems
+      destBadge: [this.badgeItems]
     })
   }
 
@@ -66,12 +66,15 @@ export class DestinationDateComponent {
   getValue(e: any) {                                                         //function to add countries badges
     let value = e.target.innerHTML;
     this.badgeItems.push(value);
-    console.log('Badge Items', this.badgeItems)
-    this.travelForm = this.formBuilder.group({
-      tDest: [this.badgeItems],
-      tripStart: ['', Validators.required],
-      tripEnd: ['', Validators.required]
-    })
+    console.log('Badge Items', this.badgeItems);
+    // this.travelForm = this.formBuilder.group({
+    //   tDest: [this.badgeItems],
+    //   tripStart: ['', Validators.required],
+    //   tripEnd: ['', Validators.required]
+    // })
+    // this.travelForm.get('tDest')?.setValue(this.badgeItems);
+    // console.log('tDest value', this.travelForm.get('tDest')?.value);
+    this.searchText = ''
   }
 
   delete(i: any) {                                                           //function to delete badges
@@ -86,7 +89,8 @@ export class DestinationDateComponent {
   onSubmit() {
     if (this.travelForm.valid) {
       this.destDataService.setDestData(this.travelForm.value);
-      console.log('Dest Data', this.destDataService.destData)
+      console.log('Dest Data', this.destDataService.destData);
+      // console.log('After submit tDest value', this.travelForm.get('tDest')?.value);
     }
   }
 
