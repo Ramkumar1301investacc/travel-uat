@@ -22,7 +22,7 @@ export class FormComponent implements OnInit {
     
   stepNumber= 1;
 
-  tripDestination = this.getTravelData.destData.tDest;
+  tripDestination = this.getTravelData.destData.destBadge;
   tripStart = this.getTravelData.destData.tripStart;
   tripEnd = this.getTravelData.destData.tripEnd;
   singlePlanDetail: any;
