@@ -212,15 +212,15 @@
                             <ul>
                                 <li>
                                     <img src="../../../assets/Travel_Page_Assets/Quotes Screen/Icons/Yellow TickMark-Icon.svg">
-                                    <p class="p-benefits">Medical Coverage <span>{{medicalExpenses[i].plimits}} USD</span></p>
+                                    <p class="p-benefits">Medical Coverage <span>{{medicalExpenses[i].plimits}} $</span></p>
                                 </li>
                                 <li>
                                     <img src="../../../assets/Travel_Page_Assets/Quotes Screen/Icons/Yellow TickMark-Icon.svg">
-                                    <p class="p-benefits">Passport lost Coverage<span>{{passportExpense[i]?.plimits ? passportExpense[i]?.plimits : 'Not Covered'}} USD</span></p>
+                                    <p class="p-benefits">Passport lost Coverage<span>{{passportExpense[i]?.plimits ? passportExpense[i]?.plimits + ' $' : 'Not Covered'}}</span></p>
                                 </li>
                                 <li>
                                     <img src="../../../assets/Travel_Page_Assets/Quotes Screen/Icons/Yellow TickMark-Icon.svg">
-                                    <p class="p-benefits">Baggage lost Coverage <span>{{baggageExpense[i].plimits}} USD</span></p>
+                                    <p class="p-benefits">Baggage lost Coverage <span>{{baggageExpense[i].plimits}} $</span></p>
                                 </li>
                             </ul>
                         </div>

@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm , FormGroup, FormBuilder} from '@angular/forms';
 import { Router } from '@angular/router';
 import { ProposalOwnerDetails, ProposalRequest } from 'src/app/Models/FormClasses';
+import { DbServiceService } from 'src/app/service/dbService/db-service.service';
 import { DestAgeNumService } from 'src/app/service/dest-age-num.service';
 import { PlanDetailsService } from 'src/app/service/planDetails/plan-details.service';
 
@@ -21,7 +22,7 @@ export class FormComponent implements OnInit {
     
   stepNumber= 1;
 
-  tripDestination = this.getTravelData.destData.tDest;
+  tripDestination = this.getTravelData.destData.destBadge;
   tripStart = this.getTravelData.destData.tripStart;
   tripEnd = this.getTravelData.destData.tripEnd;
   singlePlanDetail: any;
@@ -41,18 +42,46 @@ constructor(
   private fb: FormBuilder,
   private getTravelData: DestAgeNumService,
   private getSinglePlanDetail: PlanDetailsService,
-  private formdataservice:FormDataService
+  private formdataservice:FormDataService,
+  private dbService:DbServiceService
+
 ) { }
 
-  next(assignedForm:NgForm){
-    this.formdataservice.setFormData(this.proposalRequest);
+  /*next(assignedForm:NgForm){
+    this.formdataservice.setFormData(this.proposalRequest.proposalOwnerDetails);
     console.log("Data is coming from service:",this.formdataservice.formData);
   
 
     if (this.stepNumber<4) {
       this.stepNumber++
     }
+
+    this.dbService.sendProposalFormDetails().subscribe(response => {
+      console.log("Proposal Data is added in database:"+response)
+    })
+  }*/
+
+  next(assignedForm:NgForm){
+    if(this.stepNumber===1){
+      this.formdataservice.setFormData(this.proposalRequest.proposalOwnerDetails);
+      console.log("Customer Details are set in service:", this.formdataservice.formData);
+      this.dbService.sendProposalCustomerFormDetails().subscribe(response => {
+        console.log("Customer Data is added in database:"+response)
+      })
+    }else if(this.stepNumber==2){
+      this.formdataservice.setFormData(this.proposalRequest.proposalNomineeDetails);
+      console.log("Nominee Details are set in service:", this.formdataservice.formData);
+      this.dbService.sendProposalNomineeFormDetails().subscribe(response=>{
+        console.log("Nominee Data is added in database"+response);
+      })
+    }
+
+    if (this.stepNumber<4) {
+      this.stepNumber++
+    }
+    
   }
+
   previous(){
 
     if (this.stepNumber>1) {

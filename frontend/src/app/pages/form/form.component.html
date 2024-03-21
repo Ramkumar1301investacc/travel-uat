@@ -34,19 +34,9 @@
                     >Salutation <span>*</span></label
                   >
 
-                  <select
-                    class="form-select"
-                    aria-label="Default select example"
-                    id="floatingSelectGrid"
-                    [(ngModel)]="
-                      proposalRequest.proposalOwnerDetails.salutation
-                    "
-                    name="salutation"
-                    ngModel
-                    required
-                  >
-                    <option value="Mr">Mr</option>
-                    <option value="Mrs">Mrs</option>
+                  <select class="form-select" aria-label="Default select example" id="floatingSelectGrid" [(ngModel)]="proposalRequest.proposalOwnerDetails.salutation" name="salutation" ngModel required >
+                    <option value="1">Mr</option>
+                    <option value="2">Mrs</option>
                   </select>
                 </div>
 
@@ -385,42 +375,19 @@
               <div>
                 <div class="ekyc-contents">
                   <div class="form-width">
-                    <label for="kyc" class="form-label"
-                      >Choose KYC Type<span>*</span></label
-                    >
-                    <select
-                      class="form-select"
-                      id="floatingSelectGrid"
-                      [(ngModel)]="
-                        proposalRequest.proposalNomineeDetails
-                          .verificationOption
-                      "
-                      name="verificationOption"
-                      ngModel
-                      required
-                    >
-                      <option value="1"></option>
-                      <option value="PAN CARD">PAN CARD</option>
-                      <option value="AADHAR CARD">AADHAR CARD</option>
-                      <option value="PASSPORT">PASSPORT</option>
-                      <option value="FORM 60">FORM 60</option>
+                    <label for="kyc" class="form-label">Choose KYC Type<span>*</span></label>
+                      <select class="form-select" id="floatingSelectGrid" name="verificationOption" ngModel required>
+                        <option value="1"></option>
+                        <option value="PAN CARD">PAN CARD</option>
+                        <option value="AADHAR CARD">AADHAR CARD</option>
+                        <option value="PASSPORT">PASSPORT</option>
+                        <option value="FORM 60">FORM 60</option>
                     </select>
                   </div>
                   <div class="form-width">
-                    <label for="number" class="form-label"
-                      >PAN Card Number<span>*</span></label
-                    >
-                    <input
-                      class="form-name"
-                      type="name"
-                      class="form-control"
-                      [(ngModel)]="
-                        proposalRequest.proposalNomineeDetails.nomCardno
-                      "
-                      name="nomCardno"
-                      ngModel
-                      required
-                    />
+                    <label for="number" class="form-label">PAN Card Number<span>*</span></label>
+                    <input class="form-name" type="name"
+                      class="form-control" name="nomCardno" ngModel required/>
                   </div>
                   <div>
                     <label for="fname" class="form-label"> </label>
@@ -452,34 +419,12 @@
                 <div class="col">
                   <div class="form-content">
                     <div class="form-detail">
-                      <label class="form-label" for=""
-                        >Full Name<span>*</span></label
-                      >
-                      <input
-                        class="form-control"
-                        type="text"
-                        [(ngModel)]="
-                          proposalRequest.proposalNomineeDetails.nomFullname
-                        "
-                        name="nomFullname"
-                        ngModel
-                        required
-                      />
+                      <label class="form-label" for="">Full Name<span>*</span></label>
+                      <input class="form-control" type="text" [(ngModel)]="proposalRequest.proposalNomineeDetails.nomfullname"  name="nomFullname" ngModel required/>
                     </div>
                     <div class="form-detail">
-                      <label class="form-label" for=""
-                        >Relation with Nominee <span>*</span></label
-                      >
-                      <select
-                        class="form-select"
-                        id="floatingSelectGrid"
-                        [(ngModel)]="
-                          proposalRequest.proposalNomineeDetails.nomrelation
-                        "
-                        name="nomrelation"
-                        ngModel
-                        required
-                      >
+                      <label class="form-label" for="">Relation with Nominee <span>*</span></label>
+                      <select class="form-select" id="floatingSelectGrid" [(ngModel)]="proposalRequest.proposalNomineeDetails.appointeereltn"  name="nomrelation" ngModel required>
                         <option value="1"></option>
                         <option value="Father">Father</option>
                         <option value="Mother">Mother</option>
@@ -488,19 +433,8 @@
                       </select>
                     </div>
                     <div class="form-age">
-                      <label class="form-label" for=""
-                        >Age <span>*</span></label
-                      >
-                      <input
-                        class="form-control"
-                        type="text"
-                        [(ngModel)]="
-                          proposalRequest.proposalNomineeDetails.nomge
-                        "
-                        name="nomge"
-                        ngModel
-                        required
-                      />
+                      <label class="form-label" for="">Age <span>*</span></label>
+                      <input class="form-control" type="date" [(ngModel)]="proposalRequest.proposalNomineeDetails.nomdob" name="nomge" ngModel required/>
                     </div>
                   </div>
                 </div>
@@ -511,34 +445,12 @@
             <div class="col">
               <div class="form-content">
                 <div class="form-detail">
-                  <label class="form-label" for=""
-                    >Email Id <span>*</span></label
-                  >
-                  <input
-                    class="form-control"
-                    type="text"
-                    [(ngModel)]="
-                      proposalRequest.proposalNomineeDetails.nomemail
-                    "
-                    name="nomemail"
-                    ngModel
-                    required
-                  />
+                  <label class="form-label" for="">Email Id <span>*</span></label>
+                  <input class="form-control" type="text" [(ngModel)]="proposalRequest.proposalNomineeDetails.nomemail" name="nomemail" ngModel required/>
                 </div>
                 <div class="form-detail">
-                  <label class="form-label" for=""
-                    >Phone Number <span>*</span></label
-                  >
-                  <input
-                    class="form-control"
-                    type="text"
-                    [(ngModel)]="
-                      proposalRequest.proposalNomineeDetails.nomphoneno
-                    "
-                    name="nomphoneno"
-                    ngModel
-                    required
-                  />
+                  <label class="form-label" for="">Phone Number <span>*</span></label>
+                  <input class="form-control" type="text" [(ngModel)]="proposalRequest.proposalNomineeDetails.nomphoneno" name="nomphoneno"ngModelrequired/>
                 </div>
               </div>
             </div>
@@ -548,24 +460,15 @@
               <div class="btn-content">
                 <div>
                   <button class="btn-ekyc" (click)="previous()">
-                    <img
-                      id="leftarrow"
-                      src="../../../../assets/Travel_Page_Assets/Form Screen/Icons/Open Dropdown CaretRight-Icon.svg"
-                      alt=""
-                    />
+                    <img id="leftarrow" src="../../../../assets/Travel_Page_Assets/Form Screen/Icons/Open Dropdown CaretRight-Icon.svg" alt=""/>
                     Back
                   </button>
                 </div>
                 <div>
-                  <button
-                    type="submit"
-                    class="btn-ekyc"
-                    (click)="next(proposalNomineeDetailsForm)"
-                  >
+                  <button type="submit" class="btn-ekyc" (click)="next(proposalNomineeDetailsForm)">
                     Next
                     <img
-                      src="../../../../assets/Travel_Page_Assets/Form Screen/Icons/Open Dropdown CaretRight-Icon.svg"
-                      alt=""
+                      src="../../../../assets/Travel_Page_Assets/Form Screen/Icons/Open Dropdown CaretRight-Icon.svg" alt=""
                     />
                   </button>
                 </div>
@@ -655,7 +558,7 @@
               </div>
               <div style="margin-top: 16px">
                 <input type="checkbox" />I have read all the details and give
-                conirmation that all details added are correct
+                confirmation that all details added are correct
               </div>
             </div>
           </div>
@@ -721,12 +624,9 @@
             {{ formData?.verificationOption }}
             <span> {{ formData?.CardNumber }}</span>
           </p>
-          <P
-            >{{ proposalRequest.proposalNomineeDetails.verificationOption
-            }}<span>{{
-              proposalRequest.proposalNomineeDetails.nomCardno
-            }}</span></P
-          >
+          <!-- <p>{{ proposalRequest.proposalNomineeDetails.verificationOption}}<span>
+              {{proposalRequest.proposalNomineeDetails.nomCardno }}
+            </span></p> -->
 
           <P
             >Address:
@@ -746,13 +646,13 @@
           <p>
             Name:
             <span>{{
-              proposalRequest.proposalNomineeDetails.nomFullname
+              proposalRequest.proposalNomineeDetails.nomfullname
             }}</span>
           </p>
           <p>
             Realationship:
             <span
-              >{{ proposalRequest.proposalNomineeDetails.nomrelation }}
+              >{{ proposalRequest.proposalNomineeDetails.appointeereltn }}
             </span>
           </p>
           <p>

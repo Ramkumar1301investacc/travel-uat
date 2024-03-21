@@ -93,11 +93,9 @@ export class FirstQuotesComponent {
     this.updateForm = this.formBuilder.group({
       tripStartDate: [this.getDestData.destData.tripStart, Validators.required],
       tripEndDate: [this.getDestData.destData.tripEnd, Validators.required],
-      travelDestination: [this.getDestData.destData.tDest, Validators.required],
+      travelDestination: [this.getDestData.destData.destBadge, Validators.required],
       travelerAge: [this.getDestData.destData.ageofTravellerOne, Validators.required]
     })
-
-    console.log('rao is here', this.getDestData.destData.tDest.map((s: any) => s))
   }
 
 }

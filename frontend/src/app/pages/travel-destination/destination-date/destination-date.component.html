@@ -13,31 +13,33 @@
         <form [formGroup]="travelForm">
             <div class="position-relative">
 
-                    <!--Destination Name Component-->
+                <!--Destination Name Component-->
 
 
-                    <div class="mb-3">
-                        <label class="form-label">Choose your Destination <span class="astrick">*</span></label>
-                    
-                        <div class="input-section border d-flex justify-content-between align-items-center">
-                    
-                            <div class="search-div border d-flex justify-content-center align-items-center">
-                                <img src="../../../assets/Travel_Page_Assets/Single Trip Flow/Icons/Search Glass Icon.svg" alt="">
-                            </div>
-                    
-                            <input formControlName="tDest"  [(ngModel)]="searchText" (click)='divOpen()' type="text" class="form-control shadow-none destination-input" id="text"
-                                placeholder="Enter Your Destination">
-                    
-                            <div class="down-arrow-div border d-flex justify-content-center align-items-center">
-                                <img src="../../../assets/Travel_Page_Assets/Single Trip Flow/Icons/Chevron-down(Gray-Calender)-Icon.svg"
-                                    alt="">
-                            </div>
-                    
+                <div class="mb-3">
+                    <label class="form-label">Choose your Destination <span class="astrick">*</span></label>
+
+                    <div class="input-section border d-flex justify-content-between align-items-center">
+
+                        <div class="search-div border d-flex justify-content-center align-items-center">
+                            <img src="../../../assets/Travel_Page_Assets/Single Trip Flow/Icons/Search Glass Icon.svg"
+                                alt="">
                         </div>
-                    </div>
-                
 
-                    <!---->
+                        <input formControlName="tDest" [(ngModel)]="searchText" (click)='divOpen()' type="text"
+                            class="form-control shadow-none destination-input" id="text"
+                            placeholder="Enter Your Destination">
+
+                        <div class="down-arrow-div border d-flex justify-content-center align-items-center">
+                            <img src="../../../assets/Travel_Page_Assets/Single Trip Flow/Icons/Chevron-down(Gray-Calender)-Icon.svg"
+                                alt="">
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <!---->
 
                 <div [ngClass]="classDiv">
                     <div [ngClass]="searchText === '' ? 'd-none' : 'all-countries-list w-100 mt-2'">
@@ -51,15 +53,20 @@
                     </div>
                 </div>
 
-                <div class="final-destination-badge">
+                <div *ngIf="badgeItems.length" class="final-destination-badge mb-4">
+                    <label class="form-label">Selected Countries</label><br>
                     <span *ngFor="let badge of badgeItems; let i = index" class="badge bg-primary me-2"
                         (click)="delete(i)">{{badge}}
                         <img src="../../../../assets/Travel_Page_Assets/Quotes Screen/Icons/cross mark.svg"
                             alt="cross-mark">
                     </span>
-
-          
                 </div>
+
+                <!-- <div class="top-countries-badge text-start">
+                    <span *ngFor="let countryBadge of topCountriesBadge" class="badge bg-primary ms-4 mb-2">
+                        {{countryBadge}}
+                    </span>
+                </div> -->
             </div>
 
             <div class="mb-3">
@@ -72,8 +79,9 @@
                     </div>
 
 
-                    <input formControlName="tripStart" class="trip-date" type="date" id="start-date" value="01-May-2023"/>
-                    <input formControlName="tripEnd" class="trip-date" type="date" id="end-date" value="2024-01-01"/>
+                    <input formControlName="tripStart" class="trip-date" type="date" id="start-date"
+                        value="01-May-2023" />
+                    <input formControlName="tripEnd" class="trip-date" type="date" id="end-date" value="2024-01-01" />
 
                     <div class="down-arrow-div border d-flex justify-content-center align-items-center">
                         <img style="transform: rotate(180deg);"
@@ -85,7 +93,8 @@
             </div>
 
             <div class="submit-btn-div text-center">
-                <button type="submit" (click)="updateProgressBar()" (click)="onSubmit()" class="btn submit-btn" routerLink="travellers-age">Next</button>
+                <button type="submit" (click)="updateProgressBar()" (click)="onSubmit()" class="btn submit-btn"
+                    routerLink="travellers-age">Next</button>
             </div>
 
         </form>
