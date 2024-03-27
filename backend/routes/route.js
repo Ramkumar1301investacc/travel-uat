@@ -67,7 +67,7 @@ router.get('/api/v1/singleTripPlan', async (req, res) => {
 router.post('api/v1/travelPlan_Bajaj', async (req, res) => {
 
 })
-
+//Claculate Premium
 router.post('/api/v1/CalculatePremium', async (req, res) => {
     try {
         // console.log(req.body)
@@ -113,7 +113,7 @@ router.get('/api/v1/getdbstudentplans',async(req,res)=>{
 
 })
 
-
+//Single Plan Premium
 router.post('/api/v1/singlePlanPremium', async (req, res) => {
     try {
         const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
@@ -147,7 +147,7 @@ router.post('/api/v1/singlePlanPremium', async (req, res) => {
         console.error('Error while getting sinle plan premium', error)
     }
 })
-
+//Get Plan Details Version 2
 router.post('/api/v1/getPlanDetails', async (req, res) => {
     try {
         const planName = req.body.plans.map((plan) => plan.pplan);
@@ -165,6 +165,7 @@ router.post('/api/v1/getPlanDetails', async (req, res) => {
     }
 })
 
+//Get Plan Details Version 2
 router.get('/api/v2/getPlanDetails', async (req, res) => {
     try {
         const results = await getPlanDetailsFromDB();
@@ -175,6 +176,8 @@ router.get('/api/v2/getPlanDetails', async (req, res) => {
     }
 })
 
+
+//Get Single Plan Details
 router.post('/api/v1/getSinglePlanDetails', async (req, res) => {
     try {
         console.log('In routes', req.body.planName)
