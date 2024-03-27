@@ -2,7 +2,8 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import dotenv from 'dotenv';
 import { CalculatePremium, getCorporatePlans, getPlanDetails, getSingleTripPlans, getStudentTravelPlan } from '../controller/bajaj/controller.js';
-import { addUserDetails, getPlanDetailsFromDB, getSinglePlanDetails } from '../database/db.js';
+import { addUserDetails, getPlanDetailsFromDB, getSinglePlanDetails,bajajCountryMaster } from '../database/db.js';
+import { error } from 'console';
 const router = express.Router();
 dotenv.config();
 
@@ -32,6 +33,16 @@ router.get('/api/v2/getStudentsTravelPlan', async (req, res) => {
         res.status(500).json({ message: error.message })
     }
 })
+//bajaj country Master List 
+router.get('/api/v1/countrymaster',async (req,res)=>{
+    try{
+        const results=await bajajCountryMaster();
+        res.json(results.row);
+    }catch (error){
+        console.error(error);
+        res.status(500).json({ message: error.message })
+    }
+})
 
 router.get('/api/v1/corporatePlan', async (req, res) => {
     try {
@@ -56,7 +67,7 @@ router.get('/api/v1/singleTripPlan', async (req, res) => {
 router.post('api/v1/travelPlan_Bajaj', async (req, res) => {
 
 })
-
+//Claculate Premium
 router.post('/api/v1/CalculatePremium', async (req, res) => {
     try {
         // console.log(req.body)
@@ -102,7 +113,7 @@ router.get('/api/v1/getdbstudentplans',async(req,res)=>{
 
 })
 
-
+//Single Plan Premium
 router.post('/api/v1/singlePlanPremium', async (req, res) => {
     try {
         const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
@@ -136,7 +147,7 @@ router.post('/api/v1/singlePlanPremium', async (req, res) => {
         console.error('Error while getting sinle plan premium', error)
     }
 })
-
+//Get Plan Details Version 2
 router.post('/api/v1/getPlanDetails', async (req, res) => {
     try {
         const planName = req.body.plans.map((plan) => plan.pplan);
@@ -154,6 +165,7 @@ router.post('/api/v1/getPlanDetails', async (req, res) => {
     }
 })
 
+//Get Plan Details Version 2
 router.get('/api/v2/getPlanDetails', async (req, res) => {
     try {
         const results = await getPlanDetailsFromDB();
@@ -164,6 +176,8 @@ router.get('/api/v2/getPlanDetails', async (req, res) => {
     }
 })
 
+
+//Get Single Plan Details
 router.post('/api/v1/getSinglePlanDetails', async (req, res) => {
     try {
         console.log('In routes', req.body.planName)
