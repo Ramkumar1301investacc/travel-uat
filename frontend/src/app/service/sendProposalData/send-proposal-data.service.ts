@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -5,5 +6,14 @@ import { Injectable } from '@angular/core';
 })
 export class SendProposalDataService {
 
-  constructor() { }
+  constructor(
+    private http: HttpClient
+  ) { }
+
+  private URL = "http://localhost:8080/api/v1/requestId";
+
+  sendProposalData(data: any) {
+    return this.http.post(this.URL, data)
+  }
+
 }
