@@ -1,8 +1,8 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import dotenv from 'dotenv';
-import { CalculatePremium, getCorporatePlans, getPlanDetails, getSingleTripPlans, getStudentTravelPlan } from '../controller/bajaj/controller.js';
-import { addUserDetails, getPlanDetailsFromDB, getSinglePlanDetails,bajajCountryMaster } from '../database/db.js';
+import { CalculatePremium, getCorporatePlans, getPlanDetails, getSingleTripPlans, getStudentTravelPlan, requestId } from '../controller/bajaj/controller.js';
+import { addUserDetails, getPlanDetailsFromDB, getSinglePlanDetails, bajajCountryMaster } from '../database/db.js';
 import { error } from 'console';
 const router = express.Router();
 dotenv.config();
@@ -34,11 +34,11 @@ router.get('/api/v2/getStudentsTravelPlan', async (req, res) => {
     }
 })
 //bajaj country Master List 
-router.get('/api/v1/countrymaster',async (req,res)=>{
-    try{
-        const results=await bajajCountryMaster();
+router.get('/api/v1/countrymaster', async (req, res) => {
+    try {
+        const results = await bajajCountryMaster();
         res.json(results.row);
-    }catch (error){
+    } catch (error) {
         console.error(error);
         res.status(500).json({ message: error.message })
     }
@@ -109,7 +109,7 @@ router.post('/api/v1/CalculatePremium', async (req, res) => {
         res.status(500).json({ message: error.message });
     }
 });
-router.get('/api/v1/getdbstudentplans',async(req,res)=>{
+router.get('/api/v1/getdbstudentplans', async (req, res) => {
 
 })
 
@@ -137,7 +137,7 @@ router.post('/api/v1/singlePlanPremium', async (req, res) => {
         const birthMonth = months[pdateofbirth.getMonth()];
         const birthYear = pdateofbirth.getFullYear();
         const formattedBirthDate = `${birthDay}-${birthMonth}-${birthYear}`; // birthday
-        
+
         const data = await CalculatePremium(formattedToDate, plan, formattedBirthDate, formattedFromDate);
         console.log(data);
         res.json(data)
@@ -185,6 +185,18 @@ router.post('/api/v1/getSinglePlanDetails', async (req, res) => {
         res.json(result.rows)
     } catch (error) {
         console.error('Unable to fetch single plan details', error)
+    }
+})
+
+
+// request id 
+router.post('/api/v1/requestId', async (req, res) => {
+    try {
+        console.log('Request ID output', req.body)
+        const result = await requestId(req.body);
+        res.json(result)
+    } catch (error) {
+        console.log('Unable to fetch request id from routes', error)
     }
 })
 
